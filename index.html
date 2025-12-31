@@ -63,7 +63,7 @@
     }
   
     .profile-image-container {
-      /* base (mobile) state – no animations */
+      transform: none;
     }
   
     /* Mobile override: Disable animation on mobile for all sections */
@@ -364,7 +364,6 @@
             p.classList.remove('active');
           });
   
-          landing.classList.add('hidden');
           
           targetPage.classList.remove('hidden');
           setTimeout(() => {
@@ -374,6 +373,7 @@
           // This is the key change: Only add the animation class on desktop screens.
           if (window.innerWidth >= 1024) {
             profileContainer.classList.add(`active-${sectionId}`);
+            landing.classList.add('hidden');
           }
           
           if (mobileMenu) {
