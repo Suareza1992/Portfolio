@@ -3,520 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ángel Suárez | Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --primary-color: #61A3BA;
-      --secondary-color: #C8DFFC;
-      --tertiary-color: #F8F6F6;
-      --dark-color: #333333;
-    }
-  
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(45deg, var(--dark-color), var(--primary-color));
-      color: var(--tertiary-color);
-      min-height: 100vh;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 1rem;
-    }
-  
-    .glass-card {
-      background: rgba(248, 246, 246, 0.1);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 1.5rem;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    }
-  
-    .page {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      transform: translateX(100%);
-      opacity: 0;
-      transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s cubic-bezier(0.19, 1, 0.22, 1);
-      padding: 1rem;
-      z-index: 50;
-    }
-  
-    .page.active {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  
-    .close-btn {
-      top: 1.5rem;
-      right: 1.5rem;
-    }
-  
-    .mobile-img-adjust {
-      object-position: 50% 30%;
-    }
-  
-    .profile-image-container {
-      transform: none;
-    }
-  
-    /* Mobile override: Disable animation on mobile for all sections */
-    /* Mobile override: Disable transform and transition on mobile */
-    @media (max-width: 1023px) {
-      .profile-image-container {
-        transition: none !important;
-        transform: none !important;
-  }
+  <title>Ángel Suárez | Software Engineer</title>
 
-      .profile-image-container.active-about,
-      .profile-image-container.active-projects,
-      .profile-image-container.active-contact,
-      .profile-image-container.active-project-detail {
-        transition: none !important;
-        transform: none !important;
-        }
-      }
+  <!-- SEO -->
+  <meta name="description" content="Ángel Suárez — software engineer in Puerto Rico building full-stack web platforms with JavaScript, Node.js, Python and React. Selected work, background and contact." />
+  <meta name="author" content="Ángel Suárez" />
+  <meta name="theme-color" content="#333333" />
+  <link rel="canonical" href="https://suareza1992.github.io/Portfolio/" />
 
-  
-    /* Desktop enhancements – start of mobile-first media queries */
-    @media (min-width: 1024px) {
-      body {
-        height: 100vh;
-        overflow: hidden;
-        align-items: center;
-        justify-content: center;
-      }
-  
-      .page {
-        position: absolute;
-        top: 50%;
-        left: 5%;
-        transform: translateY(-50%) translateX(-120%);
-        width: 70vw;
-        height: 80vh;
-        opacity: 0;
-      }
-  
-      .page.active {
-        transform: translateY(-50%) translateX(0);
-      }
-  
-      .profile-image-container {
-        transition: transform 1.6s cubic-bezier(0.19, 1, 0.22, 1);
-        transform: scale(1.05);
-      }
-  
-      .profile-image-container.active-about,
-      .profile-image-container.active-projects,
-      .profile-image-container.active-contact,
-      .profile-image-container.active-project-detail {
-        transform: scale(1.05) translate(10vw, 0);
-      }
-    }
-  </style>
-  
+  <!-- Social sharing. Update og:url / og:image if you deploy to a custom domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ángel Suárez | Software Engineer" />
+  <meta property="og:description" content="Software engineer in Puerto Rico building full-stack web platforms. Selected work, background and contact." />
+  <meta property="og:url" content="https://suareza1992.github.io/Portfolio/" />
+  <meta property="og:image" content="https://suareza1992.github.io/Portfolio/assets/portrait-900.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ángel Suárez | Software Engineer" />
+  <meta name="twitter:description" content="Software engineer in Puerto Rico building full-stack web platforms." />
+  <meta name="twitter:image" content="https://suareza1992.github.io/Portfolio/assets/portrait-900.png" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind is compiled ahead of time (npm run build:css), not loaded from a CDN. -->
+  <link href="assets/tailwind.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+
+  <!-- EmailJS SDK: sends the contact form straight from the browser, no backend. -->
+  <!-- Docs: https://www.emailjs.com/docs/ -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="main.js" defer></script>
 </head>
 
-<body class="flex flex-col min-h-screen lg:h-screen lg:items-center lg:justify-center">
+<body>
 
-  <button id="mobile-menu-btn" class="lg:hidden fixed top-4 right-4 z-[100] text-white p-2 glass-card rounded-md">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <a href="#landing" class="skip-link">Skip to content</a>
+
+  <button
+    id="mobile-menu-btn"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    class="lg:hidden fixed top-4 right-4 z-[100] text-white p-2 glass-card rounded-md"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <line x1="3" y1="12" x2="21" y2="12"></line>
       <line x1="3" y1="6" x2="21" y2="6"></line>
       <line x1="3" y1="18" x2="21" y2="18"></line>
     </svg>
   </button>
 
-  <nav id="mobile-menu" class="hidden fixed top-0 right-0 w-full h-full glass-card z-[90] p-8 flex flex-col items-center justify-center space-y-6">
-    <button id="mobile-close-btn" class="absolute top-6 left-6 text-4xl text-white hover:text-gray-300">&times;</button>
+  <nav id="mobile-menu" aria-label="Mobile navigation" class="hidden fixed top-0 right-0 w-full h-full glass-card z-[90] p-8 flex flex-col items-center justify-center space-y-6">
+    <button id="mobile-close-btn" aria-label="Close navigation menu" class="absolute top-6 left-6 text-4xl text-white hover:text-gray-300">&times;</button>
     <button data-section="about" class="nav-btn text-2xl text-white font-bold hover:text-gray-300 transition-colors duration-300">About Me</button>
     <button data-section="projects" class="nav-btn text-2xl text-white font-bold hover:text-gray-300 transition-colors duration-300">Projects</button>
     <button data-section="contact" class="nav-btn text-2xl text-white font-bold hover:text-gray-300 transition-colors duration-300">Contact</button>
   </nav>
 
-  <div class="relative w-full h-full flex flex-col items-center justify-center lg:block lg:w-screen lg:h-screen lg:min-h-0">
-    <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('assets/background.jpg');"></div>
-    <div id="landing" class="z-20 p-8 text-center transition-opacity duration-500 ease-in-out lg:static lg:flex lg:flex-col lg:items-center lg:justify-center lg:h-full lg:w-1/2 lg:mx-auto">
+  <div class="hero">
+    <main id="landing" class="hero-copy z-20 p-8 text-center">
       <h1 class="text-4xl lg:text-5xl font-bold mb-4">Hello! I'm Ángel Suárez</h1>
-      <p class="text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0">
+      <p class="text-lg lg:text-xl">
         A Software Engineer based in Puerto Rico with a passion for building engaging web experiences.
       </p>
-      <div class="mt-8 social-icons flex justify-center lg:justify-start gap-6 z-30">
-        <a href="https://linkedin.com/in/angelsuarezse" target="_blank" class="hover:scale-110 transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div class="mt-8 social-icons flex justify-center gap-6 z-30">
+        <a href="https://linkedin.com/in/angelsuarezse" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile" class="hover:scale-110 transition-transform duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2a2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
             <rect x="2" y="9" width="4" height="12"></rect>
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
         </a>
-        <a href="https://github.com/suareza1992" target="_blank" class="hover:scale-110 transition-transform duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="https://github.com/suareza1992" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" class="hover:scale-110 transition-transform duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
           </svg>
         </a>
       </div>
-    </div>
-    <div id="profile-container" class="profile-image-container z-10 w-48 h-48 lg:w-[450px] lg:h-auto mt-8 lg:mt-0 lg:absolute lg:bottom-0 lg:right-[5%] rounded-full lg:rounded-none overflow-hidden">
-      <img id="profile-pic" src="assets/portfolioPic.png" alt="Ángel Suárez" class="w-full h-full object-cover mobile-img-adjust lg:w-full lg:h-auto lg:rounded-t-full" />
+    </main>
+
+    <div id="profile-container" class="profile-image-container z-10">
+      <picture>
+        <source
+          type="image/webp"
+          srcset="assets/portrait-450.webp 450w, assets/portrait-900.webp 900w"
+          sizes="(min-width: 1200px) 450px, (min-width: 1024px) 38vw, 192px" />
+        <img
+          id="profile-pic"
+          src="assets/portrait-900.png"
+          width="900"
+          height="1350"
+          fetchpriority="high"
+          decoding="async"
+          alt="Ángel Suárez"
+          class="mobile-img-adjust" />
+      </picture>
     </div>
   </div>
 
-  <div class="hidden lg:flex absolute top-1/2 -translate-y-1/2 left-[10%] z-30 flex-col gap-6">
+  <div id="desktop-nav" class="hidden lg:flex fixed top-1/2 -translate-y-1/2 left-[10%] z-30 flex-col gap-6">
     <button data-section="about" class="nav-btn bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-full glass-card transition-all duration-300">About Me</button>
     <button data-section="projects" class="nav-btn bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-full glass-card transition-all duration-300">Projects</button>
     <button data-section="contact" class="nav-btn bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-full glass-card transition-all duration-300">Contact</button>
   </div>
 
-  <section id="about" class="page glass-card z-40 p-4 lg:p-12 hidden">
-    <button class="close-btn absolute top-6 right-10 text-2xl text-white hover:text-gray-300">&times;</button>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-full items-start overflow-y-auto">
-      <div>
-        <h2 class="text-3xl lg:text-4xl font-bold mb-4">About Me</h2>
-        <p class="text-md lg:text-lg leading-relaxed mb-6">
-          Hi! I'm Ángel, a Software Engineer based in Puerto Rico. Passionate about crafting engaging web experiences and dedicated to the power of technology, I enjoy building tools with clean and efficient code.
-        </p>
-        <p class="text-md lg:text-lg leading-relaxed mb-6">
-          This portfolio showcases my commitment to growth and continuous learning. My current tech stack includes JavaScript, Python, Node.js, Flask, SQL, and HTML/CSS, with ongoing exploration into Golang. I'm always eager to tackle meaningful projects.
-        </p>
-        <div class="mb-6">
-          <h3 class="text-xl font-semibold mb-2">Education</h3>
-          <p class="text-md">Holberton Coding School of Puerto Rico - San Juan (2024)</p>
-          <p class="text-sm text-white/70">Computer Science</p>
-        </div>
-        <div class="mb-6">
-          <h3 class="text-xl font-semibold mb-2">Technical Skills</h3>
-          <div class="flex flex-wrap gap-4">
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">JavaScript</span>
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">Python</span>
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">Node.js</span>
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">Flask</span>
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">SQL</span>
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">HTML</span>
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">CSS</span>
+  <section id="about" class="page glass-card z-40 p-4 lg:p-12 hidden" role="dialog" aria-modal="true" aria-labelledby="about-heading">
+    <button class="close-btn absolute top-6 right-10 text-2xl text-white hover:text-gray-300" aria-label="Close About Me">&times;</button>
+    <div class="scroll-region" data-scroll-region>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div>
+          <h2 id="about-heading" class="text-3xl lg:text-4xl font-bold mb-4">About Me</h2>
+          <p class="text-md lg:text-lg leading-relaxed mb-6">
+            Hi! I'm Ángel, a Software Engineer based in Puerto Rico. Passionate about crafting engaging web experiences and dedicated to the power of technology, I enjoy building tools with clean and efficient code.
+          </p>
+          <p class="text-md lg:text-lg leading-relaxed mb-6">
+            This portfolio showcases my commitment to growth and continuous learning. My current tech stack includes JavaScript, React, Node.js, Python, Flask, SQL and HTML/CSS, with ongoing exploration into Golang. I'm always eager to tackle meaningful projects.
+          </p>
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-2">Education</h3>
+            <p class="text-md">Holberton Coding School of Puerto Rico - San Juan (2024)</p>
+            <p class="text-sm text-white/70">Computer Science</p>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-2">Technical Skills</h3>
+            <ul class="flex flex-wrap gap-4 list-none p-0">
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">JavaScript</li>
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">Python</li>
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">Node.js</li>
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">React</li>
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">Flask</li>
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">SQL</li>
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">HTML</li>
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">CSS</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Languages</h3>
+            <ul class="flex flex-wrap gap-4 list-none p-0">
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">Spanish - Native</li>
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">English - Native</li>
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">French - Proficient</li>
+              <li class="bg-white/10 py-2 px-3 rounded-md text-sm">Italian - Proficient</li>
+            </ul>
           </div>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-2">Languages</h3>
-          <div class="flex flex-wrap gap-4">
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">Spanish - Native</span>
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">English - Native</span>
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">French - Proficient</span>
-            <span class="bg-white/10 py-2 px-3 rounded-md text-sm">Italian - Proficient</span>
+          <div class="hidden lg:block h-[120px]"></div>
+          <blockquote class="text-2xl italic text-white/80 border-l-4 border-white pl-4 mb-8">
+            "Discipline is choosing between what you want now and what you want most."
+          </blockquote>
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-2">Soft Skills</h3>
+            <ul class="list-disc list-inside text-md lg:text-lg text-white/80">
+              <li>Communication</li>
+              <li>Problem-solving</li>
+              <li>Teamwork</li>
+              <li>Adaptability</li>
+              <li>Time Management</li>
+              <li>Critical Thinking</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Interests</h3>
+            <p class="text-md lg:text-lg text-white/80">Fullstack Web Development, UI/UX Design, Open Source Contributions, Learning new technologies.</p>
           </div>
         </div>
       </div>
-      <div>
-        <div class="hidden lg:block h-[120px]"></div> <blockquote class="text-2xl italic text-white/80 border-l-4 border-white pl-4 mb-8">
-          "Discipline is choosing between what you want now and what you want most."
-        </blockquote>
-        <div class="mb-6">
-          <h3 class="text-xl font-semibold mb-2">Soft Skills</h3>
-          <ul class="list-disc list-inside text-md lg:text-lg text-white/80">
-            <li>Communication</li>
-            <li>Problem-solving</li>
-            <li>Teamwork</li>
-            <li>Adaptability</li>
-            <li>Time Management</li>
-            <li>Critical Thinking</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Interests</h3>
-          <p class="text-md lg:text-lg text-white/80">Fullstack Web Development, UI/UX Design, Open Source Contributions, Learning new technologies.</p>
-        </div>
-      </div>
+    </div>
+    <div class="scroll-hint" data-scroll-hint aria-hidden="true"></div>
+  </section>
+
+  <section id="projects" class="page glass-card z-40 p-4 lg:p-12 hidden" role="dialog" aria-modal="true" aria-labelledby="projects-heading">
+    <button class="close-btn absolute top-6 right-10 text-2xl text-white hover:text-gray-300" aria-label="Close Projects">&times;</button>
+    <div class="w-full h-full flex flex-col min-h-0">
+      <h2 id="projects-heading" class="text-3xl lg:text-4xl font-bold mb-2">My Projects</h2>
+      <p class="text-sm text-white/60 mb-6">Select a project for details. Scroll sideways for more.</p>
+      <!-- Cards are injected by main.js from the projectsData array. -->
+      <ul id="project-list" class="project-rail flex flex-nowrap gap-8 overflow-x-auto flex-1 min-h-0 pb-4 list-none m-0 p-0"></ul>
     </div>
   </section>
 
-  <section id="projects" class="page glass-card z-40 p-4 lg:p-12 hidden">
-    <button class="close-btn absolute top-6 right-10 text-2xl text-white hover:text-gray-300">&times;</button>
-    <div class="w-full h-full flex flex-col">
-      <h2 class="text-3xl lg:text-4xl font-bold mb-8">My Projects</h2>
-      <div class="flex flex-nowrap gap-8 overflow-x-auto h-full pb-4">
-        <div data-project-id="0" class="project-card cursor-pointer flex-shrink-0 w-[300px] lg:w-[400px] h-full bg-white/10 p-6 rounded-lg transition-transform hover:scale-105">
-          <video src="assets/placeholder.mp4" muted loop poster="assets/project1.jpg" class="w-full rounded-md mb-4"></video>
-          <h3 class="text-xl lg:text-2xl font-semibold mb-2">Project Title 1</h3>
-          <p class="text-xs lg:text-sm text-white/80">A brief description of the project.</p>
-        </div>
-        <div data-project-id="1" class="project-card cursor-pointer flex-shrink-0 w-[300px] lg:w-[400px] h-full bg-white/10 p-6 rounded-lg transition-transform hover:scale-105">
-          <video src="assets/placeholder.mp4" muted loop poster="assets/project2.jpg" class="w-full rounded-md mb-4"></video>
-          <h3 class="text-xl lg:text-2xl font-semibold mb-2">Project Title 2</h3>
-          <p class="text-xs lg:text-sm text-white/80">A brief description of the project.</p>
-        </div>
-        <div data-project-id="2" class="project-card cursor-pointer flex-shrink-0 w-[300px] lg:w-[400px] h-full bg-white/10 p-6 rounded-lg transition-transform hover:scale-105">
-          <video src="assets/placeholder.mp4" muted loop poster="assets/project3.jpg" class="w-full rounded-md mb-4"></video>
-          <h3 class="text-xl lg:text-2xl font-semibold mb-2">Project Title 3</h3>
-          <p class="text-xs lg:text-sm text-white/80">A brief description of the project.</p>
-        </div>
-        <div data-project-id="3" class="project-card cursor-pointer flex-shrink-0 w-[300px] lg:w-[400px] h-full bg-white/10 p-6 rounded-lg transition-transform hover:scale-105">
-          <video src="assets/placeholder.mp4" muted loop poster="assets/project4.jpg" class="w-full rounded-md mb-4"></video>
-          <h3 class="text-xl lg:text-2xl font-semibold mb-2">Project Title 4</h3>
-          <p class="text-xs lg:text-sm text-white/80">A brief description of the project.</p>
-        </div>
-        <div data-project-id="4" class="project-card cursor-pointer flex-shrink-0 w-[300px] lg:w-[400px] h-full bg-white/10 p-6 rounded-lg transition-transform hover:scale-105">
-          <video src="assets/placeholder.mp4" muted loop poster="assets/project5.jpg" class="w-full rounded-md mb-4"></video>
-          <h3 class="text-xl lg:text-2xl font-semibold mb-2">Project Title 5</h3>
-          <p class="text-xs lg:text-sm text-white/80">A brief description of the project.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="project-detail" class="page glass-card z-40 p-4 lg:p-12 hidden">
-    <button id="back-to-projects" class="absolute top-6 right-6 text-2xl text-white hover:text-gray-300">&times;</button>
-    <div class="h-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-y-auto">
+  <section id="project-detail" class="page glass-card z-40 p-4 lg:p-12 hidden" role="dialog" aria-modal="true" aria-labelledby="project-title">
+    <button id="back-to-projects" aria-label="Back to projects" class="absolute top-6 right-10 text-2xl text-white hover:text-gray-300">&times;</button>
+    <div class="scroll-region" data-scroll-region>
+      <div id="project-detail-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div class="flex flex-col gap-4 lg:gap-6">
           <h2 id="project-title" class="text-3xl lg:text-4xl font-bold">Project Title</h2>
+          <p id="project-role" class="text-sm uppercase tracking-widest text-white/60"></p>
           <p id="project-description" class="text-md lg:text-lg leading-relaxed text-white/90">Project description goes here.</p>
-          <div id="project-tech-stack" class="flex flex-wrap gap-2 text-sm text-white/80">
-            </div>
-          <a id="project-link" href="#" target="_blank" class="bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] text-[var(--dark-color)] font-bold py-3 px-6 rounded-lg w-fit transition-colors duration-300">View Live Demo</a>
+          <ul id="project-highlights" class="list-disc list-inside text-sm lg:text-md text-white/80 space-y-1"></ul>
+          <ul id="project-tech-stack" class="flex flex-wrap gap-2 text-sm text-white/80 list-none p-0"></ul>
+          <div id="project-links" class="flex flex-wrap gap-3"></div>
         </div>
-        <div class="mt-4 lg:mt-0">
-          <video id="project-video" class="w-full h-auto rounded-xl" controls autoplay loop muted></video>
+        <div id="project-media" class="mt-4 lg:mt-0">
+          <video id="project-video" class="w-full h-auto rounded-xl" controls loop muted playsinline></video>
         </div>
+      </div>
     </div>
+    <div class="scroll-hint" data-scroll-hint aria-hidden="true"></div>
   </section>
 
-  <section id="contact" class="page glass-card z-40 p-4 lg:p-12 hidden">
-    <button class="close-btn absolute top-6 right-10 text-2xl text-white hover:text-gray-300">&times;</button>
-    <div class="w-full max-w-xl mx-auto flex flex-col justify-center items-center h-full">
-      <h2 class="text-3xl lg:text-4xl font-bold mb-8">Let's Connect</h2>
-      <form id="contactForm" class="flex flex-col space-y-4 w-full">
-        <input type="text" name="name" placeholder="Your Name" required class="p-4 rounded-lg bg-white/10 text-white placeholder-white/50 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white" />
-        <input type="email" name="email" placeholder="Your Email" required class="p-4 rounded-lg bg-white/10 text-white placeholder-white/50 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white" />
-        <textarea name="message" placeholder="Your Message" required class="p-4 rounded-lg bg-white/10 text-white placeholder-white/50 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white h-32 resize-none"></textarea>
-        <button type="submit" class="bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] text-[var(--dark-color)] font-bold py-3 px-6 rounded-lg transition-colors duration-300">Send Message</button>
-        <p id="formResponse" class="text-sm mt-4"></p>
+  <section id="contact" class="page glass-card z-40 p-4 lg:p-12 hidden" role="dialog" aria-modal="true" aria-labelledby="contact-heading">
+    <button class="close-btn absolute top-6 right-10 text-2xl text-white hover:text-gray-300" aria-label="Close Contact">&times;</button>
+    <div class="w-full max-w-xl mx-auto flex flex-col justify-center items-center h-full overflow-y-auto">
+      <h2 id="contact-heading" class="text-3xl lg:text-4xl font-bold mb-8">Let's Connect</h2>
+      <form id="contactForm" class="flex flex-col space-y-4 w-full" novalidate>
+        <label class="sr-only" for="contact-name">Your Name</label>
+        <input id="contact-name" type="text" name="name" autocomplete="name" placeholder="Your Name" required class="p-4 rounded-lg bg-white/10 text-white placeholder-white/50 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white" />
+        <label class="sr-only" for="contact-email">Your Email</label>
+        <input id="contact-email" type="email" name="email" autocomplete="email" placeholder="Your Email" required class="p-4 rounded-lg bg-white/10 text-white placeholder-white/50 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white" />
+        <label class="sr-only" for="contact-message">Your Message</label>
+        <textarea id="contact-message" name="message" placeholder="Your Message" required class="p-4 rounded-lg bg-white/10 text-white placeholder-white/50 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white h-32 resize-none"></textarea>
+        <button id="contact-submit" type="submit" class="bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] text-[var(--dark-color)] font-bold py-3 px-6 rounded-lg transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed">Send Message</button>
+        <p id="formResponse" class="text-sm mt-4" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // === Pages & Navigation ===
-      const navButtons = document.querySelectorAll('.nav-btn');
-      const closeButtons = document.querySelectorAll('.close-btn');
-      const pages = document.querySelectorAll('.page');
-      const landing = document.getElementById('landing');
-      const profileContainer = document.getElementById('profile-container');
-      const projectCards = document.querySelectorAll('.project-card');
-      const projectDetailPage = document.getElementById('project-detail');
-      const backToProjectsButton = document.getElementById('back-to-projects');
-      const projectsPage = document.getElementById('projects');
-      
-      // Mobile-specific elements
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-  
-      // Data for each project
-      const projectsData = [
-        {
-          title: "Project Title 1",
-          description: "This is a detailed description of Project 1. It was built using a modern tech stack and solved a real-world problem. The user interface is designed to be intuitive and engaging, providing a seamless user experience.",
-          videoSrc: "assets/project1.mp4",
-          liveLink: "#",
-          techStack: ["HTML", "CSS", "JavaScript", "React"]
-        },
-        {
-          title: "Project Title 2",
-          description: "This is a detailed description of Project 2. It was a backend-focused application that utilized Python and Flask to manage data and user authentication. The database was powered by SQL.",
-          videoSrc: "assets/project2.mp4",
-          liveLink: "#",
-          techStack: ["Python", "Flask", "SQL", "Node.js"]
-        },
-        {
-          title: "Project Title 3",
-          description: "This is a detailed description of Project 3. It focused on API integration and data visualization. The project used a third-party API to fetch data and displayed it in a clean, interactive dashboard.",
-          videoSrc: "assets/project3.mp4",
-          liveLink: "#",
-          techStack: ["React", "API", "Data Visualization", "JavaScript"]
-        },
-        {
-          title: "Project Title 4",
-          description: "This is a detailed description of Project 4. A full-stack application built from the ground up, featuring user profiles, content management, and robust security measures to protect user data.",
-          videoSrc: "assets/project4.mp4",
-          liveLink: "#",
-          techStack: ["Golang", "MongoDB", "Auth0"]
-        },
-        {
-          title: "Project Title 5",
-          description: "This is a detailed description of Project 5. A fun, experimental project designed to explore new CSS animations and JavaScript libraries. It's a testament to the power of creative coding.",
-          videoSrc: "assets/project5.mp4",
-          liveLink: "#",
-          techStack: ["HTML", "CSS", "Animations", "SVG"]
-        }
-      ];
-  
-      navButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const sectionId = button.getAttribute('data-section');
-          const targetPage = document.getElementById(sectionId);
-  
-          pages.forEach(p => {
-            p.classList.add('hidden');
-            p.classList.remove('active');
-          });
-  
-          
-          targetPage.classList.remove('hidden');
-          setTimeout(() => {
-            targetPage.classList.add('active');
-          }, 10);
-  
-          // This is the key change: Only add the animation class on desktop screens.
-          if (window.innerWidth >= 1024) {
-            profileContainer.classList.add(`active-${sectionId}`);
-            landing.classList.add('hidden');
-          }
-          
-          if (mobileMenu) {
-            mobileMenu.classList.add('hidden');
-          }
-        });
-      });
-  
-      closeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const currentPage = button.closest('.page');
-          currentPage.classList.remove('active');
-          
-          // Only remove the animation classes on desktop.
-          if (window.innerWidth >= 1024) {
-            profileContainer.classList.remove('active-about', 'active-projects', 'active-contact', 'active-project-detail');
-          }
-  
-          setTimeout(() => {
-            currentPage.classList.add('hidden');
-            landing.classList.remove('hidden');
-            // Clear inline transform only if on desktop to reset it properly.
-            if (window.innerWidth >= 1024) {
-              profileContainer.style.transform = '';
-            }
-          }, 600);
-        });
-      });
-  
-      // === Mobile Menu Toggles ===
-      if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', () => {
-          mobileMenu.classList.remove('hidden');
-        });
-      }
-  
-      const mobileCloseBtn = document.getElementById('mobile-close-btn');
-        if (mobileCloseBtn) {
-        mobileCloseBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        });
-      }
-      
-      // === Project Detail Logic ===
-      projectCards.forEach(card => {
-        card.addEventListener('click', () => {
-          const projectId = parseInt(card.getAttribute('data-project-id'));
-          const project = projectsData[projectId];
-          
-          // Populate the project detail page
-          document.getElementById('project-title').textContent = project.title;
-          document.getElementById('project-description').textContent = project.description;
-          document.getElementById('project-video').src = project.videoSrc;
-          document.getElementById('project-link').href = project.liveLink;
-          
-          // Populate the tech stack
-          const techStackContainer = document.getElementById('project-tech-stack');
-          techStackContainer.innerHTML = '';
-          project.techStack.forEach(tech => {
-            const span = document.createElement('span');
-            span.textContent = tech;
-            span.className = 'bg-white/10 py-1 px-3 rounded-md text-xs';
-            techStackContainer.appendChild(span);
-          });
-          
-          // Hide projects page and show project detail page
-          projectsPage.classList.remove('active');
-          setTimeout(() => {
-            projectsPage.classList.add('hidden');
-            projectDetailPage.classList.remove('hidden');
-            projectDetailPage.classList.add('active');
-            if (window.innerWidth >= 1024) {
-              profileContainer.classList.add('active-project-detail');
-            }
-          }, 600);
-        });
-      });
-      
-      backToProjectsButton.addEventListener('click', () => {
-        projectDetailPage.classList.remove('active');
-        setTimeout(() => {
-          projectDetailPage.classList.add('hidden');
-          projectsPage.classList.remove('hidden');
-          projectsPage.classList.add('active');
-          profileContainer.classList.remove('active-project-detail');
-        }, 600);
-      });
-  
-      // === Close card on outside click ===
-      document.addEventListener('click', (event) => {
-      const activePage = document.querySelector('.page.active');
-      const navButtons = document.querySelector('.nav-btn');
-  
-      // Check if a page is active and the click is not inside the page or on a nav button
-      if (activePage && !activePage.contains(event.target) && !event.target.closest('.nav-btn')) {
-        activePage.classList.remove('active');
-        
-        // Only remove the animation classes on desktop
-        if (window.innerWidth >= 1024) {
-          profileContainer.classList.remove('active-about', 'active-projects', 'active-contact', 'active-project-detail');
-        }
-  
-        setTimeout(() => {
-        activePage.classList.add('hidden');
-        landing.classList.remove('hidden');
-        if (window.innerWidth >= 1024) {
-          profileContainer.style.transform = '';
-        }
-        }, 600);
-      }
-    });
-      
-      // === Contact Form Submission ===
-      const form = document.getElementById('contactForm');
-      const responseBox = document.getElementById('formResponse');
-  
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-  
-        const formData = {
-          name: form.name.value,
-          email: form.email.value,
-          message: form.message.value,
-        };
-  
-        try {
-          const res = await fetch('http://localhost:5000/send', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData),
-          });
-  
-          const result = await res.json();
-          responseBox.textContent = result.message;
-          responseBox.style.color = result.success ? 'green' : 'red';
-          form.reset();
-        } catch (err) {
-          console.error(err);
-          responseBox.textContent = 'Failed to send message.';
-          responseBox.style.color = 'red';
-        }
-      });
-    });
-  </script>
+
 </body>
 </html>
