@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATLÁNTICO — Ropa y calzado de hombre, Viejo San Juan</title>
+<meta name="description" content="Tienda de ropa y zapatos para hombre en el Viejo San Juan. Guayaberas, linos, sneakers y botas. Ajuste garantizado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f4f2; --paper-2:#e9e9e5; --ink:#131414; --ink-2:#3a3c3c;
+  --tan:#8a6236; --muted:#7d807e; --line:#d8d8d3;
+  --disp:'Syne',system-ui,sans-serif; --sans:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+a{color:inherit}
+.wrap{width:min(1280px,94vw);margin-inline:auto}
+h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
+h1{font-size:clamp(26px,7.4vw,116px)}
+h2{font-size:clamp(28px,4.2vw,46px)}
+h3{font-size:15px;font-family:var(--sans);font-weight:600;letter-spacing:.02em;text-transform:none}
+p{margin:0 0 1em}
+.lbl{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.rule{height:1px;background:var(--line);margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);cursor:pointer;background:none;color:var(--ink);transition:.2s;font-family:var(--sans)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--tan);border-color:var(--tan)}
+
+.top{background:var(--ink);color:var(--paper);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding:8px}
+header{position:sticky;top:0;z-index:80;background:rgba(244,244,242,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 0;gap:20px}
+.navleft{display:flex;gap:24px;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.navleft a{text-decoration:none;color:var(--ink-2)}
+.navleft a:hover{color:var(--tan)}
+.brand{font-family:var(--disp);font-weight:800;font-size:23px;letter-spacing:.06em;text-align:center;text-decoration:none}
+.navright{justify-self:end;display:flex;gap:20px;align-items:center;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.navright button{background:none;border:0;cursor:pointer;font:inherit;color:var(--ink);position:relative}
+.badge{background:var(--tan);color:#fff;border-radius:9px;font-size:10px;padding:1px 6px;margin-left:5px;letter-spacing:0}
+.burger{display:none;background:none;border:0;font-size:22px;cursor:pointer}
+
+/* hero */
+.hero{border-bottom:1px solid var(--line);padding:clamp(30px,5vw,54px) 0 0;position:relative}
+.hero h1{margin:0}
+.hero h1 .thin{font-weight:600;color:var(--tan)}
+.hero-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:26px 0;border-top:1px solid var(--line);margin-top:26px}
+.hero-meta p{margin:0;color:var(--muted);font-size:14px;max-width:34ch}
+.hero-shot{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:20px;align-items:start}
+.hero-shot div{position:relative;min-width:0}
+.hero-shot .a{aspect-ratio:16/10;background:linear-gradient(140deg,#4a4744,#1c1b19)}
+.hero-shot .b{aspect-ratio:16/10;background:linear-gradient(140deg,#b39a78,#6d5335)}
+.hero-shot span{position:absolute;bottom:14px;left:16px;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.65);text-transform:uppercase}
+
+section{padding:clamp(50px,7vw,86px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--ink);margin-bottom:30px}
+.sec-head h2{margin:.1em 0 0}
+
+/* shelf horizontal */
+.shelfwrap{position:relative}
+.shelf{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
+.shelf::-webkit-scrollbar{height:4px}
+.shelf::-webkit-scrollbar-thumb{background:var(--line)}
+.card{flex:0 0 clamp(230px,25vw,290px);scroll-snap-align:start;cursor:pointer}
+.card .shot{aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--paper-2);margin-bottom:12px}
+.card .shot i{position:absolute;inset:0;transition:.35s}
+.card:hover .shot i{transform:scale(1.05)}
+.card .tagx{position:absolute;top:10px;left:10px;background:var(--paper);font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:5px 9px;z-index:2}
+.card .no{position:absolute;bottom:10px;right:12px;font-family:var(--disp);font-size:11px;color:rgba(255,255,255,.7);letter-spacing:.1em;z-index:2}
+.card h3{margin:0}
+.card .meta{display:flex;justify-content:space-between;font-size:13.5px;color:var(--muted);margin-top:2px}
+.card .meta b{color:var(--ink);font-weight:500}
+.arrows{display:flex;gap:8px;margin-left:auto}
+.arrows button{width:40px;height:40px;border:1px solid var(--line);background:none;cursor:pointer;font-size:15px;transition:.2s}
+.arrows button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* categorías editorial */
+.split{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tile{position:relative;aspect-ratio:3/4;display:flex;align-items:flex-end;padding:22px;text-decoration:none;color:#fff;overflow:hidden}
+.tile i{position:absolute;inset:0;transition:.4s}
+.tile:hover i{transform:scale(1.06)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.62))}
+.tile div{position:relative;z-index:1}
+.tile h3{font-family:var(--disp);font-weight:800;font-size:26px;text-transform:uppercase;letter-spacing:-.02em;color:#fff}
+.tile span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+
+/* servicio sastre */
+.tailor{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink)}
+.tailor .tx{padding:clamp(28px,4vw,52px)}
+.tailor .im{background:linear-gradient(150deg,#c9b393,#6b5637);min-height:320px;position:relative}
+.tailor .im span{position:absolute;bottom:16px;left:18px;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.7);text-transform:uppercase}
+.steps{list-style:none;padding:0;margin:22px 0 26px;counter-reset:t}
+.steps li{counter-increment:t;padding:14px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:34px 1fr;gap:14px;font-size:15px}
+.steps li::before{content:"0" counter(t);font-family:var(--disp);font-size:12px;color:var(--tan);letter-spacing:.1em;padding-top:3px}
+.steps b{display:block}
+.steps small{color:var(--muted);font-size:13.5px}
+
+/* tienda física */
+.store{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.store dl{display:grid;grid-template-columns:auto 1fr;gap:8px 24px;margin:22px 0 0;font-size:15px}
+.store dt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.store dd{margin:0}
+.storefront{aspect-ratio:5/4;background:
+  linear-gradient(180deg,#8a9aa5 0 42%,#c7b8a2 42% 100%);position:relative;overflow:hidden}
+.storefront .door{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:26%;height:44%;background:#4d3b28;border-radius:60px 60px 0 0}
+.storefront .win{position:absolute;bottom:0;width:20%;height:34%;background:rgba(255,255,255,.35);border:2px solid #4d3b28}
+.storefront .w1{left:12%}.storefront .w2{right:12%}
+.storefront .awn{position:absolute;left:0;right:0;top:42%;height:8%;background:repeating-linear-gradient(90deg,#8a6236 0 24px,#f4f4f2 24px 48px)}
+.storefront span{position:absolute;top:14px;left:0;right:0;text-align:center;font-family:var(--disp);font-size:13px;letter-spacing:.3em;color:rgba(255,255,255,.8)}
+
+/* modal quick view */
+.ov{position:fixed;inset:0;background:rgba(19,20,20,.6);opacity:0;pointer-events:none;transition:.28s;z-index:90}
+.ov.on{opacity:1;pointer-events:auto}
+.modal{position:fixed;z-index:100;left:50%;top:50%;transform:translate(-50%,-46%) scale(.98);opacity:0;pointer-events:none;transition:.28s;
+  width:min(880px,94vw);max-height:90vh;overflow:auto;background:var(--paper);display:grid;grid-template-columns:1fr 1fr}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal .mshot{min-height:340px;position:relative}
+.modal .mtx{padding:clamp(24px,3.2vw,40px)}
+.modal h2{font-size:28px;margin-bottom:6px}
+.modal .pr{font-size:22px;margin:0 0 16px}
+.modal .close{position:absolute;top:12px;right:14px;background:var(--paper);border:0;font-size:18px;cursor:pointer;width:34px;height:34px;z-index:3}
+.sizes{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 20px}
+.sz{border:1px solid var(--line);background:none;min-width:52px;padding:11px 8px;font-size:13px;cursor:pointer;font-family:var(--sans);transition:.18s}
+.sz:hover{border-color:var(--ink)}
+.sz.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.sz.out{color:#c0c0bb;text-decoration:line-through;cursor:not-allowed}
+.modal ul{padding-left:18px;color:var(--muted);font-size:14.5px;margin:0 0 22px}
+
+footer{background:var(--ink);color:#c8c9c6;padding:54px 0 32px;font-size:14px}
+.fgrid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:30px}
+footer strong{display:block;color:#fff;margin-bottom:10px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase}
+footer a{text-decoration:none}
+footer a:hover{color:var(--tan)}
+.fnote{margin-top:38px;padding-top:18px;border-top:1px solid #2c2e2e;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#7d807e}
+
+@media(max-width:900px){
+  .split{grid-template-columns:1fr}.tailor,.store,.modal,.hero-shot{grid-template-columns:1fr}
+  .hero-meta{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  nav{grid-template-columns:auto 1fr auto}
+  .navleft{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;padding:16px 5vw;border-bottom:1px solid var(--line)}
+  .navleft.open{display:flex}
+  .burger{display:block}
+  .brand{text-align:left}
+}
+</style>
+</head>
+<body>
+<div class="top">Envío gratis sobre $100 · Ajuste de ruedo gratis · Viejo San Juan, Calle Fortaleza 254</div>
+<header><div class="wrap"><nav>
+  <button class="burger" id="burger" aria-label="Menú">☰</button>
+  <div class="navleft" id="nav"><a href="#novedades">Novedades</a><a href="#categorias">Ropa</a><a href="#calzado">Calzado</a><a href="#sastre">Sastrería</a></div>
+  <a class="brand" href="#">ATLÁNTICO</a>
+  <div class="navright">
+    <a href="#tienda" style="text-decoration:none">Tienda</a>
+    <button onclick="alert('Demo: bolsa de compra.')">Bolsa<span class="badge" id="bag">0</span></button>
+  </div>
+</nav></div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <span class="lbl">Est. 2016 · Viejo San Juan</span>
+  <h1 style="margin-top:12px">Vestir bien<br><span class="thin">sin disfrazarse.</span></h1>
+  <div class="hero-shot">
+    <div class="a"><span>Foto · lookbook otoño</span></div>
+    <div class="b"><span>Foto · detalle de tela</span></div>
+  </div>
+  <div class="hero-meta">
+    <p><b style="color:var(--ink)">Linos y guayaberas</b> cortadas para el calor, no para una oficina en Nueva York.</p>
+    <p><b style="color:var(--ink)">Calzado del 7 al 14</b>, incluyendo anchos EE — porque aquí también existen.</p>
+    <p><b style="color:var(--ink)">Ajuste incluido</b> en pantalones y sacos. Te lo entregamos en 48 horas.</p>
+  </div>
+</div></section>
+
+<section id="novedades"><div class="wrap">
+  <div class="sec-head"><div><span class="lbl">Selección</span><h2>Recién llegado</h2></div>
+    <div class="arrows"><button onclick="scrollShelf('s1',-1)">←</button><button onclick="scrollShelf('s1',1)">→</button></div></div>
+  <div class="shelfwrap"><div class="shelf" id="s1"></div></div>
+</div></section>
+
+<section id="categorias" style="background:var(--paper-2)"><div class="wrap">
+  <div class="sec-head"><div><span class="lbl">Departamentos</span><h2>Qué buscas hoy</h2></div></div>
+  <div class="split">
+    <a class="tile" href="#novedades"><i style="background:linear-gradient(150deg,#dcd3c2,#8f8471)"></i><div><span>01 / Camisas</span><h3>Guayaberas & lino</h3></div></a>
+    <a class="tile" href="#calzado"><i style="background:linear-gradient(150deg,#8f7455,#3b2c1c)"></i><div><span>02 / Calzado</span><h3>Sneakers & botas</h3></div></a>
+    <a class="tile" href="#novedades"><i style="background:linear-gradient(150deg,#8b95a1,#333c46)"></i><div><span>03 / Pantalones</span><h3>Chinos & denim</h3></div></a>
+  </div>
+</div></section>
+
+<section id="calzado"><div class="wrap">
+  <div class="sec-head"><div><span class="lbl">Calzado</span><h2>Del 7 al 14</h2></div>
+    <div class="arrows"><button onclick="scrollShelf('s2',-1)">←</button><button onclick="scrollShelf('s2',1)">→</button></div></div>
+  <div class="shelfwrap"><div class="shelf" id="s2"></div></div>
+</div></section>
+
+<section id="sastre" style="background:var(--paper-2)"><div class="wrap">
+  <div class="tailor">
+    <div class="tx">
+      <span class="lbl">Servicio</span>
+      <h2 style="margin:.14em 0 .3em">Sastrería<br>en casa</h2>
+      <p style="color:var(--muted);max-width:42ch">Nuestro sastre, don Efraín, lleva 30 años cogiendo ruedos en la calle Fortaleza. Cada pantalón o saco que compras aquí se ajusta gratis.</p>
+      <ol class="steps">
+        <li><div><b>Te medimos</b><small>Diez minutos, sin cita. Guardamos tus medidas para la próxima.</small></div></li>
+        <li><div><b>Ajustamos</b><small>Ruedo, cintura, mangas y entalle de saco.</small></div></li>
+        <li><div><b>Recoges en 48 horas</b><small>O te lo enviamos a la casa por $8 en el área metro.</small></div></li>
+      </ol>
+      <a class="btn btn-fill" href="#tienda">Reservar una medición</a>
+    </div>
+    <div class="im"><span>Foto · mesa de sastre</span></div>
+  </div>
+</div></section>
+
+<section id="tienda"><div class="wrap store">
+  <div>
+    <span class="lbl">La tienda</span>
+    <h2 style="margin:.14em 0 .3em">Pasa y pruébate</h2>
+    <p style="color:var(--muted);max-width:44ch">Estamos entre la Caleta y San José, subiendo desde la Plaza de Armas. Si vienes en carro, el estacionamiento Doña Fela queda a cinco minutos a pie y te validamos dos horas.</p>
+    <dl>
+      <dt>Dirección</dt><dd>Calle Fortaleza 254, San Juan, PR 00901</dd>
+      <dt>Horario</dt><dd>Lun–Sáb 10 am – 7 pm · Dom 12 pm – 5 pm</dd>
+      <dt>Teléfono</dt><dd><a href="tel:+17875550133">(787) 555‑0133</a></dd>
+      <dt>Pago</dt><dd>Tarjeta, ATH Móvil y efectivo</dd>
+    </dl>
+    <a class="btn" href="https://maps.google.com" target="_blank" rel="noopener" style="margin-top:24px">Cómo llegar</a>
+  </div>
+  <div class="storefront"><span>ATLÁNTICO</span><div class="awn"></div><div class="win w1"></div><div class="win w2"></div><div class="door"></div></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="brand" style="color:#fff;text-align:left">ATLÁNTICO</div>
+      <p style="max-width:32ch;margin-top:12px">Ropa y calzado de hombre en el Viejo San Juan desde 2016.</p></div>
+    <div><strong>Comprar</strong><a href="#novedades">Novedades</a><br><a href="#categorias">Camisas</a><br><a href="#calzado">Calzado</a><br><a href="#categorias">Pantalones</a></div>
+    <div><strong>Servicios</strong><a href="#sastre">Sastrería</a><br><a href="#">Tarjeta de regalo</a><br><a href="#">Personal shopper</a></div>
+    <div><strong>Ayuda</strong><a href="#">Envíos y devoluciones</a><br><a href="#">Guía de tallas</a><br><a href="#tienda">Visítanos</a></div>
+  </div>
+  <div class="fnote"><span>© 2026 Atlántico Menswear · Plantilla de demostración</span><span>Privacidad · Términos</span></div>
+</div></footer>
+
+<div class="ov" id="ov" onclick="closeModal()"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="mshot" id="mshot"><button class="close" onclick="closeModal()">✕</button></div>
+  <div class="mtx">
+    <span class="lbl" id="mcat"></span>
+    <h2 id="mname"></h2>
+    <p class="pr" id="mprice"></p>
+    <p style="color:var(--muted);font-size:14.5px" id="mdesc"></p>
+    <span class="lbl">Talla</span>
+    <div class="sizes" id="msizes"></div>
+    <ul id="mspecs"></ul>
+    <button class="btn btn-fill" style="width:100%" onclick="addBag()">Añadir a la bolsa</button>
+    <p style="font-size:12.5px;color:var(--muted);margin:14px 0 0">Ajuste de ruedo incluido · Cambios por 30 días · Recogido en tienda el mismo día</p>
+  </div>
+</div>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('nav').classList.toggle('open');
+
+const ROPA=[
+ {n:'Guayabera de lino Cortés',c:'Camisas',p:98,g:'linear-gradient(150deg,#f0ece2,#c6bfae)',t:'Clásico',d:'Lino irlandés 100%, cuatro bolsillos y alforzas cosidas a mano.',s:['S','M','L','XL','2X'],out:['2X'],sp:['Lino 100%, 170 g','Corte regular','Lavable en frío']},
+ {n:'Camisa Cubana Malecón',c:'Camisas',p:74,g:'linear-gradient(150deg,#a9c3c9,#4f7078)',t:'Nuevo',d:'Cuello camp, caída suave, ideal para la brisa de la tarde.',s:['S','M','L','XL'],out:[],sp:['Rayón y algodón','Corte relajado','Botón de coco']},
+ {n:'Chino Fortaleza',c:'Pantalones',p:88,g:'linear-gradient(150deg,#cbbfa6,#7e7156)',t:null,d:'Algodón con 2% elastano. Ajuste de ruedo incluido en tienda.',s:['30','32','34','36','38','40'],out:['30'],sp:['Corte slim‑straight','Bolsillo de moneda','Cintura elástica oculta']},
+ {n:'Denim Rígido Loíza',c:'Pantalones',p:118,g:'linear-gradient(150deg,#5b6f8c,#26344a)',t:'Selvedge',d:'Mezclilla selvedge de 13.5 oz que se envejece contigo.',s:['30','32','34','36','38'],out:[],sp:['Selvedge japonés','Corte recto','Remaches de cobre']},
+ {n:'Saco Deconstruido Caleta',c:'Ropa',p:245,g:'linear-gradient(150deg,#6b6f74,#2b2f33)',t:'Sastre',d:'Sin forro y sin hombreras: pesa poco y se ve formal.',s:['38','40','42','44','46'],out:['38'],sp:['Lana tropical','Dos botones','Ajuste incluido']},
+ {n:'Polo Piqué Escambrón',c:'Camisas',p:56,g:'linear-gradient(150deg,#b9c9b0,#5d7154)',t:null,d:'Piqué pesado que no se deforma después del quinto lavado.',s:['S','M','L','XL','2X'],out:[],sp:['Algodón peinado','Cuello reforzado','Hecho en Perú']}
+];
+const ZAPATOS=[
+ {n:'Sneaker Bajo Condado',c:'Calzado',p:135,g:'linear-gradient(150deg,#eae6dd,#b3aa99)',t:'Best seller',d:'Cuero blanco de grano completo con suela de goma cosida.',s:['7','8','9','10','11','12','13'],out:['13'],sp:['Cuero italiano','Suela Margom','Horma ancha disponible']},
+ {n:'Bota Chelsea Cordillera',c:'Calzado',p:189,g:'linear-gradient(150deg,#8a6236,#3d2a17)',t:null,d:'Gamuza tratada contra agua, para el aguacero de las 3 pm.',s:['8','9','10','11','12'],out:['8','12'],sp:['Gamuza hidrofugada','Suela Vibram','Elástico reforzado']},
+ {n:'Mocasín Penny Caribe',c:'Calzado',p:158,g:'linear-gradient(150deg,#a8763f,#5a3a19)',t:'Sin medias',d:'Forro que no suda. El zapato de boda en la playa.',s:['7','8','9','10','11','12','13','14'],out:[],sp:['Cuero engrasado','Construcción Blake','Plantilla de cuero']},
+ {n:'Tenis de Lona Piñones',c:'Calzado',p:78,g:'linear-gradient(150deg,#c3ccd4,#5c6b78)',t:null,d:'Lona lavable para el fin de semana.',s:['7','8','9','10','11','12'],out:['7'],sp:['Lona de algodón','Suela vulcanizada','Lavable a máquina']},
+ {n:'Zapato Derby Catedral',c:'Calzado',p:212,g:'linear-gradient(150deg,#4a3527,#1d130c)',t:'Formal',d:'El zapato de traje que aguanta bodas, entierros y entrevistas.',s:['8','9','10','11','12','13'],out:['9'],sp:['Cuero box calf','Cosido Goodyear','Resoleable']},
+ {n:'Sandalia de Cuero Boquerón',c:'Calzado',p:92,g:'linear-gradient(150deg,#c9a274,#7b5a33)',t:null,d:'Hecha a mano en Ponce, se amolda al pie en una semana.',s:['8','9','10','11','12'],out:[],sp:['Cuero vegetal','Hecha en PR','Suela de goma']}
+];
+function cardHTML(p,i,arr){
+  return `<article class="card" onclick="quick('${arr}',${i})">
+    <div class="shot"><i style="background:${p.g}"></i>${p.t?`<span class="tagx">${p.t}</span>`:''}<span class="no">0${i+1}</span></div>
+    <h3>${p.n}</h3><div class="meta"><span>${p.c}</span><b>$${p.p}</b></div></article>`;
+}
+document.getElementById('s1').innerHTML=ROPA.map((p,i)=>cardHTML(p,i,'ROPA')).join('');
+document.getElementById('s2').innerHTML=ZAPATOS.map((p,i)=>cardHTML(p,i,'ZAPATOS')).join('');
+function scrollShelf(id,dir){const el=document.getElementById(id);el.scrollBy({left:dir*el.clientWidth*.7,behavior:'smooth'})}
+
+const SETS={ROPA,ZAPATOS};
+let current=null;
+function quick(setName,i){
+  const p=SETS[setName][i];current=p;
+  document.getElementById('mshot').style.background=p.g;
+  document.getElementById('mcat').textContent=p.c;
+  document.getElementById('mname').textContent=p.n;
+  document.getElementById('mprice').textContent='$'+p.p+'.00';
+  document.getElementById('mdesc').textContent=p.d;
+  document.getElementById('mspecs').innerHTML=p.sp.map(s=>`<li>${s}</li>`).join('');
+  document.getElementById('msizes').innerHTML=p.s.map(s=>
+    `<button class="sz ${p.out.includes(s)?'out':''}" ${p.out.includes(s)?'disabled':''} onclick="pick(this)">${s}</button>`).join('');
+  document.getElementById('modal').classList.add('on');
+  document.getElementById('ov').classList.add('on');
+  document.body.classList.add('lock');
+}
+function pick(b){document.querySelectorAll('.sz').forEach(x=>x.classList.remove('on'));b.classList.add('on')}
+function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('ov').classList.remove('on');document.body.classList.remove('lock')}
+addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+let bag=0;
+function addBag(){
+  if(!document.querySelector('.sz.on')){alert('Escoge una talla primero.');return}
+  bag++;document.getElementById('bag').textContent=bag;closeModal();
+}
+</script>
+</body>
+</html>

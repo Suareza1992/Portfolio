@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Cordillera — Tostadores y cafetería en Adjuntas</title>
+<meta name="description" content="Café de altura cultivado en Adjuntas. Cafetería, tostaduría y venta de grano. Ordena en línea o visítanos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf5ec; --paper:#f2e9da; --bean:#3b2418; --bean-2:#5a3a26;
+  --leaf:#4a6741; --copper:#b0642c; --ink:#241610; --muted:#7c6a5d; --line:#e0d3bf;
+  --serif:'Libre Baskerville',Georgia,serif; --sans:'Karla',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;line-height:1.12;letter-spacing:-.01em}
+h1{font-size:clamp(38px,5.6vw,66px)}
+h2{font-size:clamp(28px,3.8vw,42px)}
+h3{font-size:19px}
+p{margin:0 0 1em}
+.lbl{font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--copper)}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:4px;font-size:14px;font-weight:600;text-decoration:none;border:1.5px solid var(--bean);cursor:pointer;transition:.2s;font-family:var(--sans);background:none;color:var(--bean)}
+.btn:hover{background:var(--bean);color:var(--cream)}
+.btn-fill{background:var(--bean);color:var(--cream)}
+.btn-fill:hover{background:var(--copper);border-color:var(--copper)}
+
+header{position:sticky;top:0;z-index:60;background:rgba(250,245,236,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:28px;padding:15px 0}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--serif);font-size:21px}
+.brand svg{width:28px;height:28px;fill:none;stroke:var(--copper);stroke-width:1.4}
+.navlinks{margin-left:auto;display:flex;gap:26px;font-size:14.5px}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--bean)}
+.burger{display:none;margin-left:auto;background:none;border:0;font-size:23px;cursor:pointer}
+
+/* hero */
+.hero{padding:clamp(40px,6vw,80px) 0;position:relative}
+.hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.hero h1{margin:.2em 0 .3em}
+.hero h1 em{font-family:var(--serif);font-style:italic;color:var(--copper)}
+.hero p{color:var(--muted);max-width:42ch}
+.hero-cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.hero-img{aspect-ratio:1/1;border-radius:50% 50% 46% 54%/48% 46% 54% 52%;position:relative;overflow:hidden;
+  background:radial-gradient(70% 70% at 35% 25%,#7d5a3a,transparent 60%),
+             radial-gradient(60% 60% at 75% 75%,#4a6741,transparent 62%),
+             linear-gradient(150deg,#8b6a45,#31200f)}
+.hero-img span{position:absolute;bottom:16%;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.24em;color:rgba(250,245,236,.6);text-transform:uppercase}
+.hero-note{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.hero-note b{display:block;font-family:var(--serif);font-size:22px;color:var(--bean)}
+
+section{padding:clamp(52px,7vw,94px) 0}
+.sec-head{max-width:60ch;margin-bottom:40px}
+.sec-head h2{margin:.16em 0 .3em}
+.sec-head p{color:var(--muted);margin:0}
+.center{text-align:center;margin-inline:auto}
+
+/* tostado selector */
+.roast{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;background:var(--paper);border-radius:8px;padding:clamp(26px,4vw,48px)}
+.beanart{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;transition:background .5s;position:relative}
+.beanart::after{content:"";position:absolute;width:34%;height:64%;border-radius:50%;border:2px solid rgba(250,245,236,.35);border-right-color:transparent;border-left-color:transparent}
+.roastbtns{display:flex;gap:10px;margin:20px 0 24px;flex-wrap:wrap}
+.rb{border:1.5px solid var(--line);background:var(--cream);border-radius:999px;padding:10px 20px;font-size:14px;cursor:pointer;font-family:var(--sans);transition:.2s;color:var(--bean)}
+.rb.on{background:var(--bean);color:var(--cream);border-color:var(--bean)}
+.notes{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}
+.notes span{background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px}
+.meter{margin-top:22px}
+.meter div{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.bar{height:6px;background:var(--cream);border-radius:4px;overflow:hidden;margin-bottom:14px}
+.bar i{display:block;height:100%;background:var(--copper);transition:width .5s}
+
+/* menu */
+.menugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px}
+.mcol h3{border-bottom:2px solid var(--bean);padding-bottom:10px;margin-bottom:6px}
+.mitem{display:grid;grid-template-columns:1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.mitem b{font-weight:600;font-size:15.5px}
+.mitem small{display:block;color:var(--muted);font-size:13.5px;font-weight:400;line-height:1.5}
+.mitem .p{font-family:var(--serif);color:var(--copper)}
+
+/* finca timeline */
+.finca{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.fstep{position:relative;padding-top:26px;border-top:2px solid var(--copper)}
+.fstep b{display:block;font-family:var(--serif);font-size:15px;color:var(--copper);margin-bottom:6px}
+.fstep p{color:var(--muted);font-size:14.5px;margin:0}
+.fstep h3{font-size:17px;margin-bottom:6px}
+
+/* granos */
+.bags{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bag{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:.25s}
+.bag:hover{transform:translateY(-4px);box-shadow:0 20px 40px -30px rgba(59,36,24,.5)}
+.bag .top{height:150px;display:grid;place-items:center;color:rgba(250,245,236,.85);font-family:var(--serif);font-size:15px;letter-spacing:.1em}
+.bag .b{padding:22px}
+.bag h3{margin-bottom:4px}
+.bag p{color:var(--muted);font-size:14px;margin:0 0 14px}
+.bag .row{display:flex;justify-content:space-between;align-items:center}
+.bag .pr{font-family:var(--serif);font-size:21px}
+
+/* visita */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hourslist{list-style:none;padding:0;margin:20px 0 0}
+.hourslist li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.postcard{aspect-ratio:4/3;border-radius:6px;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#a9c6d8 0 46%,#4a6741 46% 68%,#7c9a5e 68% 100%)}
+.postcard .sun{position:absolute;width:70px;height:70px;border-radius:50%;background:#f3d99b;top:12%;right:16%}
+.postcard .hill{position:absolute;bottom:32%;left:-10%;width:70%;height:34%;border-radius:50%;background:#3d5836}
+.postcard .hill2{position:absolute;bottom:30%;right:-14%;width:74%;height:38%;border-radius:50%;background:#557a45}
+.postcard span{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.22em;color:rgba(255,255,255,.85);text-transform:uppercase}
+
+/* cita */
+.quote{background:var(--bean);color:var(--paper);border-radius:8px;padding:clamp(32px,5vw,62px);text-align:center}
+.quote p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,29px);line-height:1.5;max-width:26ch;margin:0 auto 18px;color:#f7ecd9}
+.quote span{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#c2a689}
+
+footer{border-top:1px solid var(--line);padding:50px 0 32px;color:var(--muted);font-size:14.5px}
+.fgrid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:28px}
+footer strong{display:block;color:var(--bean);margin-bottom:9px;font-family:var(--serif);font-weight:400}
+footer a{text-decoration:none}
+footer a:hover{color:var(--copper)}
+.fnote{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media(max-width:940px){
+  .hero-in,.roast,.visit{grid-template-columns:1fr}
+  .menugrid,.finca,.bags{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:16px 5vw;border-bottom:1px solid var(--line)}
+  .navlinks.open{display:flex}.burger{display:block}header .btn{display:none}
+}
+@media(max-width:620px){.menugrid,.finca,.bags{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="brand" href="#">
+    <svg viewBox="0 0 24 24"><path d="M4 8h13v5a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V8z"/><path d="M17 9h2a3 3 0 0 1 0 6h-2"/><path d="M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3"/></svg>
+    Café Cordillera
+  </a>
+  <div class="navlinks" id="nav"><a href="#tueste">El tueste</a><a href="#menu">Menú</a><a href="#granos">Comprar grano</a><a href="#visita">Visítanos</a></div>
+  <a class="btn btn-fill" href="#visita" style="margin-left:18px">Ordenar y recoger</a>
+  <button class="burger" id="burger" aria-label="Menú">☰</button>
+</nav></div></header>
+
+<main>
+<section class="hero"><div class="wrap hero-in">
+  <div>
+    <span class="lbl">Adjuntas · 2,400 pies de altura</span>
+    <h1>Café que nace<br>a media hora<br><em>de tu taza.</em></h1>
+    <p>Sembramos, recogemos y tostamos en la misma montaña. Nada de mezclas raras: café 100% de Puerto Rico, tostado en lotes pequeños los martes y viernes.</p>
+    <div class="hero-cta">
+      <a class="btn btn-fill" href="#granos">Comprar grano</a>
+      <a class="btn" href="#menu">Ver el menú</a>
+    </div>
+    <div class="hero-note">
+      <div><b>1953</b>Finca familiar</div>
+      <div><b>3</b>Generaciones</div>
+      <div><b>18</b>Familias que cosechan</div>
+    </div>
+  </div>
+  <div class="hero-img"><span>Foto · cerezas en la mata</span></div>
+</div></section>
+
+<section id="tueste" style="background:var(--cream)"><div class="wrap">
+  <div class="sec-head"><span class="lbl">El tueste</span><h2>Escoge tu punto</h2>
+  <p>El mismo grano cambia completo según cuánto lo tostemos. Mueve entre los tres y mira qué te llama.</p></div>
+  <div class="roast">
+    <div class="beanart" id="beanart" style="background:radial-gradient(circle at 35% 30%,#8a5a33,#4a2c16)"></div>
+    <div>
+      <span class="lbl" id="rlbl">Tueste medio</span>
+      <h2 style="margin:.14em 0 .2em" id="rname">Cordillera Medio</h2>
+      <p style="color:var(--muted);margin:0" id="rdesc"></p>
+      <div class="roastbtns" id="rbtns">
+        <button class="rb" data-r="claro">Claro</button>
+        <button class="rb on" data-r="medio">Medio</button>
+        <button class="rb" data-r="oscuro">Oscuro</button>
+      </div>
+      <span class="lbl">Notas</span>
+      <div class="notes" id="rnotes"></div>
+      <div class="meter">
+        <div><span>Cuerpo</span><span id="v1"></span></div><div class="bar"><i id="b1"></i></div>
+        <div><span>Acidez</span><span id="v2"></span></div><div class="bar"><i id="b2"></i></div>
+        <div><span>Dulzor</span><span id="v3"></span></div><div class="bar"><i id="b3"></i></div>
+      </div>
+      <p style="font-size:14px;color:var(--muted);margin:18px 0 0" id="rmet"></p>
+    </div>
+  </div>
+</div></section>
+
+<section id="menu" style="background:var(--paper)"><div class="wrap">
+  <div class="sec-head center" style="text-align:center"><span class="lbl">La cafetería</span><h2>Menú de la casa</h2>
+  <p>Servimos de 6:30 am a 4:00 pm. Todo se hace con grano tostado esa misma semana.</p></div>
+  <div class="menugrid">
+    <div class="mcol"><h3>Café</h3>
+      <div class="mitem"><div><b>Pocillo</b><small>Espresso corto, como lo hacía abuela.</small></div><span class="p">$2.25</span></div>
+      <div class="mitem"><div><b>Café con leche</b><small>Doble shot con leche vaporizada.</small></div><span class="p">$3.75</span></div>
+      <div class="mitem"><div><b>Cortadito</b><small>Con un toquecito de leche.</small></div><span class="p">$2.75</span></div>
+      <div class="mitem"><div><b>Cold brew de la montaña</b><small>18 horas en frío. Bien suave.</small></div><span class="p">$4.50</span></div>
+      <div class="mitem"><div><b>Latte de coco y canela</b><small>Leche de coco local, sin azúcar añadida.</small></div><span class="p">$5.25</span></div>
+      <div class="mitem"><div><b>Pour over V60</b><small>Tres minutos de paciencia, un grano a escoger.</small></div><span class="p">$5.00</span></div>
+    </div>
+    <div class="mcol"><h3>Desayuno</h3>
+      <div class="mitem"><div><b>Mallorca de jamón y queso</b><small>Prensada, con azúcar en polvo.</small></div><span class="p">$6.50</span></div>
+      <div class="mitem"><div><b>Sandwich de la finca</b><small>Huevo, aguacate y queso del país en pan sobao.</small></div><span class="p">$8.00</span></div>
+      <div class="mitem"><div><b>Avena con guineo</b><small>Con canela y miel de la montaña.</small></div><span class="p">$5.50</span></div>
+      <div class="mitem"><div><b>Tostada francesa de pan sobao</b><small>Fin de semana solamente.</small></div><span class="p">$9.00</span></div>
+      <div class="mitem"><div><b>Revoltillo criollo</b><small>Con sofrito, jamón y tostones.</small></div><span class="p">$10.50</span></div>
+    </div>
+    <div class="mcol"><h3>Dulces</h3>
+      <div class="mitem"><div><b>Quesito</b><small>Hecho aquí cada mañana.</small></div><span class="p">$2.75</span></div>
+      <div class="mitem"><div><b>Bizcocho de guineo y café</b><small>Con nueces del país.</small></div><span class="p">$4.25</span></div>
+      <div class="mitem"><div><b>Flan de café</b><small>La receta de doña Nilda.</small></div><span class="p">$5.00</span></div>
+      <div class="mitem"><div><b>Galleta de avena y chinita</b><small>Del tamaño de la mano.</small></div><span class="p">$3.25</span></div>
+      <div class="mitem"><div><b>Brownie de cacao criollo</b><small>Cacao de Utuado.</small></div><span class="p">$4.50</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head"><span class="lbl">De la finca a la taza</span><h2>Cómo llega hasta ti</h2></div>
+  <div class="finca">
+    <div class="fstep"><b>Octubre – febrero</b><h3>Cosecha a mano</h3><p>Solo la cereza roja. Cada mata se recorre cuatro o cinco veces en la temporada.</p></div>
+    <div class="fstep"><b>El mismo día</b><h3>Despulpe y fermento</h3><p>18 horas en tanque y lavado con agua de manantial de la finca.</p></div>
+    <div class="fstep"><b>7 – 12 días</b><h3>Secado al sol</h3><p>En camas africanas, volteado tres veces al día bajo el sol de la cordillera.</p></div>
+    <div class="fstep"><b>Martes y viernes</b><h3>Tueste en lotes</h3><p>Tostadora de 12 libras. La bolsa que compras tiene la fecha escrita a mano.</p></div>
+  </div>
+</div></section>
+
+<section id="granos" style="background:var(--paper)"><div class="wrap">
+  <div class="sec-head"><span class="lbl">Tienda</span><h2>Llévate una bolsa</h2>
+  <p>Bolsas de 12 oz con válvula. Envío a toda la isla en 2 días, o recoges en la cafetería sin costo.</p></div>
+  <div class="bags">
+    <article class="bag"><div class="top" style="background:linear-gradient(150deg,#b9834e,#6d4224)">TUESTE CLARO</div>
+      <div class="b"><h3>Amanecer de Adjuntas</h3><p>Floral y cítrico. Para pour over o Chemex.</p>
+      <div class="row"><span class="pr">$17</span><button class="btn" onclick="alert('Demo: añadido al carrito.')">Añadir</button></div></div></article>
+    <article class="bag"><div class="top" style="background:linear-gradient(150deg,#8a5a33,#4a2c16)">TUESTE MEDIO</div>
+      <div class="b"><h3>Cordillera Medio</h3><p>El de todos los días. Chocolate y caña.</p>
+      <div class="row"><span class="pr">$16</span><button class="btn" onclick="alert('Demo: añadido al carrito.')">Añadir</button></div></div></article>
+    <article class="bag"><div class="top" style="background:linear-gradient(150deg,#4a2f1c,#22140b)">TUESTE OSCURO</div>
+      <div class="b"><h3>Noche de Yahuecas</h3><p>Intenso, para greca y café con leche.</p>
+      <div class="row"><span class="pr">$16</span><button class="btn" onclick="alert('Demo: añadido al carrito.')">Añadir</button></div></div></article>
+  </div>
+  <p style="text-align:center;color:var(--muted);font-size:14.5px;margin-top:26px">¿Tomas café todos los días? La <a href="#" style="color:var(--copper)">suscripción mensual</a> te sale a $13 la bolsa y llega sola.</p>
+</div></section>
+
+<section id="visita"><div class="wrap visit">
+  <div>
+    <span class="lbl">Visítanos</span>
+    <h2 style="margin:.16em 0 .3em">Carretera 123,<br>subiendo</h2>
+    <p style="color:var(--muted);max-width:42ch">La cafetería está dentro de la finca. Hay mesas afuera con vista al valle, wifi decente y un perro llamado Tostado que te va a saludar.</p>
+    <ul class="hourslist">
+      <li><span>Lunes – Viernes</span><span>6:30 am – 4:00 pm</span></li>
+      <li><span>Sábado y domingo</span><span>7:00 am – 5:00 pm</span></li>
+      <li><span>Tour de la finca</span><span>Sáb 10 am · $15 por persona</span></li>
+    </ul>
+    <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap">
+      <a class="btn btn-fill" href="https://maps.google.com" target="_blank" rel="noopener">Cómo llegar</a>
+      <a class="btn" href="tel:+17875550171">(787) 555‑0171</a>
+    </div>
+  </div>
+  <div class="postcard"><div class="sun"></div><div class="hill"></div><div class="hill2"></div><span>Vista desde la terraza</span></div>
+</div></section>
+
+<section><div class="wrap"><div class="quote">
+  <p>“El café bueno no se apura. Se siembra en marzo y se toma en enero.”</p>
+  <span>— Don Ismael Vega, tercera generación</span>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="brand" style="margin-bottom:10px"><svg viewBox="0 0 24 24"><path d="M4 8h13v5a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V8z"/><path d="M17 9h2a3 3 0 0 1 0 6h-2"/></svg>Café Cordillera</div>
+      <p style="max-width:32ch">Finca, tostaduría y cafetería en el barrio Yahuecas, Adjuntas, Puerto Rico.</p></div>
+    <div><strong>Café</strong><a href="#tueste">El tueste</a><br><a href="#granos">Comprar grano</a><br><a href="#">Suscripción</a><br><a href="#">Mayoristas</a></div>
+    <div><strong>Visita</strong><a href="#menu">Menú</a><br><a href="#visita">Horario</a><br><a href="#">Tour de la finca</a></div>
+    <div><strong>Contacto</strong><a href="tel:+17875550171">(787) 555‑0171</a><br><a href="mailto:hola@cafecordillera.pr">hola@cafecordillera.pr</a><br>Carr. 123 km 34.8, Adjuntas</div>
+  </div>
+  <div class="fnote"><span>© 2026 Café Cordillera · Plantilla de demostración</span><span>Café 100% de Puerto Rico</span></div>
+</div></footer>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('nav').classList.toggle('open');
+
+const R={
+ claro:{n:'Amanecer de Adjuntas',l:'Tueste claro',bg:'radial-gradient(circle at 35% 30%,#c08d55,#7b4b25)',
+  d:'Tostado hasta el primer crack y nada más. Es el tueste que deja hablar a la altura: brillante, limpio y con acidez de fruta.',
+  notes:['Panela','Chinita','Flor de café','Almendra'],v:[45,85,70],m:'Ideal en V60, Chemex o Aeropress · 1:16 · 96 °C'},
+ medio:{n:'Cordillera Medio',l:'Tueste medio',bg:'radial-gradient(circle at 35% 30%,#8a5a33,#4a2c16)',
+  d:'El punto de la casa y el que más se vende. Balanceado, dulce y con cuerpo suficiente para aguantar la leche.',
+  notes:['Chocolate con leche','Caña','Nuez','Canela'],v:[70,60,85],m:'Ideal en greca, prensa francesa o espresso · 1:15 · 94 °C'},
+ oscuro:{n:'Noche de Yahuecas',l:'Tueste oscuro',bg:'radial-gradient(circle at 35% 30%,#4a2f1c,#1c1009)',
+  d:'Tostado más allá del segundo crack. Fuerte y con cuerpo espeso — el café que pide la greca de la abuela.',
+  notes:['Cacao amargo','Melao','Tabaco dulce','Tostado'],v:[92,30,60],m:'Ideal en greca o espresso · 1:14 · 92 °C'}
+};
+function setR(k){
+  const r=R[k];
+  document.getElementById('beanart').style.background=r.bg;
+  document.getElementById('rlbl').textContent=r.l;
+  document.getElementById('rname').textContent=r.n;
+  document.getElementById('rdesc').textContent=r.d;
+  document.getElementById('rnotes').innerHTML=r.notes.map(n=>`<span>${n}</span>`).join('');
+  document.getElementById('rmet').textContent=r.m;
+  r.v.forEach((v,i)=>{
+    document.getElementById('b'+(i+1)).style.width=v+'%';
+    document.getElementById('v'+(i+1)).textContent=v>=80?'Alto':v>=55?'Medio':'Bajo';
+  });
+}
+document.getElementById('rbtns').onclick=e=>{
+  const b=e.target.closest('.rb');if(!b)return;
+  document.querySelectorAll('.rb').forEach(x=>x.classList.remove('on'));b.classList.add('on');setR(b.dataset.r);
+};
+setR('medio');
+</script>
+</body>
+</html>

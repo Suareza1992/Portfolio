@@ -193,7 +193,10 @@
       <div id="project-detail-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div class="flex flex-col gap-4 lg:gap-6">
           <h2 id="project-title" class="text-3xl lg:text-4xl font-bold">Project Title</h2>
-          <p id="project-role" class="text-sm uppercase tracking-widest text-white/60"></p>
+          <div class="flex items-center gap-3 flex-wrap">
+            <p id="project-role" class="text-sm uppercase tracking-widest text-white/60"></p>
+            <span id="project-status"></span>
+          </div>
           <p id="project-description" class="text-md lg:text-lg leading-relaxed text-white/90">Project description goes here.</p>
           <ul id="project-highlights" class="list-disc list-inside text-sm lg:text-md text-white/80 space-y-1"></ul>
           <ul id="project-tech-stack" class="flex flex-wrap gap-2 text-sm text-white/80 list-none p-0"></ul>

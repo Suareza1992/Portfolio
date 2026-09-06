@@ -10,13 +10,17 @@ dependencies. The only build step compiles Tailwind ahead of time.
 
 ## Run it locally
 
-Any static file server works:
-
 ```bash
-npx serve -p 3001 .
+python3 -m http.server 3001
 ```
 
 Then open <http://localhost:3001>.
+
+Use this rather than `npx serve`. `serve` rewrites URLs by default — it strips
+`/index.html` and the trailing slash, which changes the document's base URL and
+breaks the templates gallery's relative links locally even though they are
+correct. `http.server` serves files exactly as requested, the same as GitHub
+Pages, so what you see locally is what ships.
 
 ## Build the CSS
 
@@ -57,7 +61,22 @@ assets/
   portrait-*.webp   responsive portrait (WebP)
   portrait-900.png  fallback for browsers without WebP
   favicon.svg
+templates/
+  index.html        gallery of the ten business templates
+  01-barberia/ …    one self-contained site per folder
 ```
+
+## The templates section
+
+`templates/` is a gallery of ten complete business websites (Spanish, aimed at
+Puerto Rico businesses), shipped with the portfolio and linked from the fourth
+project card. Each site is a single self-contained `index.html` — no build, no
+dependencies, no images.
+
+The gallery links to them with **relative** paths (`01-barberia/index.html`),
+which is why the local server must not rewrite URLs — see "Run it locally".
+To add or remove a template, edit the array near the bottom of
+`templates/index.html`; the `href` is relative to `templates/`.
 
 ## Adding a project
 
@@ -68,14 +87,20 @@ view are both rendered from it, so this is the only place to edit:
 {
   title: "Project name",
   role: "Your role · Client project",
+  status: "live",                           // "live" or "wip"
   description: "A paragraph shown on the detail page.",
   highlights: ["Bullet one", "Bullet two"],
   techStack: ["Node.js", "PostgreSQL"],
   liveLink: "https://example.com",          // optional
+  liveLabel: "Browse the templates",        // optional, overrides the button text
   repoLink: "https://github.com/you/repo",  // optional
   videoSrc: "assets/demo.mp4",              // optional
 }
 ```
+
+`status` drives the pill on the card and the detail view: `"live"` reads
+**Live**, `"wip"` reads **In development** in amber. It describes build state,
+not link availability — a project can be live without public source.
 
 `liveLink`, `repoLink` and `videoSrc` are all optional. The detail view only
 renders buttons for links that exist, so a project never links to a dead `#`.

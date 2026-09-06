@@ -135,15 +135,29 @@ body {
 }
 
 .project-badge {
+  display: inline-block;
   flex-shrink: 0;
+  white-space: nowrap;
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+/* Shipped and reachable. */
+.project-badge--live {
   background: rgba(200, 223, 252, 0.2);
-  border: 1px solid rgba(200, 223, 252, 0.5);
+  border-color: rgba(200, 223, 252, 0.5);
   color: var(--secondary-color);
+}
+
+/* Still being built — said plainly rather than dressed up as finished. */
+.project-badge--wip {
+  background: rgba(245, 197, 122, 0.18);
+  border-color: rgba(245, 197, 122, 0.5);
+  color: #f5c57a;
 }
 
 /* Placeholder shown in project cards until real media is added */

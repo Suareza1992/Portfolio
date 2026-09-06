@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruta Coquí — Excursiones y tours en Puerto Rico</title>
+<meta name="description" content="Tours en Puerto Rico: bahía bioluminiscente, El Yunque, snorkel en Culebra y city tour del Viejo San Juan. Guías locales certificados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sea:#0d7d8c; --sea-dk:#075662; --sea-lt:#e2f4f5; --sand:#f7f1e4; --sand-2:#eee3cd;
+  --coral:#f2683c; --sun:#f5b73d; --ink:#12262a; --muted:#6d8085; --line:#dcdfd8; --white:#fff;
+  --disp:'Fredoka',system-ui,sans-serif; --sans:'Source Sans 3',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{width:min(1200px,93vw);margin-inline:auto}
+h1,h2,h3{margin:0;font-family:var(--disp);font-weight:600;line-height:1.05;letter-spacing:-.02em}
+h1{font-size:clamp(42px,6.6vw,74px)}
+h2{font-size:clamp(30px,4.4vw,48px)}
+h3{font-size:21px}
+p{margin:0 0 1em}
+.lbl{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--coral)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:.2s;font-family:var(--sans)}
+.btn-sea{background:var(--sea);color:#fff}
+.btn-sea:hover{background:var(--sea-dk)}
+.btn-coral{background:var(--coral);color:#fff}
+.btn-coral:hover{filter:brightness(1.08)}
+.btn-out{border-color:var(--sea);color:var(--sea);background:rgba(255,255,255,.6)}
+.btn-out:hover{background:var(--sea);color:#fff}
+
+header{position:sticky;top:0;z-index:70;background:rgba(247,241,228,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:26px;padding:13px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--disp);font-size:22px;color:var(--sea-dk)}
+.brand .c{width:30px;height:30px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-size:16px}
+.navlinks{margin-left:auto;display:flex;gap:24px;font-size:15px;font-weight:600}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--sea)}
+.burger{display:none;margin-left:auto;background:none;border:0;font-size:23px;cursor:pointer}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(40px,6vw,74px) 0 0;
+  background:linear-gradient(180deg,#bfe6ea 0%,#e4f2ea 55%,var(--sand) 100%)}
+.waves{position:absolute;left:0;right:0;bottom:0;height:90px;
+  background:radial-gradient(60px 24px at 30px 0,var(--sand) 99%,transparent 100%) repeat-x 0 100%/60px 24px}
+.hero-in{position:relative;text-align:center;padding-bottom:36px}
+.hero h1{margin:.16em auto .28em;max-width:19ch}
+.hero h1 span{color:var(--sea)}
+.hero p{color:#3f5d62;max-width:54ch;margin:0 auto 26px;font-size:18px}
+.sunart{position:absolute;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,var(--sun),rgba(245,183,61,0) 70%);top:-30px;right:8%;opacity:.85}
+.palm{position:absolute;bottom:60px;left:3%;font-size:64px;opacity:.25}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;font-size:14px;font-weight:600;color:var(--sea-dk)}
+.badges span{background:rgba(255,255,255,.75);border:1px solid rgba(13,125,140,.18);padding:7px 15px;border-radius:999px}
+
+/* buscador */
+.finder{background:var(--white);border-radius:20px;box-shadow:0 26px 50px -34px rgba(18,38,42,.5);padding:18px;display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:14px;align-items:end;position:relative;z-index:3;margin-top:-30px}
+.finder label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.finder select,.finder input{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:12px 13px;font-family:var(--sans);font-size:15px;background:var(--white);color:var(--ink)}
+.finder select:focus,.finder input:focus{outline:0;border-color:var(--sea)}
+
+section{padding:clamp(52px,7vw,92px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.sec-head h2{margin:.14em 0 0}
+.sec-head p{color:var(--muted);margin:0;max-width:40ch}
+
+/* filtros */
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:26px}
+.chip{border:1.5px solid var(--line);background:var(--white);border-radius:999px;padding:9px 18px;font-size:14.5px;font-weight:600;cursor:pointer;font-family:var(--sans);color:var(--ink);transition:.2s}
+.chip:hover{border-color:var(--sea)}
+.chip.on{background:var(--sea);border-color:var(--sea);color:#fff}
+
+/* tours */
+.tours{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tour{background:var(--white);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;border:1px solid var(--line)}
+.tour:hover{transform:translateY(-5px);box-shadow:0 26px 46px -32px rgba(18,38,42,.5)}
+.tour .img{height:180px;position:relative}
+.tour .img .pill{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.94);border-radius:999px;font-size:12px;font-weight:700;padding:5px 12px;color:var(--sea-dk)}
+.tour .img .fav{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.94);border-radius:50%;width:32px;height:32px;display:grid;place-items:center;border:0;cursor:pointer;font-size:14px}
+.tour .body{padding:20px;flex:1;display:flex;flex-direction:column}
+.tour h3{margin-bottom:6px}
+.tour .rate{font-size:14px;color:var(--muted);margin-bottom:8px}
+.tour .rate b{color:var(--ink)}
+.tour p{color:var(--muted);font-size:14.5px;margin:0 0 14px}
+.tour .facts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;font-size:12.5px;color:var(--sea-dk)}
+.tour .facts span{background:var(--sea-lt);border-radius:8px;padding:4px 10px}
+.tour .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tour .price b{font-family:var(--disp);font-size:24px}
+.tour .price small{color:var(--muted);display:block;font-size:12.5px;margin-top:-4px}
+
+/* itinerario */
+.itin{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.itin .steps{border-left:2px solid var(--line);margin-left:10px}
+.itin details{padding:0 0 4px 26px;position:relative}
+.itin summary{cursor:pointer;list-style:none;padding:14px 0;font-weight:700;font-size:17px;display:flex;gap:12px;align-items:baseline}
+.itin summary::-webkit-details-marker{display:none}
+.itin summary::before{content:"";position:absolute;left:-9px;width:16px;height:16px;border-radius:50%;background:var(--white);border:3px solid var(--sea);margin-top:6px}
+.itin details[open] summary::before{background:var(--sea)}
+.itin summary span{font-size:13px;font-weight:600;color:var(--coral);letter-spacing:.06em}
+.itin p{color:var(--muted);font-size:15px;margin:0 0 14px}
+.incl{background:var(--white);border-radius:18px;padding:28px;border:1px solid var(--line)}
+.incl ul{list-style:none;padding:0;margin:12px 0 0;font-size:15px}
+.incl li{padding:8px 0;border-bottom:1px solid var(--line);display:flex;gap:10px}
+.incl li::before{content:"✓";color:var(--sea);font-weight:700}
+.incl li.no::before{content:"✕";color:#c46b6b}
+.incl li.no{color:var(--muted)}
+
+/* mapa regiones */
+.regions{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.reg{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:24px;text-decoration:none;transition:.25s;display:block}
+.reg:hover{border-color:var(--sea);transform:translateY(-4px)}
+.reg .em{font-size:26px}
+.reg h3{font-size:18px;margin:10px 0 4px}
+.reg p{color:var(--muted);font-size:14px;margin:0}
+
+/* reseñas */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rev{background:var(--white);border-radius:18px;padding:24px;border:1px solid var(--line)}
+.rev .st{color:var(--sun);letter-spacing:2px}
+.rev p{font-size:15.5px;margin:10px 0 14px}
+.rev .who{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.rev .av{width:38px;height:38px;border-radius:50%;background:var(--sea-lt);display:grid;place-items:center;font-weight:700;color:var(--sea-dk)}
+
+/* reserva */
+.book{background:var(--sea);color:#fff;border-radius:26px;padding:clamp(30px,4.5vw,54px);display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.book h2{color:#fff}
+.book p{color:rgba(255,255,255,.82)}
+.bcard{background:var(--white);border-radius:20px;padding:26px;color:var(--ink)}
+.bcard label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.bcard select,.bcard input{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:12px 13px;font-family:var(--sans);font-size:15px;margin-bottom:14px;color:var(--ink);background:var(--white)}
+.bcard .tot{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px dashed var(--line);margin-top:4px}
+.bcard .tot b{font-family:var(--disp);font-size:30px;color:var(--sea-dk)}
+.small{font-size:13px;color:var(--muted)}
+
+footer{background:var(--sea-dk);color:#c5dde0;padding:52px 0 32px;font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:28px}
+footer strong{display:block;color:#fff;margin-bottom:9px;font-family:var(--disp);font-size:17px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--sun)}
+.fnote{margin-top:36px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px}
+
+@media(max-width:1000px){.tours,.revs{grid-template-columns:1fr 1fr}.regions{grid-template-columns:1fr 1fr}.finder{grid-template-columns:1fr 1fr}.itin,.book{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){
+  .tours,.revs{grid-template-columns:1fr}.finder{grid-template-columns:1fr}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--sand);flex-direction:column;padding:16px 5vw;border-bottom:1px solid var(--line)}
+  .navlinks.open{display:flex}.burger{display:block}header .btn{display:none}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="brand" href="#"><span class="c">🐸</span>Ruta Coquí</a>
+  <div class="navlinks" id="nav"><a href="#tours">Tours</a><a href="#regiones">Regiones</a><a href="#itinerario">Un día con nosotros</a><a href="#resenas">Reseñas</a></div>
+  <a class="btn btn-coral" href="#reservar" style="margin-left:16px">Reservar</a>
+  <button class="burger" id="burger" aria-label="Menú">☰</button>
+</nav></div></header>
+
+<main>
+<section class="hero">
+  <div class="sunart"></div><div class="palm">🌴</div>
+  <div class="wrap hero-in">
+    <span class="lbl">Operador local certificado · Desde 2015</span>
+    <h1>Conoce el Puerto Rico<br><span>que no sale en el hotel</span></h1>
+    <p>Grupos pequeños, guías que nacieron aquí y transporte incluido desde San Juan. Bahía bioluminiscente, cascadas de El Yunque, snorkel en Culebra y más.</p>
+    <div class="badges"><span>⭐ 4.9 en TripAdvisor</span><span>👥 Máximo 12 personas</span><span>🚐 Recogido en el hotel</span><span>🌧️ Reprograma gratis</span></div>
+  </div>
+  <div class="waves"></div>
+</section>
+
+<div class="wrap"><div class="finder">
+  <div><label for="fdest">¿A dónde quieres ir?</label>
+    <select id="fdest"><option>Cualquier destino</option><option>El Yunque</option><option>Bahía bioluminiscente</option><option>Culebra / Vieques</option><option>Viejo San Juan</option><option>Oeste / Rincón</option></select></div>
+  <div><label for="ffecha">Fecha</label><input id="ffecha" type="date"></div>
+  <div><label for="fper">Personas</label>
+    <select id="fper"><option>1 persona</option><option selected>2 personas</option><option>3–4 personas</option><option>5 o más</option></select></div>
+  <button class="btn btn-coral" onclick="document.getElementById('tours').scrollIntoView({behavior:'smooth'})">Buscar tours</button>
+</div></div>
+
+<section id="tours"><div class="wrap">
+  <div class="sec-head"><div><span class="lbl">Excursiones</span><h2>Nuestros tours</h2></div>
+  <p>Precios por persona. Los niños menores de 6 años no pagan en los tours terrestres.</p></div>
+  <div class="chips" id="chips">
+    <button class="chip on" data-f="all">Todos</button>
+    <button class="chip" data-f="naturaleza">Naturaleza</button>
+    <button class="chip" data-f="agua">Agua</button>
+    <button class="chip" data-f="cultura">Cultura</button>
+    <button class="chip" data-f="noche">De noche</button>
+  </div>
+  <div class="tours" id="grid"></div>
+</div></section>
+
+<section id="regiones" style="background:var(--sand-2)"><div class="wrap">
+  <div class="sec-head"><div><span class="lbl">La isla</span><h2>Por dónde te llevamos</h2></div></div>
+  <div class="regions">
+    <a class="reg" href="#tours"><span class="em">🌧️</span><h3>Este</h3><p>El Yunque, Fajardo y la bahía bioluminiscente de Las Cabezas.</p></a>
+    <a class="reg" href="#tours"><span class="em">🏝️</span><h3>Islas</h3><p>Culebra, Vieques y Cayo Icacos en catamarán.</p></a>
+    <a class="reg" href="#tours"><span class="em">🏛️</span><h3>Metro</h3><p>Viejo San Juan a pie, food tour y bomba en Loíza.</p></a>
+    <a class="reg" href="#tours"><span class="em">🌅</span><h3>Oeste</h3><p>Rincón, Cabo Rojo, las salinas y el faro al atardecer.</p></a>
+  </div>
+</div></section>
+
+<section id="itinerario"><div class="wrap">
+  <div class="sec-head"><div><span class="lbl">Ejemplo</span><h2>Un día en El Yunque</h2></div>
+  <p>Así se ve nuestro tour más pedido, de principio a fin.</p></div>
+  <div class="itin">
+    <div class="steps">
+      <details open><summary><span>7:00 am</span> Te recogemos</summary><p>Pasamos por tu hotel en Isla Verde, Condado o el Viejo San Juan en una van con aire. Café y agua a bordo.</p></details>
+      <details><summary><span>8:15 am</span> Entrada al bosque</summary><p>Llegamos temprano a propósito: menos gente en los senderos y mejor luz para las fotos. Reservación de entrada incluida.</p></details>
+      <details><summary><span>8:45 am</span> Torre Yokahú y miradores</summary><p>Subimos la torre y paramos en dos miradores con vista hasta la costa. Tu guía te cuenta cómo el bosque se recuperó después de María.</p></details>
+      <details><summary><span>10:00 am</span> Caminata a la cascada</summary><p>Sendero de 45 minutos, dificultad moderada. Tiempo para meterse al agua — trae toalla y zapatos que se puedan mojar.</p></details>
+      <details><summary><span>12:30 pm</span> Almuerzo criollo</summary><p>Paramos en un kiosco de la carretera 191: mofongo, pinchos y jugo de parcha. Incluido en el precio.</p></details>
+      <details><summary><span>2:00 pm</span> Chorro de agua natural</summary><p>El pozo donde vienen los locales, no el de las guías turísticas. Media hora para nadar.</p></details>
+      <details><summary><span>4:00 pm</span> De vuelta</summary><p>Te dejamos en el mismo sitio donde te recogimos, con las fotos del día ya compartidas por WhatsApp.</p></details>
+    </div>
+    <aside class="incl">
+      <span class="lbl">Qué incluye</span>
+      <h3 style="margin:8px 0 0">Tour de El Yunque · $109</h3>
+      <ul>
+        <li>Transporte ida y vuelta desde el hotel</li>
+        <li>Guía bilingüe certificado</li>
+        <li>Entrada y reservación del bosque</li>
+        <li>Almuerzo criollo completo</li>
+        <li>Agua, snacks y toallas</li>
+        <li>Fotos del día por WhatsApp</li>
+        <li class="no">Propinas (opcionales)</li>
+        <li class="no">Recogido fuera del área metro</li>
+      </ul>
+      <a class="btn btn-sea" style="width:100%;margin-top:20px" href="#reservar">Reservar este tour</a>
+      <p class="small" style="margin:12px 0 0">Cancelación gratis hasta 24 horas antes. Si llueve fuerte, reprogramamos sin costo.</p>
+    </aside>
+  </div>
+</div></section>
+
+<section id="resenas" style="background:var(--sand-2)"><div class="wrap">
+  <div class="sec-head"><div><span class="lbl">Reseñas</span><h2>Lo que dicen los viajeros</h2></div>
+  <span style="font-weight:700;color:var(--sea-dk)">4.9 / 5 · 1,284 reseñas</span></div>
+  <div class="revs">
+    <div class="rev"><div class="st">★★★★★</div><p>“Nos llevaron a un chorro donde no había ni un turista más. Nelson sabía el nombre de cada planta y nos aguantó las mochilas en la caminata.”</p><div class="who"><div class="av">SD</div><div>Sarah D. · Chicago<br><span style="font-size:12.5px">Tour de El Yunque</span></div></div></div>
+    <div class="rev"><div class="st">★★★★★</div><p>“La bahía bioluminiscente fue irreal. Éramos ocho kayaks nada más y el guía apagó todas las luces para que viéramos bien.”</p><div class="who"><div class="av">JM</div><div>Javier M. · Bayamón<br><span style="font-size:12.5px">Bio Bay en kayak</span></div></div></div>
+    <div class="rev"><div class="st">★★★★★</div><p>“Vinimos con dos nenes de 7 y 10 y no se aburrieron ni un minuto. La van estaba fresquita y salieron puntuales.”</p><div class="who"><div class="av">KO</div><div>Katie O. · Toronto<br><span style="font-size:12.5px">Culebra en catamarán</span></div></div></div>
+  </div>
+</div></section>
+
+<section id="reservar"><div class="wrap"><div class="book">
+  <div>
+    <span class="lbl" style="color:var(--sun)">Reserva</span>
+    <h2 style="margin:.16em 0 .3em">Aparta tu espacio<br>en dos minutos</h2>
+    <p>Pagas 25% ahora y el resto el día del tour. Los grupos son de máximo 12 personas, así que las fechas de temporada alta se llenan con semanas de anticipación.</p>
+    <p style="margin:0"><b>¿Prefieres hablar?</b> Escríbenos por WhatsApp al <a href="https://wa.me/17875550155" style="color:#fff">(787) 555‑0155</a> — contestamos de 7 am a 9 pm.</p>
+  </div>
+  <div class="bcard">
+    <label for="btour">Tour</label>
+    <select id="btour"></select>
+    <label for="bfecha">Fecha</label><input id="bfecha" type="date">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div><label for="badu">Adultos</label><input id="badu" type="number" min="1" max="12" value="2"></div>
+      <div><label for="bnin">Niños (6–12)</label><input id="bnin" type="number" min="0" max="10" value="0"></div>
+    </div>
+    <div class="tot"><span>Total estimado</span><b id="btot">$218</b></div>
+    <p class="small" id="bdet" style="margin:0 0 14px"></p>
+    <button class="btn btn-coral" style="width:100%" onclick="alert('Demo: aquí se completaría la reserva.')">Reservar ahora</button>
+    <p class="small" style="margin:12px 0 0;text-align:center">Cancelación gratis · ATH Móvil y tarjeta</p>
+  </div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="brand" style="color:#fff"><span class="c">🐸</span>Ruta Coquí</div>
+      <p style="max-width:34ch;margin-top:12px">Operador turístico local con licencia de la Compañía de Turismo de Puerto Rico. Oficina en Fajardo.</p></div>
+    <div><strong>Tours</strong><a href="#tours">El Yunque</a><br><a href="#tours">Bio Bay</a><br><a href="#tours">Culebra</a><br><a href="#tours">Viejo San Juan</a></div>
+    <div><strong>Info</strong><a href="#itinerario">Qué llevar</a><br><a href="#">Política de lluvia</a><br><a href="#">Grupos y escuelas</a></div>
+    <div><strong>Contacto</strong><a href="tel:+17875550155">(787) 555‑0155</a><br><a href="mailto:hola@rutacoqui.com">hola@rutacoqui.com</a><br><a href="#">@rutacoqui</a></div>
+  </div>
+  <div class="fnote"><span>© 2026 Ruta Coquí Tours · Plantilla de demostración</span><span>Licencia CT‑00000 · Asegurados</span></div>
+</div></footer>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('nav').classList.toggle('open');
+
+const TOURS=[
+ {n:'El Yunque y cascadas',f:'naturaleza',p:109,d:'8 horas',lvl:'Moderado',g:'linear-gradient(150deg,#7fb98a,#1f5c3e)',t:'Más vendido',r:4.9,c:842,
+  desc:'Senderos temprano en la mañana, torre Yokahú, almuerzo criollo y un pozo natural sin gentío.',ex:['Transporte','Almuerzo','Entrada']},
+ {n:'Bahía bioluminiscente en kayak',f:'noche',p:89,d:'3 horas',lvl:'Fácil',g:'linear-gradient(150deg,#2b4f8c,#0a1633)',t:'De noche',r:5.0,c:611,
+  desc:'Salida en Fajardo con luna nueva. Kayak doble, chaleco y guía en el agua contigo.',ex:['Kayak','Guía','Chaleco']},
+ {n:'Culebra en catamarán',f:'agua',p:159,d:'9 horas',lvl:'Fácil',g:'linear-gradient(150deg,#5ec6d4,#0d6d7d)',t:null,r:4.8,c:395,
+  desc:'Flamenco y Carlos Rosario, dos paradas de snorkel, almuerzo y barra abierta de regreso.',ex:['Snorkel','Almuerzo','Bebidas']},
+ {n:'Viejo San Juan a pie',f:'cultura',p:45,d:'3 horas',lvl:'Fácil',g:'linear-gradient(150deg,#e8b7a0,#a2544a)',t:null,r:4.9,c:520,
+  desc:'Cinco siglos de historia en dos millas: El Morro, la Catedral, Ballajá y las calles adoquinadas.',ex:['Guía','Agua','Piragua']},
+ {n:'Food tour criollo',f:'cultura',p:95,d:'4 horas',lvl:'Fácil',g:'linear-gradient(150deg,#f0b95c,#a75a1e)',t:'Nuevo',r:4.9,c:188,
+  desc:'Seis paradas comiendo: alcapurrias en Piñones, mofongo, café de la montaña y ron.',ex:['6 paradas','Bebidas','Guía']},
+ {n:'Snorkel en Cayo Icacos',f:'agua',p:99,d:'5 horas',lvl:'Fácil',g:'linear-gradient(150deg,#7fd8d0,#166b6b)',t:null,r:4.8,c:274,
+  desc:'Cayo desierto frente a Fajardo. Equipo incluido y arena blanca sin una sola sombrilla alquilada.',ex:['Equipo','Bote','Snacks']},
+ {n:'Cuevas y tirolinas en Utuado',f:'naturaleza',p:135,d:'7 horas',lvl:'Exigente',g:'linear-gradient(150deg,#9c8f6a,#3c3423)',t:null,r:4.7,c:143,
+  desc:'Espeleología suave en el karso, río subterráneo y cuatro tirolinas sobre el cañón.',ex:['Equipo','Almuerzo','Casco']},
+ {n:'Atardecer en Cabo Rojo',f:'naturaleza',p:79,d:'6 horas',lvl:'Moderado',g:'linear-gradient(150deg,#f2a05c,#8c3d3d)',t:null,r:4.9,c:206,
+  desc:'Las salinas rosadas, el faro Los Morrillos y Playa Sucia justo cuando baja el sol.',ex:['Transporte','Guía','Merienda']},
+ {n:'Bomba y plena en Loíza',f:'cultura',p:65,d:'3 horas',lvl:'Fácil',g:'linear-gradient(150deg,#d47f5e,#5c2a1e)',t:'Cultural',r:5.0,c:97,
+  desc:'Taller de tambor con una familia bomba de Loíza, más frituras y un baile de verdad.',ex:['Taller','Comida','Guía']}
+];
+const grid=document.getElementById('grid');let f='all';
+function render(){
+  const list=TOURS.filter(t=>f==='all'||t.f===f);
+  grid.innerHTML=list.map(t=>`
+   <article class="tour">
+     <div class="img" style="background:${t.g}">${t.t?`<span class="pill">${t.t}</span>`:''}<button class="fav" title="Guardar">♡</button></div>
+     <div class="body">
+       <h3>${t.n}</h3>
+       <div class="rate">★ <b>${t.r}</b> (${t.c} reseñas)</div>
+       <p>${t.desc}</p>
+       <div class="facts"><span>⏱ ${t.d}</span><span>🥾 ${t.lvl}</span>${t.ex.map(e=>`<span>${e}</span>`).join('')}</div>
+       <div class="foot"><div class="price"><b>$${t.p}</b><small>por persona</small></div>
+       <a class="btn btn-sea" href="#reservar" onclick="preset('${t.n.replace(/'/g,"")}')">Reservar</a></div>
+     </div>
+   </article>`).join('');
+}
+document.getElementById('chips').onclick=e=>{
+  const b=e.target.closest('.chip');if(!b)return;
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));b.classList.add('on');f=b.dataset.f;render();
+};
+render();
+
+// reserva
+const sel=document.getElementById('btour');
+sel.innerHTML=TOURS.map((t,i)=>`<option value="${i}">${t.n} — $${t.p}</option>`).join('');
+const adu=document.getElementById('badu'),nin=document.getElementById('bnin');
+function total(){
+  const p=TOURS[+sel.value].p,a=Math.max(1,+adu.value||1),n=Math.max(0,+nin.value||0);
+  const sum=p*a+p*.6*n;
+  document.getElementById('btot').textContent='$'+Math.round(sum).toLocaleString('en-US');
+  document.getElementById('bdet').textContent=`${a} adulto${a>1?'s':''} × $${p}${n?` · ${n} niño${n>1?'s':''} × $${Math.round(p*.6)} (40% desc.)`:''} · depósito hoy $${Math.round(sum*.25)}`;
+}
+[sel,adu,nin].forEach(el=>el.addEventListener('input',total));total();
+function preset(name){
+  const i=TOURS.findIndex(t=>t.n===name);
+  if(i>-1)sel.value=i;
+  total();
+}
+</script>
+</body>
+</html>

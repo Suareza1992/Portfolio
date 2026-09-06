@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FORJA 787 — Gimnasio 24/7 en Carolina</title>
+<meta name="description" content="Gimnasio en Carolina, PR. Acceso 24/7, área de fuerza, clases grupales y CrossFit. Sin contrato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#08090a; --panel:#101214; --line:#22262a; --volt:#d4ff3f; --volt-dk:#a8cc22;
+  --white:#f2f4f2; --muted:#7c8489;
+  --disp:'Archivo Black',Impact,sans-serif; --sans:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--white);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{width:min(1200px,94vw);margin-inline:auto}
+h1,h2,h3{margin:0;font-family:var(--disp);text-transform:uppercase;line-height:.88;letter-spacing:-.02em}
+h1{font-size:clamp(46px,8.6vw,108px)}
+h2{font-size:clamp(34px,6vw,72px)}
+h3{font-size:22px;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--volt)}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:16px 30px;font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:.18s;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+.btn-volt{background:var(--volt);color:#0b0d06}
+.btn-volt:hover{background:#fff}
+.btn-out{border-color:var(--line);color:var(--white)}
+.btn-out:hover{border-color:var(--volt);color:var(--volt)}
+
+header{position:sticky;top:0;z-index:60;background:rgba(8,9,10,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:30px;padding:16px 0}
+.brand{font-family:var(--disp);font-size:24px;text-decoration:none;letter-spacing:-.02em}
+.brand em{color:var(--volt);font-style:normal}
+.navlinks{margin-left:auto;display:flex;gap:26px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--volt)}
+.burger{display:none;margin-left:auto;background:none;border:0;color:var(--white);font-size:24px;cursor:pointer}
+
+/* hero */
+.hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:90px 90px;opacity:.5;mask-image:radial-gradient(80% 70% at 50% 30%,#000,transparent)}
+.hero-in{position:relative;padding:clamp(50px,8vw,110px) 0 0}
+.hero h1{margin:.1em 0}
+.hero h1 .out{-webkit-text-stroke:2px var(--volt);color:transparent}
+.hero-row{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-top:26px}
+.hero p{color:var(--muted);max-width:46ch;font-size:17px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.figure{width:min(360px,38vw);aspect-ratio:1/1;border:1px solid var(--line);position:relative;
+  background:radial-gradient(85% 70% at 50% 20%,rgba(212,255,63,.16),transparent 62%),linear-gradient(180deg,#15181a,#0a0b0c)}
+.figure::after{content:"FOTO · atleta / peso muerto";position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.22em;color:#4b5257}
+.ticker{margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--line);background:var(--volt);color:#0b0d06;padding:12px 0;overflow:hidden;white-space:nowrap}
+.ticker div{display:inline-block;animation:tick 24s linear infinite;font-family:var(--disp);font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+.ticker span{margin:0 34px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+section{padding:clamp(60px,9vw,110px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:26px;flex-wrap:wrap;margin-bottom:44px;border-bottom:1px solid var(--line);padding-bottom:24px}
+
+/* zonas */
+.zones{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.zone{background:var(--black);padding:34px 26px;transition:.25s;position:relative}
+.zone:hover{background:var(--panel)}
+.zone .no{font-family:var(--disp);font-size:13px;color:var(--volt);letter-spacing:.1em}
+.zone h3{margin:16px 0 10px}
+.zone p{color:var(--muted);font-size:14.5px;margin:0}
+.zone .ico{width:38px;height:38px;stroke:var(--volt);fill:none;stroke-width:1.6;margin-bottom:6px}
+
+/* horario */
+.daytabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.daytab{background:transparent;border:1px solid var(--line);color:var(--muted);padding:11px 20px;font-family:var(--sans);font-weight:700;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.daytab.on{background:var(--volt);border-color:var(--volt);color:#0b0d06}
+.slots{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.slot{background:var(--black);display:grid;grid-template-columns:130px 1fr 160px 120px;gap:18px;align-items:center;padding:20px 24px;transition:.2s}
+.slot:hover{background:var(--panel)}
+.slot .t{font-family:var(--disp);font-size:18px;color:var(--volt)}
+.slot .n{font-weight:700;font-size:17px}
+.slot .n small{display:block;font-weight:400;color:var(--muted);font-size:13.5px;letter-spacing:0;text-transform:none}
+.slot .coach{color:var(--muted);font-size:14px}
+.slot .cap{justify-self:end;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:6px 12px;color:var(--muted)}
+.slot .cap.full{border-color:#5a2020;color:#e06666}
+.slot .cap.few{border-color:var(--volt-dk);color:var(--volt)}
+
+/* precios */
+.toggle{display:inline-flex;border:1px solid var(--line);margin-bottom:34px}
+.toggle button{background:none;border:0;color:var(--muted);padding:12px 24px;font-family:var(--sans);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.toggle button.on{background:var(--white);color:var(--black)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{border:1px solid var(--line);padding:34px 30px;display:flex;flex-direction:column;transition:.25s}
+.plan:hover{border-color:#39403f}
+.plan.hot{border-color:var(--volt);background:linear-gradient(180deg,rgba(212,255,63,.07),transparent 40%);position:relative}
+.plan.hot::before{content:"MÁS POPULAR";position:absolute;top:-1px;right:-1px;background:var(--volt);color:#0b0d06;font-size:10px;font-weight:700;letter-spacing:.16em;padding:6px 12px}
+.plan h3{color:var(--volt)}
+.plan .amt{font-family:var(--disp);font-size:60px;line-height:1;margin:18px 0 2px}
+.plan .amt sup{font-size:22px;vertical-align:top}
+.plan .per{color:var(--muted);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.plan ul{list-style:none;padding:0;margin:26px 0;font-size:15px;flex:1}
+.plan li{padding:9px 0;border-bottom:1px solid var(--line);color:#c9cfcc;display:flex;gap:10px}
+.plan li::before{content:"→";color:var(--volt)}
+.plan li.no{color:#565d61}
+.plan li.no::before{content:"×";color:#565d61}
+
+/* resultados */
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.r{border:1px solid var(--line);padding:30px;background:var(--panel)}
+.r .q{font-family:var(--disp);font-size:19px;line-height:1.25;text-transform:none;letter-spacing:0;margin-bottom:16px}
+.r .who{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
+.r .av{width:42px;height:42px;background:linear-gradient(135deg,var(--volt),#5b7a00);color:#0b0d06;display:grid;place-items:center;font-weight:700}
+
+/* cta */
+.final{border:1px solid var(--volt);padding:clamp(36px,6vw,70px);text-align:center;background:radial-gradient(70% 100% at 50% 0%,rgba(212,255,63,.1),transparent)}
+footer{border-top:1px solid var(--line);padding:50px 0 36px;color:var(--muted);font-size:14px}
+.fgrid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:28px}
+footer strong{display:block;color:var(--white);margin-bottom:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+footer a{text-decoration:none}
+footer a:hover{color:var(--volt)}
+.fnote{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+@media(max-width:1000px){.zones{grid-template-columns:1fr 1fr}.plans,.res{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:820px){
+  .hero-row{grid-template-columns:1fr}.figure{width:100%}
+  .slot{grid-template-columns:90px 1fr;gap:8px}
+  .slot .coach,.slot .cap{grid-column:2;justify-self:start}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--panel);flex-direction:column;padding:18px 5vw;border-bottom:1px solid var(--line)}
+  .navlinks.open{display:flex}
+  .burger{display:block}
+  header .btn{display:none}
+}
+@media(max-width:560px){.zones{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="brand" href="#">FORJA<em>787</em></a>
+  <div class="navlinks" id="nav"><a href="#zonas">El gym</a><a href="#horario">Clases</a><a href="#precios">Precios</a><a href="#resultados">Resultados</a></div>
+  <a class="btn btn-volt" href="#precios" style="margin-left:18px">Pase gratis 3 días</a>
+  <button class="burger" id="burger" aria-label="Menú">☰</button>
+</nav></div></header>
+
+<main>
+<section class="hero"><div class="hero-in wrap">
+  <span class="eyebrow">Carolina · Puerto Rico · Acceso 24/7</span>
+  <h1>Aquí no se<br><span class="out">habla.</span> Se hace.</h1>
+  <div class="hero-row">
+    <div>
+      <p>18,000 pies de área de fuerza, tarima olímpica, turf y clases todos los días. Entra a las 5 am o a las 11 pm — el llavero es tuyo.</p>
+      <div class="hero-cta">
+        <a class="btn btn-volt" href="#precios">Empezar hoy</a>
+        <a class="btn btn-out" href="#horario">Ver clases</a>
+      </div>
+    </div>
+    <div class="figure"></div>
+  </div>
+</div>
+<div class="ticker"><div>
+  <span>ACCESO 24/7</span>·<span>SIN CONTRATO</span><span>·</span><span>12 CLASES SEMANALES</span>·<span>TARIMA OLÍMPICA</span>·<span>SAUNA</span>·
+  <span>ACCESO 24/7</span>·<span>SIN CONTRATO</span><span>·</span><span>12 CLASES SEMANALES</span>·<span>TARIMA OLÍMPICA</span>·<span>SAUNA</span>·
+</div></div>
+</section>
+
+<section id="zonas"><div class="wrap">
+  <div class="sec-head"><div><span class="eyebrow">Las zonas</span><h2>Cuatro pisos<br>de trabajo</h2></div>
+  <p style="color:var(--muted);max-width:36ch;margin:0">Equipo Rogue, Hammer Strength y Concept2. Todo con mantenimiento semanal.</p></div>
+  <div class="zones">
+    <article class="zone"><span class="no">01</span>
+      <svg class="ico" viewBox="0 0 24 24"><path d="M4 9v6M20 9v6M7 6v12M17 6v12M7 12h10"/></svg>
+      <h3>Fuerza libre</h3><p>14 racks, mancuernas hasta 150 lb, plataformas de peso muerto y espejos completos.</p></article>
+    <article class="zone"><span class="no">02</span>
+      <svg class="ico" viewBox="0 0 24 24"><path d="M3 17l5-6 4 3 4-7 5 4"/><circle cx="12" cy="12" r="9"/></svg>
+      <h3>Cardio & HIIT</h3><p>Assault bikes, remos, cintas curvas y 900 pies de turf con trineos.</p></article>
+    <article class="zone"><span class="no">03</span>
+      <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M6 21c0-4 3-6 6-6s6 2 6 6"/></svg>
+      <h3>Clases grupales</h3><p>Salón cerrado con sonido: funcional, spinning, boxeo y movilidad.</p></article>
+    <article class="zone"><span class="no">04</span>
+      <svg class="ico" viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-5 6 5v11"/><path d="M10 20v-5h4v5"/></svg>
+      <h3>Recuperación</h3><p>Sauna seca, baño de hielo, pistolas de masaje y camillas de estiramiento.</p></article>
+  </div>
+</div></section>
+
+<section id="horario" style="background:var(--panel);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><div><span class="eyebrow">Calendario</span><h2>Clases de la semana</h2></div>
+  <p style="color:var(--muted);max-width:34ch;margin:0">Incluidas en el plan Full. Reserva desde la app; los cupos se abren 48 h antes.</p></div>
+  <div class="daytabs" id="daytabs"></div>
+  <div class="slots" id="slots"></div>
+</div></section>
+
+<section id="precios"><div class="wrap">
+  <div class="sec-head"><div><span class="eyebrow">Membresías</span><h2>Precios claros.<br>Cero letra chiquita.</h2></div>
+  <div class="toggle" id="toggle"><button class="on" data-m="1">Mensual</button><button data-m="0">Anual −20%</button></div></div>
+  <div class="plans">
+    <div class="plan"><h3>Básica</h3><div class="amt" data-m="29" data-a="23"><sup>$</sup>29</div><div class="per">por mes</div>
+      <ul><li>Acceso 5 am – 10 pm</li><li>Área de fuerza y cardio</li><li>App de rutinas</li><li class="no">Clases grupales</li><li class="no">Sauna y recuperación</li></ul>
+      <a class="btn btn-out" href="#">Escoger básica</a></div>
+    <div class="plan hot"><h3>Full 24/7</h3><div class="amt" data-m="49" data-a="39"><sup>$</sup>49</div><div class="per">por mes</div>
+      <ul><li>Llavero de acceso 24/7</li><li>Todas las clases grupales</li><li>Sauna y baño de hielo</li><li>Evaluación cada 8 semanas</li><li>Invita a un amigo 2× al mes</li></ul>
+      <a class="btn btn-volt" href="#">Escoger full</a></div>
+    <div class="plan"><h3>Coaching</h3><div class="amt" data-m="129" data-a="103"><sup>$</sup>129</div><div class="per">por mes</div>
+      <ul><li>Todo lo del plan Full</li><li>Programa personalizado</li><li>2 sesiones 1‑a‑1 al mes</li><li>Guía de nutrición</li><li>Chequeo semanal por texto</li></ul>
+      <a class="btn btn-out" href="#">Hablar con coach</a></div>
+  </div>
+  <p style="color:var(--muted);font-size:14px;margin-top:22px">Sin cuota de inscripción hasta fin de mes. Cancelas cuando quieras con 15 días de aviso. Estudiantes y veteranos: 15% de descuento con ID.</p>
+</div></section>
+
+<section id="resultados" style="background:var(--panel);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><div><span class="eyebrow">La gente</span><h2>Socios reales</h2></div></div>
+  <div class="res">
+    <div class="r"><p class="q">“Llevaba años pagando un gym al que no iba. Aquí me saludan por mi nombre y eso me tiene entrando cinco días a la semana.”</p><div class="who"><div class="av">LC</div><div>Luis Colón<br><span style="font-size:12.5px">Socio desde 2024 · Trujillo Alto</span></div></div></div>
+    <div class="r"><p class="q">“Entro a las 4:30 am antes del turno en el aeropuerto. Nunca he visto el gym sucio ni una máquina rota.”</p><div class="who"><div class="av">NP</div><div>Nashaly Pérez<br><span style="font-size:12.5px">Socia desde 2023 · Carolina</span></div></div></div>
+    <div class="r"><p class="q">“El coaching me arregló la técnica de sentadilla. En seis meses pasé de 135 a 275 libras sin lesionarme.”</p><div class="who"><div class="av">RM</div><div>Rafa Meléndez<br><span style="font-size:12.5px">Socio desde 2025 · Canóvanas</span></div></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap"><div class="final">
+  <span class="eyebrow">Pase de prueba</span>
+  <h2 style="margin:.2em auto .3em;max-width:14ch">Tres días gratis.<br>Sin tarjeta.</h2>
+  <p style="color:var(--muted);max-width:50ch;margin:0 auto 26px">Ven, entrena, usa la sauna y decide después. Trae ID y ropa limpia de gym.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a class="btn btn-volt" href="#">Activar mi pase</a>
+    <a class="btn btn-out" href="tel:+17875550190">(787) 555‑0190</a>
+  </div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="brand" style="font-size:28px">FORJA<em>787</em></div>
+      <p style="max-width:32ch;margin-top:12px">Ave. 65 de Infantería km 12.4<br>Carolina, PR 00987</p></div>
+    <div><strong>Gym</strong><a href="#zonas">Las zonas</a><br><a href="#horario">Clases</a><br><a href="#precios">Membresías</a></div>
+    <div><strong>Horario</strong>Socios 24/7<br>Oficina: L–V 8 am – 8 pm<br>Sáb 8 am – 4 pm</div>
+    <div><strong>Contacto</strong><a href="tel:+17875550190">(787) 555‑0190</a><br><a href="mailto:info@forja787.com">info@forja787.com</a><br><a href="#">@forja787</a></div>
+  </div>
+  <div class="fnote"><span>© 2026 Forja 787 · Plantilla de demostración</span><span>Términos · Privacidad</span></div>
+</div></footer>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('nav').classList.toggle('open');
+
+const DAYS=['Lun','Mar','Mié','Jue','Vie','Sáb'];
+const SCHED={
+ Lun:[['5:30 am','Fuerza 101','Técnica de barra para empezar bien','Coach Jean','few'],
+      ['9:00 am','Funcional','Circuito de cuerpo completo','Coach Ivelisse','ok'],
+      ['12:00 pm','Express 30','Media hora, intensidad alta','Coach Rafa','ok'],
+      ['6:00 pm','Boxeo fitness','Guantes incluidos','Coach Kelvin','full'],
+      ['7:15 pm','Movilidad','Cadera, hombro y espalda','Coach Ivelisse','ok']],
+ Mar:[['6:00 am','Spinning','45 min con música alta','Coach Nashaly','few'],
+      ['10:00 am','Silver Fit','Bajo impacto, 55+','Coach Doris','ok'],
+      ['5:30 pm','Fuerza total','Sentadilla, banca, peso muerto','Coach Jean','ok'],
+      ['7:00 pm','HIIT en turf','Trineos y sogas','Coach Rafa','few']],
+ Mié:[['5:30 am','Fuerza 101','Técnica de barra para empezar bien','Coach Jean','ok'],
+      ['9:00 am','Funcional','Circuito de cuerpo completo','Coach Ivelisse','ok'],
+      ['6:00 pm','Boxeo fitness','Guantes incluidos','Coach Kelvin','ok'],
+      ['7:15 pm','Core & glúteos','Trabajo localizado','Coach Nashaly','few']],
+ Jue:[['6:00 am','Spinning','45 min con música alta','Coach Nashaly','ok'],
+      ['12:00 pm','Express 30','Media hora, intensidad alta','Coach Rafa','ok'],
+      ['5:30 pm','Levantamiento olímpico','Clean & jerk, snatch','Coach Jean','few'],
+      ['7:00 pm','Yoga para atletas','Recuperación activa','Coach Doris','ok']],
+ Vie:[['5:30 am','Fuerza total','El clásico de viernes','Coach Jean','ok'],
+      ['9:00 am','Funcional','Circuito de cuerpo completo','Coach Ivelisse','ok'],
+      ['5:30 pm','Viernes de reto','WOD en equipo','Coaches','full']],
+ Sáb:[['7:00 am','Bootcamp al aire libre','En la cancha de al lado','Coach Kelvin','ok'],
+      ['8:30 am','Familia Fit','Trae a los nenes, es gratis','Coach Doris','ok'],
+      ['10:00 am','Open gym con coach','Preguntas y ajustes de técnica','Coaches','ok']]
+};
+const CAP={ok:['Cupos libres',''],few:['Últimos cupos','few'],full:['Lleno','full']};
+const tabs=document.getElementById('daytabs'),slots=document.getElementById('slots');
+tabs.innerHTML=DAYS.map((d,i)=>`<button class="daytab${i===0?' on':''}" data-d="${d}">${d}</button>`).join('');
+function paint(d){
+  slots.innerHTML=SCHED[d].map(s=>`<div class="slot"><span class="t">${s[0]}</span>
+    <span class="n">${s[1]}<small>${s[2]}</small></span>
+    <span class="coach">${s[3]}</span>
+    <span class="cap ${CAP[s[4]][1]}">${CAP[s[4]][0]}</span></div>`).join('');
+}
+tabs.onclick=e=>{const b=e.target.closest('.daytab');if(!b)return;
+  [...tabs.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');paint(b.dataset.d)};
+const jsDay=new Date().getDay(), start=(jsDay>=1&&jsDay<=6)?DAYS[jsDay-1]:'Lun';
+[...tabs.children].forEach(x=>x.classList.toggle('on',x.dataset.d===start));
+paint(start);
+
+document.getElementById('toggle').onclick=e=>{
+  const b=e.target.closest('button');if(!b)return;
+  [...e.currentTarget.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  const monthly=b.dataset.m==='1';
+  document.querySelectorAll('.plan .amt').forEach(a=>{
+    a.innerHTML='<sup>$</sup>'+(monthly?a.dataset.m:a.dataset.a);
+  });
+  document.querySelectorAll('.plan .per').forEach(p=>p.textContent=monthly?'por mes':'por mes, pago anual');
+};
+</script>
+</body>
+</html>

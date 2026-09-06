@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudio Perla — Uñas & Beauty Bar, Santurce</title>
+<meta name="description" content="Salón de uñas en Santurce. Acrílicas, gel-X, pedicura spa y diseños personalizados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fdf8f4; --blush:#f6e3e0; --rose:#e2a5a0; --rose-dp:#c67d78;
+  --plum:#4a2f3a; --ink:#2e2028; --muted:#8a7480; --gold:#c9a86c;
+  --serif:'Fraunces',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+  --r:28px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{width:min(1120px,90vw);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0;line-height:1.08;letter-spacing:-.015em;color:var(--plum)}
+h1{font-size:clamp(46px,7.5vw,84px)}
+h2{font-size:clamp(32px,4.6vw,50px)}
+h3{font-size:21px;font-weight:500}
+p{margin:0 0 1em}
+.eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--rose-dp);font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:.03em;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:.25s}
+.btn-solid{background:var(--plum);color:var(--cream)}
+.btn-solid:hover{background:var(--rose-dp)}
+.btn-line{border-color:var(--rose);color:var(--plum)}
+.btn-line:hover{background:var(--blush)}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(253,248,244,.82);backdrop-filter:blur(14px)}
+nav{display:flex;align-items:center;gap:30px;padding:18px 0}
+.brand{font-family:var(--serif);font-size:24px;letter-spacing:.01em;text-decoration:none;color:var(--plum);display:flex;align-items:center;gap:10px}
+.brand i{width:11px;height:22px;border-radius:11px 11px 4px 4px;background:linear-gradient(180deg,var(--rose),var(--gold));display:inline-block}
+.navlinks{margin-left:auto;display:flex;gap:28px;font-size:14.5px}
+.navlinks a{text-decoration:none;color:var(--muted);transition:.2s}
+.navlinks a:hover{color:var(--plum)}
+.burger{display:none;margin-left:auto;border:0;background:none;font-size:24px;color:var(--plum);cursor:pointer}
+
+/* hero */
+.hero{padding:clamp(30px,5vw,60px) 0 clamp(60px,8vw,100px);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:620px;height:620px;right:-190px;top:-230px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,var(--blush),rgba(246,227,224,0) 68%)}
+.hero-in{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.hero h1 em{font-style:italic;color:var(--rose-dp)}
+.hero .lead{color:var(--muted);max-width:40ch;font-size:17.5px;margin-top:18px}
+.hero-cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.hero-badges{display:flex;gap:22px;margin-top:34px;font-size:13px;color:var(--muted)}
+.hero-badges b{display:block;font-family:var(--serif);font-size:24px;color:var(--plum);font-weight:500}
+.arch{aspect-ratio:4/5;border-radius:420px 420px 34px 34px;overflow:hidden;position:relative;
+  background:
+   radial-gradient(80% 60% at 30% 25%,rgba(226,165,160,.7),transparent 65%),
+   radial-gradient(70% 55% at 75% 70%,rgba(201,168,108,.55),transparent 65%),
+   linear-gradient(160deg,#f3ded9,#e9cfc9);
+  box-shadow:0 30px 70px -30px rgba(74,47,58,.35)}
+.arch::after{content:"FOTO · manicura terminada";position:absolute;bottom:22px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.24em;color:rgba(74,47,58,.4)}
+
+section{padding:clamp(56px,8vw,104px) 0}
+.sec-head{text-align:center;max-width:56ch;margin:0 auto 48px}
+.sec-head h2{margin:.18em 0 .3em}
+.sec-head p{color:var(--muted);margin:0}
+
+/* bento servicios */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;border-radius:var(--r);padding:30px;border:1px solid #f0e4e0;transition:.28s}
+.card:hover{transform:translateY(-5px);box-shadow:0 24px 44px -28px rgba(74,47,58,.4)}
+.card .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-dp)}
+.card h3{margin:10px 0 8px}
+.card p{color:var(--muted);font-size:14.5px;margin:0}
+.card .from{margin-top:16px;font-family:var(--serif);font-size:26px;color:var(--plum)}
+.c-wide{grid-column:span 2}
+.c-tint{background:linear-gradient(150deg,var(--blush),#fff)}
+.c-dark{background:var(--plum);color:var(--blush)}
+.c-dark h3,.c-dark .from{color:#fff}
+.c-dark p,.c-dark .tag{color:rgba(246,227,224,.75)}
+
+/* cotizador */
+.builder{background:#fff;border:1px solid #f0e4e0;border-radius:var(--r);padding:clamp(26px,4vw,44px);display:grid;grid-template-columns:1.4fr .9fr;gap:44px}
+.opt-grp{margin-bottom:26px}
+.opt-grp>span{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose-dp);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid #ebdcd8;background:var(--cream);border-radius:999px;padding:10px 18px;font-size:14px;cursor:pointer;transition:.2s;font-family:var(--sans);color:var(--ink)}
+.chip:hover{border-color:var(--rose)}
+.chip.on{background:var(--plum);border-color:var(--plum);color:#fff}
+.chip small{opacity:.65;margin-left:6px}
+.total{background:linear-gradient(160deg,var(--blush),#fff);border-radius:22px;padding:28px;align-self:start;position:sticky;top:96px}
+.total .num{font-family:var(--serif);font-size:56px;color:var(--plum);line-height:1}
+.total ul{list-style:none;padding:0;margin:16px 0;font-size:14px;color:var(--muted)}
+.total li{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dotted #e6d2ce}
+.total .time{font-size:13px;color:var(--muted);margin-bottom:18px}
+
+/* galería masonry */
+.masonry{columns:4;column-gap:14px}
+.masonry div{break-inside:avoid;margin-bottom:14px;border-radius:20px}
+.m1{height:200px;background:linear-gradient(150deg,#f0cfd6,#e6b7ae)}
+.m2{height:280px;background:linear-gradient(150deg,#e9d8c4,#d8bfa0)}
+.m3{height:170px;background:linear-gradient(150deg,#e2d3e6,#c9adc4)}
+.m4{height:240px;background:linear-gradient(150deg,#f4e2d4,#e7c6ad)}
+.m5{height:210px;background:linear-gradient(150deg,#d9e2e0,#b9cbc6)}
+
+/* reseñas */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rev{background:#fff;border-radius:var(--r);padding:28px;border:1px solid #f0e4e0}
+.rev .stars{color:var(--gold);letter-spacing:3px;font-size:14px}
+.rev p{font-family:var(--serif);font-size:18px;color:var(--plum);margin:12px 0 16px;line-height:1.5}
+.rev span{font-size:13px;color:var(--muted)}
+
+/* cta final */
+.final{background:var(--plum);color:var(--blush);border-radius:40px;padding:clamp(40px,6vw,72px);text-align:center;position:relative;overflow:hidden}
+.final h2{color:#fff}
+.final::after{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(226,165,160,.32),transparent 68%);right:-120px;bottom:-180px}
+.final .btn-solid{background:var(--cream);color:var(--plum)}
+.final .btn-line{border-color:rgba(246,227,224,.4);color:var(--blush)}
+
+footer{padding:56px 0 40px;font-size:14px;color:var(--muted)}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--plum)}
+footer strong{color:var(--plum);display:block;margin-bottom:8px;font-weight:500}
+.fnote{margin-top:36px;padding-top:18px;border-top:1px solid #f0e4e0;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media(max-width:960px){
+  .hero-in,.builder{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr}
+  .masonry{columns:2}
+  .revs{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:16px 5vw;border-top:1px solid #f0e4e0}
+  .navlinks.open{display:flex}
+  .burger{display:block}
+  header .btn{display:none}
+  .total{position:static}
+}
+@media(max-width:560px){.bento{grid-template-columns:1fr}.c-wide{grid-column:span 1}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="brand" href="#"><i></i>Estudio Perla</a>
+  <div class="navlinks" id="nav">
+    <a href="#servicios">Servicios</a><a href="#cotiza">Cotiza tu set</a><a href="#galeria">Galería</a><a href="#resenas">Reseñas</a>
+  </div>
+  <a class="btn btn-solid" href="#cita" style="margin-left:24px">Pedir cita</a>
+  <button class="burger" id="burger" aria-label="Menú">☰</button>
+</nav></div></header>
+
+<main>
+<section class="hero"><div class="wrap hero-in">
+  <div>
+    <span class="eyebrow">Santurce · Calle Loíza</span>
+    <h1 style="margin-top:.18em">Manos de<br><em>obra maestra</em></h1>
+    <p class="lead">Acrílicas, Gel‑X y pedicura spa en un estudio tranquilo, con música baja y café frío de la casa. Higiene certificada y productos libres de crueldad.</p>
+    <div class="hero-cta">
+      <a class="btn btn-solid" href="#cita">Reservar cita</a>
+      <a class="btn btn-line" href="#cotiza">Cotizar mi set</a>
+    </div>
+    <div class="hero-badges">
+      <div><b>4.9★</b>Google (512)</div>
+      <div><b>6</b>Técnicas licenciadas</div>
+      <div><b>2h</b>Cita promedio</div>
+    </div>
+  </div>
+  <div class="arch"></div>
+</div></section>
+
+<section id="servicios"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Servicios</span><h2>Todo lo que hacemos</h2>
+  <p>Precios base. El diseño y el largo se cotizan en la silla — sin sorpresas al pagar.</p></div>
+  <div class="bento">
+    <article class="card c-wide c-tint"><span class="tag">Lo más pedido</span><h3>Uñas acrílicas · full set</h3><p>Aplicación completa con la forma y el largo que quieras. Incluye limado, cutícula y color sólido.</p><div class="from">desde $55</div></article>
+    <article class="card"><span class="tag">Ligero</span><h3>Gel‑X</h3><p>Extensión suave, sin líquido monómero.</p><div class="from">$65</div></article>
+    <article class="card"><span class="tag">Mantenimiento</span><h3>Relleno (fill)</h3><p>Cada 2–3 semanas.</p><div class="from">$40</div></article>
+    <article class="card"><span class="tag">Manos</span><h3>Manicura rusa</h3><p>Cutícula al detalle, acabado impecable.</p><div class="from">$45</div></article>
+    <article class="card"><span class="tag">Pies</span><h3>Pedicura spa</h3><p>Sales, exfoliación y masaje 15 min.</p><div class="from">$50</div></article>
+    <article class="card c-dark c-wide"><span class="tag">Ocasión especial</span><h3>Novias & quinceañeros</h3><p>Paquete para la novia y hasta 4 acompañantes, en el estudio o a domicilio en el área metro. Incluye prueba previa.</p><div class="from">desde $220</div></article>
+  </div>
+</div></section>
+
+<section id="cotiza" style="background:linear-gradient(180deg,#fff,var(--cream))"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Cotizador</span><h2>Arma tu set y mira el precio</h2>
+  <p>Escoge la base, el largo y los extras. El estimado se actualiza al instante.</p></div>
+  <div class="builder">
+    <div>
+      <div class="opt-grp"><span>1 · Base</span><div class="chips" data-group="base" data-single="1">
+        <button class="chip on" data-price="55" data-min="90">Acrílicas <small>$55</small></button>
+        <button class="chip" data-price="65" data-min="75">Gel‑X <small>$65</small></button>
+        <button class="chip" data-price="45" data-min="60">Manicura rusa <small>$45</small></button>
+        <button class="chip" data-price="40" data-min="60">Relleno <small>$40</small></button>
+      </div></div>
+      <div class="opt-grp"><span>2 · Largo</span><div class="chips" data-group="largo" data-single="1">
+        <button class="chip on" data-price="0" data-min="0">Corto <small>+$0</small></button>
+        <button class="chip" data-price="8" data-min="10">Mediano <small>+$8</small></button>
+        <button class="chip" data-price="15" data-min="20">Largo <small>+$15</small></button>
+        <button class="chip" data-price="25" data-min="30">XL / Stiletto <small>+$25</small></button>
+      </div></div>
+      <div class="opt-grp"><span>3 · Extras</span><div class="chips" data-group="extras">
+        <button class="chip" data-price="12" data-min="15">French <small>+$12</small></button>
+        <button class="chip" data-price="18" data-min="20">Ojo de gato / cromo <small>+$18</small></button>
+        <button class="chip" data-price="20" data-min="25">Arte a mano <small>+$20</small></button>
+        <button class="chip" data-price="10" data-min="10">Pedrería <small>+$10</small></button>
+        <button class="chip" data-price="15" data-min="15">Pedicura express <small>+$15</small></button>
+      </div></div>
+      <p style="font-size:13.5px;color:var(--muted);margin:0">El estimado es una guía. La técnica confirma el precio final antes de empezar.</p>
+    </div>
+    <aside class="total">
+      <span class="eyebrow">Tu estimado</span>
+      <div class="num" id="num">$55</div>
+      <div class="time" id="time">≈ 1 h 30 min en el estudio</div>
+      <ul id="lines"></ul>
+      <a class="btn btn-solid" style="width:100%;justify-content:center" href="#cita">Reservar con este set</a>
+    </aside>
+  </div>
+</div></section>
+
+<section id="galeria"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Galería</span><h2>Sets recientes</h2><p>Actualizamos cada semana en Instagram <a href="#" style="color:var(--rose-dp)">@estudioperla.pr</a></p></div>
+  <div class="masonry">
+    <div class="m1"></div><div class="m3"></div><div class="m2"></div><div class="m4"></div>
+    <div class="m5"></div><div class="m2"></div><div class="m4"></div><div class="m1"></div>
+    <div class="m3"></div><div class="m5"></div><div class="m1"></div><div class="m2"></div>
+  </div>
+</div></section>
+
+<section id="resenas" style="background:#fff"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Clientas</span><h2>Lo que dicen</h2></div>
+  <div class="revs">
+    <div class="rev"><div class="stars">★★★★★</div><p>“Tres semanas y ni una levantada. Además el sitio huele riquísimo y no te apuran.”</p><span>— Génesis M., Carolina</span></div>
+    <div class="rev"><div class="stars">★★★★★</div><p>“Le enseñé una foto de Pinterest y me la clavaron igualita. Ya soy clienta fija.”</p><span>— Rosa V., Río Piedras</span></div>
+    <div class="rev"><div class="stars">★★★★★</div><p>“Hicieron las uñas de toda mi corte de boda en tres horas. Puntuales y bien dulces.”</p><span>— Yamilette C., Dorado</span></div>
+  </div>
+</div></section>
+
+<section id="cita"><div class="wrap"><div class="final">
+  <span class="eyebrow" style="color:var(--rose)">Reserva</span>
+  <h2 style="margin:.2em auto .35em;max-width:18ch">Tu próxima cita<br>empieza aquí</h2>
+  <p style="max-width:50ch;margin:0 auto 28px;color:rgba(246,227,224,.85)">Depósito de $10 vía ATH Móvil para separar el turno; se descuenta del total. Cancelaciones libres con 24 horas.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1">
+    <a class="btn btn-solid" href="#">Ver disponibilidad</a>
+    <a class="btn btn-line" href="https://wa.me/17875550188" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="brand" style="margin-bottom:10px"><i></i>Estudio Perla</div><p style="max-width:32ch">Beauty bar de uñas en Calle Loíza. Cita previa, siempre.</p></div>
+    <div><strong>Servicios</strong><a href="#servicios">Acrílicas</a><br><a href="#servicios">Gel‑X</a><br><a href="#servicios">Pedicura spa</a><br><a href="#servicios">Novias</a></div>
+    <div><strong>Estudio</strong>Calle Loíza 1863<br>San Juan, PR 00911<br>Mar–Sáb 10 am – 7 pm</div>
+    <div><strong>Contacto</strong><a href="tel:+17875550188">(787) 555‑0188</a><br><a href="mailto:hola@estudioperla.com">hola@estudioperla.com</a><br><a href="#">Instagram</a></div>
+  </div>
+  <div class="fnote"><span>© 2026 Estudio Perla · Plantilla de demostración</span><span>Hecho en Puerto Rico</span></div>
+</div></footer>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('nav').classList.toggle('open');
+
+const chips=[...document.querySelectorAll('.chip')];
+chips.forEach(c=>c.onclick=()=>{
+  const grp=c.parentElement;
+  if(grp.dataset.single){[...grp.children].forEach(x=>x.classList.remove('on'));c.classList.add('on')}
+  else c.classList.toggle('on');
+  calc();
+});
+function calc(){
+  let total=0,mins=0;const lines=[];
+  document.querySelectorAll('.chip.on').forEach(c=>{
+    total+=+c.dataset.price;mins+=+c.dataset.min;
+    lines.push([c.textContent.replace(/\+?\$\d+/,'').trim(),+c.dataset.price]);
+  });
+  document.getElementById('num').textContent='$'+total;
+  const h=Math.floor(mins/60),m=mins%60;
+  document.getElementById('time').textContent='≈ '+(h?h+' h ':'')+(m?m+' min':'')+' en el estudio';
+  document.getElementById('lines').innerHTML=lines.map(l=>`<li><span>${l[0]}</span><span>$${l[1]}</span></li>`).join('');
+}
+calc();
+</script>
+</body>
+</html>

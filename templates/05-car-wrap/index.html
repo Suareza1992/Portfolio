@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VINILO LAB — Wraps, PPF y tintes en Guaynabo</title>
+<meta name="description" content="Taller de vinilos automotrices en Guaynabo: wrap completo, color change, PPF, chrome delete y rotulación comercial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080c; --surface:#0e1017; --surface-2:#141824; --line:#1e2432;
+  --cyan:#22e4ff; --violet:#8b5cff; --pink:#ff4fd8; --text:#e8ecf4; --muted:#7b8499;
+  --sans:'Space Grotesk',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{width:min(1180px,93vw);margin-inline:auto}
+h1,h2,h3{margin:0;font-weight:700;line-height:1.02;letter-spacing:-.035em}
+h1{font-size:clamp(46px,7.6vw,88px)}
+h2{font-size:clamp(32px,4.8vw,54px)}
+h3{font-size:21px;letter-spacing:-.02em}
+p{margin:0 0 1em}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.iri{background:linear-gradient(96deg,var(--cyan),var(--violet) 45%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:10px;font-weight:500;font-size:14.5px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:.22s}
+.btn-grad{background:linear-gradient(96deg,var(--cyan),var(--violet));color:#05070b;font-weight:700}
+.btn-grad:hover{filter:brightness(1.12)}
+.btn-out{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.02)}
+.btn-out:hover{border-color:var(--cyan);color:var(--cyan)}
+
+header{position:sticky;top:0;z-index:70;background:rgba(7,8,12,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:28px;padding:15px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:-.03em;font-size:19px}
+.brand .sq{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--cyan),var(--violet),var(--pink))}
+.navlinks{margin-left:auto;display:flex;gap:26px;font-size:14.5px}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--text)}
+.burger{display:none;margin-left:auto;background:none;border:0;color:var(--text);font-size:24px;cursor:pointer}
+
+/* hero */
+.hero{position:relative;padding:clamp(56px,8vw,110px) 0;overflow:hidden}
+.glow{position:absolute;width:760px;height:520px;left:50%;top:-160px;transform:translateX(-50%);filter:blur(90px);opacity:.4;
+  background:radial-gradient(45% 60% at 30% 50%,var(--violet),transparent 70%),radial-gradient(45% 60% at 70% 50%,var(--cyan),transparent 70%)}
+.hero-in{position:relative;text-align:center}
+.hero h1{margin:.16em auto .28em;max-width:16ch}
+.hero p{color:var(--muted);max-width:56ch;margin:0 auto 30px;font-size:17.5px}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.spec{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:clamp(44px,6vw,76px)}
+.spec div{background:var(--surface);padding:22px 16px;text-align:center}
+.spec b{display:block;font-size:26px;letter-spacing:-.03em}
+.spec span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+section{padding:clamp(58px,8vw,104px) 0}
+.sec-head{margin-bottom:44px;max-width:62ch}
+.sec-head h2{margin:.18em 0 .3em}
+.sec-head p{color:var(--muted);margin:0}
+
+/* comparador */
+.compare{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;user-select:none;cursor:ew-resize;touch-action:none}
+.layer{position:absolute;inset:0;display:grid;place-items:center}
+.after{background:
+  radial-gradient(70% 90% at 30% 20%,rgba(34,228,255,.5),transparent 60%),
+  radial-gradient(70% 90% at 75% 80%,rgba(255,79,216,.45),transparent 60%),
+  linear-gradient(120deg,#151b2b,#0a0d14)}
+.before{background:linear-gradient(120deg,#3a3d42,#1a1c20);clip-path:inset(0 50% 0 0)}
+.layer .tag{position:absolute;top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;background:rgba(7,8,12,.7);border:1px solid var(--line);padding:7px 13px;border-radius:8px}
+.before .tag{left:16px}
+.after .tag{right:16px;color:var(--cyan)}
+.carart{width:74%;opacity:.9}
+.handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--cyan);box-shadow:0 0 22px rgba(34,228,255,.8)}
+.handle::after{content:"⟺";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--cyan);color:#05070b;display:grid;place-items:center;font-size:17px;font-weight:700}
+
+/* servicios */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;position:relative;overflow:hidden;transition:.25s}
+.svc:hover{border-color:#2f3a52;transform:translateY(-4px)}
+.svc::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));opacity:0;transition:.25s}
+.svc:hover::before{opacity:1}
+.svc h3{margin:14px 0 8px}
+.svc p{color:var(--muted);font-size:14.5px;margin:0 0 18px}
+.svc .from{font-family:var(--mono);font-size:13px;color:var(--cyan);letter-spacing:.06em}
+.svc .num{font-family:var(--mono);font-size:11px;color:#4a5468;letter-spacing:.2em}
+
+/* proceso */
+.proc{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:s}
+.pstep{border-top:2px solid var(--line);padding-top:20px;position:relative}
+.pstep::before{counter-increment:s;content:"0" counter(s);font-family:var(--mono);font-size:12px;color:var(--cyan);letter-spacing:.18em}
+.pstep h3{font-size:17px;margin:10px 0 6px}
+.pstep p{color:var(--muted);font-size:14px;margin:0}
+
+/* colores */
+.swatches{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.sw{width:88px}
+.sw i{display:block;height:64px;border-radius:12px;border:1px solid var(--line)}
+.sw span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+
+/* cotizador */
+.quote{display:grid;grid-template-columns:1fr 1fr;gap:44px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(26px,4vw,44px)}
+label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--text);font-family:var(--sans);font-size:15px;margin-bottom:18px}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--cyan)}
+.est{background:linear-gradient(150deg,rgba(139,92,255,.14),rgba(34,228,255,.06));border:1px solid var(--line);border-radius:16px;padding:28px;align-self:start}
+.est .big{font-size:44px;font-weight:700;letter-spacing:-.04em;margin:8px 0}
+.est ul{list-style:none;padding:0;margin:14px 0 0;font-size:14px;color:var(--muted)}
+.est li{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line)}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);padding:20px 0}
+.faq summary{cursor:pointer;font-size:18px;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--cyan);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq p{color:var(--muted);margin:12px 0 0;max-width:70ch}
+
+footer{border-top:1px solid var(--line);padding:48px 0 34px;color:var(--muted);font-size:14px}
+.fgrid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:26px}
+footer strong{display:block;color:var(--text);margin-bottom:9px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--cyan)}
+.fnote{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.1em;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media(max-width:980px){.svcs{grid-template-columns:1fr 1fr}.proc{grid-template-columns:1fr 1fr}.quote{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}.spec{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){
+  .svcs{grid-template-columns:1fr}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);flex-direction:column;padding:16px 5vw;border-bottom:1px solid var(--line)}
+  .navlinks.open{display:flex}.burger{display:block}header .btn{display:none}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="brand" href="#"><span class="sq"></span>VINILO LAB</a>
+  <div class="navlinks" id="nav"><a href="#trabajo">Antes / Después</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#cotizar">Cotizar</a></div>
+  <a class="btn btn-grad" href="#cotizar" style="margin-left:16px">Pedir cotización</a>
+  <button class="burger" id="burger" aria-label="Menú">☰</button>
+</nav></div></header>
+
+<main>
+<section class="hero">
+  <div class="glow"></div>
+  <div class="wrap hero-in">
+    <span class="mono">Guaynabo · Puerto Rico · Instaladores certificados 3M™ &amp; Avery Dennison™</span>
+    <h1>Cambia el color.<br><span class="iri">No la pintura.</span></h1>
+    <p>Wraps de color completo, PPF, chrome delete y rotulación de flotas. Bahía cerrada con clima controlado, corte por plóter y garantía escrita de 5 años en material y mano de obra.</p>
+    <div class="hero-cta">
+      <a class="btn btn-grad" href="#cotizar">Cotizar mi guagua</a>
+      <a class="btn btn-out" href="#trabajo">Ver trabajos</a>
+    </div>
+    <div class="spec">
+      <div><b>640+</b><span>Vehículos envueltos</span></div>
+      <div><b>3–5</b><span>Días por proyecto</span></div>
+      <div><b>5 años</b><span>Garantía escrita</span></div>
+      <div><b>100%</b><span>Reversible</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="trabajo"><div class="wrap">
+  <div class="sec-head"><span class="mono">Comparador</span><h2>Arrastra y mira la diferencia</h2>
+  <p>Toyota 4Runner 2023 — de gris fábrica a satin midnight purple con chrome delete completo. Cuatro días de taller.</p></div>
+  <div class="compare" id="cmp">
+    <div class="layer after"><span class="tag">DESPUÉS · Satin Midnight</span>
+      <svg class="carart" viewBox="0 0 400 140" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2">
+        <path d="M20 100h360M50 100c0-14 11-25 25-25s25 11 25 25M300 100c0-14 11-25 25-25s25 11 25 25"/>
+        <path d="M30 100V72c0-8 6-14 14-14h36l30-28h120l26 28h46c14 0 28 8 28 22v20"/>
+        <path d="M96 58l26-24h96l22 24H96z"/></svg></div>
+    <div class="layer before" id="beforeLayer"><span class="tag">ANTES · Gris fábrica</span>
+      <svg class="carart" viewBox="0 0 400 140" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2">
+        <path d="M20 100h360M50 100c0-14 11-25 25-25s25 11 25 25M300 100c0-14 11-25 25-25s25 11 25 25"/>
+        <path d="M30 100V72c0-8 6-14 14-14h36l30-28h120l26 28h46c14 0 28 8 28 22v20"/>
+        <path d="M96 58l26-24h96l22 24H96z"/></svg></div>
+    <div class="handle" id="handle"></div>
+  </div>
+</div></section>
+
+<section id="servicios" style="background:var(--surface-2);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><span class="mono">Servicios</span><h2>Lo que hacemos en la bahía</h2>
+  <p>Precios de referencia para sedán mediano. Guaguas, pickups y vehículos exóticos se cotizan aparte.</p></div>
+  <div class="svcs">
+    <article class="svc"><span class="num">01</span><h3>Wrap de color completo</h3><p>Cambio total de color en vinilo fundido premium. Satin, mate, brillo, camaleón o textura carbono.</p><span class="from">desde $2,800</span></article>
+    <article class="svc"><span class="num">02</span><h3>Wrap parcial</h3><p>Techo, bonete, estribos o dos tonos. Ideal para refrescar sin envolver todo.</p><span class="from">desde $650</span></article>
+    <article class="svc"><span class="num">03</span><h3>PPF · Paint Protection</h3><p>Película transparente autorreparable contra piedras y salitre. Frente completo o cobertura total.</p><span class="from">desde $1,400</span></article>
+    <article class="svc"><span class="num">04</span><h3>Chrome delete</h3><p>Todo el cromo en negro satinado o brillo: marcos, parrilla, emblemas y manijas.</p><span class="from">desde $480</span></article>
+    <article class="svc"><span class="num">05</span><h3>Tinte de cristales</h3><p>Cerámico con rechazo de calor real, dentro del límite legal de PR. Certificado incluido.</p><span class="from">desde $260</span></article>
+    <article class="svc"><span class="num">06</span><h3>Rotulación comercial</h3><p>Flotas, vans de reparto y food trucks. Diseño, corte e instalación con arte impreso.</p><span class="from">cotización</span></article>
+  </div>
+  <div style="margin-top:44px">
+    <span class="mono">Acabados populares en catálogo</span>
+    <div class="swatches">
+      <div class="sw"><i style="background:linear-gradient(135deg,#2b2f3a,#0d0f14)"></i><span>Satin Black</span></div>
+      <div class="sw"><i style="background:linear-gradient(135deg,#4b2d6b,#1b1030)"></i><span>Midnight Purple</span></div>
+      <div class="sw"><i style="background:linear-gradient(135deg,#e6eaf0,#a8b2c2)"></i><span>Frozen White</span></div>
+      <div class="sw"><i style="background:linear-gradient(135deg,#0f6f5c,#053a30)"></i><span>Forest Green</span></div>
+      <div class="sw"><i style="background:linear-gradient(135deg,#c1272d,#6b0f14)"></i><span>Hot Rod Red</span></div>
+      <div class="sw"><i style="background:linear-gradient(135deg,#22e4ff,#8b5cff,#ff4fd8)"></i><span>Camaleón</span></div>
+      <div class="sw"><i style="background:repeating-linear-gradient(45deg,#1a1d24 0 4px,#0c0e12 4px 8px)"></i><span>Carbono 3D</span></div>
+      <div class="sw"><i style="background:linear-gradient(135deg,#d9b45a,#8a6a1e)"></i><span>Gold Brushed</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="proceso"><div class="wrap">
+  <div class="sec-head"><span class="mono">Proceso</span><h2>Cinco pasos, cero sorpresas</h2></div>
+  <div class="proc">
+    <div class="pstep"><h3>Inspección</h3><p>Fotografiamos cada panel y documentamos golpes o pintura mala antes de tocar nada.</p></div>
+    <div class="pstep"><h3>Preparación</h3><p>Lavado en dos cubos, descontaminación con clay y alcohol isopropílico.</p></div>
+    <div class="pstep"><h3>Desarme</h3><p>Se remueven manijas, emblemas y gomas para que el vinilo entre por debajo.</p></div>
+    <div class="pstep"><h3>Instalación</h3><p>Paneles a mano, calor controlado y postcalentamiento en cada borde.</p></div>
+    <div class="pstep"><h3>Entrega</h3><p>Revisión contigo panel por panel, kit de cuidado y garantía firmada.</p></div>
+  </div>
+</div></section>
+
+<section id="cotizar" style="background:var(--surface-2);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><span class="mono">Cotizador</span><h2>Estimado en 30 segundos</h2>
+  <p>Te da un rango realista. La cotización firme sale después de ver el vehículo — 15 minutos en el taller.</p></div>
+  <div class="quote">
+    <form id="qform" onsubmit="event.preventDefault();alert('Demo: aquí se enviaría la cotización.')">
+      <label for="tipo">Tipo de vehículo</label>
+      <select id="tipo"><option value="1">Sedán / compacto</option><option value="1.18">SUV mediana</option><option value="1.35">SUV grande / Van</option><option value="1.28">Pickup cabina doble</option><option value="1.5">Exótico / deportivo</option></select>
+      <label for="serv">Servicio</label>
+      <select id="serv"><option value="2800">Wrap de color completo</option><option value="650">Wrap parcial</option><option value="1400">PPF frente</option><option value="480">Chrome delete</option><option value="260">Tinte cerámico</option></select>
+      <label for="acab">Acabado</label>
+      <select id="acab"><option value="1">Brillo estándar</option><option value="1.1">Satin / Mate</option><option value="1.3">Camaleón / Textura</option></select>
+      <label for="nom">Nombre</label><input id="nom" placeholder="Tu nombre">
+      <label for="tel">Teléfono / WhatsApp</label><input id="tel" placeholder="(787) 000‑0000">
+      <button class="btn btn-grad" style="width:100%;justify-content:center">Enviar solicitud</button>
+    </form>
+    <aside class="est">
+      <span class="mono">Rango estimado</span>
+      <div class="big iri" id="range">$2,800 – $3,200</div>
+      <p style="color:var(--muted);font-size:14px;margin:0">Incluye material, mano de obra, desarme y garantía de 5 años.</p>
+      <ul id="breakdown"></ul>
+      <p style="font-size:13px;color:var(--muted);margin:18px 0 0">Financiamiento disponible en 4 pagos sin interés. Aceptamos ATH Móvil y tarjeta.</p>
+    </aside>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head"><span class="mono">Preguntas</span><h2>Lo que todo el mundo pregunta</h2></div>
+  <div class="faq">
+    <details open><summary>¿El vinilo daña la pintura?</summary><p>No, si la pintura está sana y de fábrica. El vinilo la protege del sol y del salitre. En pintura repintada o con clear coat levantado siempre avisamos antes — ahí sí puede haber riesgo al remover.</p></details>
+    <details><summary>¿Cuánto dura un wrap en el clima de Puerto Rico?</summary><p>Entre 5 y 7 años con cuidado normal. El sol y la brisa salada son duros, así que recomendamos lavado a mano cada dos semanas y estacionar bajo techo cuando puedas.</p></details>
+    <details><summary>¿Tengo que reportarlo al DTOP?</summary><p>Sí. Un cambio de color se notifica al DTOP para actualizar la licencia del vehículo. Te entregamos la factura con el color y el material para que hagas el trámite sin problema.</p></details>
+    <details><summary>¿Cuánto se queda el carro en el taller?</summary><p>Wrap completo: 3 a 5 días. Parciales, chrome delete y tinte: mismo día o al día siguiente. Trabajamos con cita para que nadie espere.</p></details>
+    <details><summary>¿Se puede lavar en car wash automático?</summary><p>Mejor que no. Los cepillos levantan los bordes. Lavado a mano o de presión a 24 pulgadas de distancia y en ángulo.</p></details>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><a class="brand" href="#"><span class="sq"></span>VINILO LAB</a>
+      <p style="max-width:34ch;margin-top:12px">Carr. 20 km 3.1, Guaynabo, PR 00966<br>L–V 8 am – 5 pm · Sáb con cita</p></div>
+    <div><strong>Servicios</strong><a href="#servicios">Color change</a><br><a href="#servicios">PPF</a><br><a href="#servicios">Chrome delete</a><br><a href="#servicios">Flotas</a></div>
+    <div><strong>Taller</strong><a href="#trabajo">Antes / Después</a><br><a href="#proceso">Proceso</a><br><a href="#cotizar">Cotizar</a></div>
+    <div><strong>Contacto</strong><a href="tel:+17875550166">(787) 555‑0166</a><br><a href="mailto:taller@vinilolab.pr">taller@vinilolab.pr</a><br><a href="#">@vinilolab.pr</a></div>
+  </div>
+  <div class="fnote"><span>© 2026 Vinilo Lab · Plantilla de demostración</span><span>Hecho en PR</span></div>
+</div></footer>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('nav').classList.toggle('open');
+
+// comparador antes/después
+const cmp=document.getElementById('cmp'),bl=document.getElementById('beforeLayer'),hd=document.getElementById('handle');
+let drag=false;
+function setPos(clientX){
+  const r=cmp.getBoundingClientRect();
+  let p=(clientX-r.left)/r.width;p=Math.max(.03,Math.min(.97,p));
+  bl.style.clipPath=`inset(0 ${(1-p)*100}% 0 0)`;hd.style.left=(p*100)+'%';
+}
+cmp.addEventListener('pointerdown',e=>{drag=true;cmp.setPointerCapture(e.pointerId);setPos(e.clientX)});
+cmp.addEventListener('pointermove',e=>{if(drag)setPos(e.clientX)});
+cmp.addEventListener('pointerup',()=>drag=false);
+cmp.addEventListener('pointercancel',()=>drag=false);
+
+// cotizador
+const f=['tipo','serv','acab'].map(id=>document.getElementById(id));
+const NAMES={2800:'Wrap completo',650:'Wrap parcial',1400:'PPF frente',480:'Chrome delete',260:'Tinte cerámico'};
+function money(n){return '$'+n.toLocaleString('en-US',{maximumFractionDigits:0})}
+function est(){
+  const base=+f[1].value, mult=+f[0].value*+f[2].value;
+  const low=Math.round(base*mult/50)*50, high=Math.round(low*1.14/50)*50;
+  document.getElementById('range').textContent=money(low)+' – '+money(high);
+  document.getElementById('breakdown').innerHTML=`
+    <li><span>${NAMES[base]}</span><span>${money(base)}</span></li>
+    <li><span>Ajuste por vehículo</span><span>×${(+f[0].value).toFixed(2)}</span></li>
+    <li><span>Ajuste por acabado</span><span>×${(+f[2].value).toFixed(2)}</span></li>`;
+}
+f.forEach(el=>el.onchange=est);est();
+</script>
+</body>
+</html>

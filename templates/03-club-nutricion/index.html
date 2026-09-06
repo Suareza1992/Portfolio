@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Club Vida 787 — Club de Nutrición en Caguas</title>
+<meta name="description" content="Club de nutrición en Caguas: batidas, té energizante, evaluación de bienestar y retos de 21 días.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lime:#7ed321; --lime-dk:#5aa614; --tang:#ff7a1a; --berry:#e8347b;
+  --sky:#2ec5d3; --ink:#17261a; --muted:#68786c; --bg:#f6fbf2; --card:#fff;
+  --f:'Nunito',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);font-size:16.5px;line-height:1.65}
+a{color:inherit}
+.wrap{width:min(1160px,92vw);margin-inline:auto}
+h1,h2,h3{margin:0;line-height:1.05;font-weight:900;letter-spacing:-.03em}
+h1{font-size:clamp(44px,7.4vw,80px)}
+h2{font-size:clamp(32px,4.8vw,52px)}
+h3{font-size:20px;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.eyebrow{display:inline-block;background:#e9f7d9;color:var(--lime-dk);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:999px;font-weight:800;font-size:15px;text-decoration:none;border:3px solid transparent;cursor:pointer;transition:.2s}
+.btn-lime{background:var(--lime);color:#123;box-shadow:0 8px 0 var(--lime-dk)}
+.btn-lime:active{transform:translateY(4px);box-shadow:0 4px 0 var(--lime-dk)}
+.btn-out{border-color:var(--ink);color:var(--ink)}
+.btn-out:hover{background:var(--ink);color:#fff}
+
+header{position:sticky;top:0;z-index:60;background:rgba(246,251,242,.9);backdrop-filter:blur(10px);border-bottom:3px solid #e6f0dd}
+nav{display:flex;align-items:center;gap:26px;padding:14px 0}
+.brand{font-weight:900;font-size:21px;text-decoration:none;display:flex;align-items:center;gap:9px;letter-spacing:-.02em}
+.leaf{width:30px;height:30px;border-radius:50% 8px;background:linear-gradient(135deg,var(--lime),var(--sky))}
+.navlinks{margin-left:auto;display:flex;gap:24px;font-weight:600;font-size:15px}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--lime-dk)}
+.burger{display:none;margin-left:auto;border:0;background:none;font-size:24px;cursor:pointer}
+
+/* hero */
+.hero{padding:clamp(36px,6vw,74px) 0;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.5}
+.b1{width:340px;height:340px;background:#dff3c2;top:-90px;right:-60px}
+.b2{width:220px;height:220px;background:#ffe0c9;bottom:-70px;left:-70px}
+.hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.hero h1 span{color:var(--tang)}
+.hero .lead{font-size:18.5px;color:var(--muted);max-width:42ch;margin-top:16px}
+.hero-cta{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.trust{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap;font-size:13.5px;font-weight:700;color:var(--muted)}
+.trust span{background:#fff;border:2px solid #e6f0dd;padding:7px 14px;border-radius:999px}
+.cupwrap{display:grid;place-items:center;position:relative}
+.cup{width:min(320px,80%);aspect-ratio:3/4;border-radius:36px 36px 60px 60px;position:relative;
+  background:linear-gradient(170deg,#fff,#f0f7e8);border:4px solid var(--ink);box-shadow:14px 16px 0 rgba(23,38,26,.12)}
+.cup .fill{position:absolute;inset:34% 8% 6%;border-radius:20px 20px 46px 46px;background:linear-gradient(180deg,var(--berry),var(--tang))}
+.cup .lid{position:absolute;left:-6%;right:-6%;top:-4%;height:16%;border-radius:20px;background:var(--lime);border:4px solid var(--ink)}
+.cup .straw{position:absolute;width:14px;height:120px;background:var(--sky);border:4px solid var(--ink);border-radius:8px;left:58%;top:-24%;transform:rotate(12deg)}
+.cup .lbl{position:absolute;left:0;right:0;top:16%;text-align:center;font-weight:900;font-size:13px;letter-spacing:.16em;color:var(--muted)}
+.floatp{position:absolute;background:#fff;border:3px solid var(--ink);border-radius:18px;padding:10px 15px;font-weight:800;font-size:13px;box-shadow:6px 6px 0 rgba(23,38,26,.1)}
+.fp1{top:6%;left:-2%}
+.fp2{bottom:12%;right:-2%;background:var(--tang);color:#fff;border-color:var(--tang)}
+
+/* marquee */
+.marq{background:var(--ink);color:#eafbe0;padding:14px 0;overflow:hidden;white-space:nowrap;font-weight:800;letter-spacing:.06em}
+.marq div{display:inline-block;animation:slide 26s linear infinite}
+.marq b{color:var(--lime);margin:0 26px}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+section{padding:clamp(56px,8vw,100px) 0}
+.sec-head{text-align:center;max-width:58ch;margin:0 auto 44px}
+.sec-head h2{margin:.2em 0 .3em}
+.sec-head p{color:var(--muted);margin:0}
+
+/* menu tabs */
+.tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.tab{border:3px solid #e6f0dd;background:#fff;border-radius:999px;padding:11px 22px;font-weight:800;font-size:15px;cursor:pointer;font-family:var(--f);transition:.2s}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.item{background:var(--card);border:3px solid #e6f0dd;border-radius:26px;padding:24px;transition:.25s}
+.item:hover{border-color:var(--lime);transform:translateY(-4px)}
+.item .swatch{height:76px;border-radius:18px;margin-bottom:16px}
+.item h3{margin-bottom:4px}
+.item p{color:var(--muted);font-size:14.5px;margin:0 0 14px}
+.item .row{display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.item .kcal{font-size:12.5px;color:var(--muted);background:#f2f8ec;padding:5px 11px;border-radius:999px}
+.price{color:var(--lime-dk);font-size:20px}
+
+/* horario */
+.sched{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.days{background:#fff;border:3px solid var(--ink);border-radius:28px;overflow:hidden}
+.days .row{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;padding:15px 22px;border-bottom:2px solid #eef5e8;font-weight:700}
+.days .row:last-child{border:0}
+.days .row.hi{background:#f4fbea}
+.days .row span:last-child{color:var(--muted);font-weight:600}
+.hl{background:linear-gradient(180deg,transparent 62%,#ffe08a 62%)}
+
+/* reto */
+.reto{background:var(--ink);color:#eafbe0;border-radius:36px;padding:clamp(32px,5vw,60px);display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;position:relative;overflow:hidden}
+.reto h2{color:#fff}
+.steps{display:grid;gap:14px}
+.step{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.06);border-radius:18px;padding:16px 18px}
+.step b{background:var(--lime);color:#123;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:14px}
+.step p{margin:0;font-size:15px;color:rgba(234,251,224,.8)}
+.step strong{display:block;color:#fff;font-size:16px}
+
+/* testimonios */
+.tst{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.t{background:#fff;border:3px solid #e6f0dd;border-radius:26px;padding:26px}
+.t .who{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.t .av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--lime));display:grid;place-items:center;font-weight:900;color:#fff}
+.t .who b{display:block;font-size:15px}
+.t .who span{font-size:13px;color:var(--muted)}
+.t p{margin:0;font-size:15px}
+.badge{display:inline-block;background:#fff3e5;color:var(--tang);font-weight:800;font-size:12.5px;padding:5px 12px;border-radius:999px;margin-top:14px}
+
+/* cta */
+.cta{background:linear-gradient(135deg,var(--lime),var(--sky));border-radius:36px;padding:clamp(34px,5vw,64px);text-align:center;color:#0f2312}
+.cta .btn-lime{background:#fff;box-shadow:0 8px 0 rgba(0,0,0,.18)}
+
+footer{padding:50px 0 36px;color:var(--muted);font-size:14.5px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:30px}
+footer strong{display:block;color:var(--ink);margin-bottom:8px}
+footer a{text-decoration:none}
+.fnote{margin-top:34px;padding-top:18px;border-top:2px solid #e6f0dd;font-size:12.5px;line-height:1.6}
+
+@media(max-width:960px){
+  .hero-in,.sched,.reto{grid-template-columns:1fr}
+  .menu,.tst{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px 5vw}
+  .navlinks.open{display:flex}
+  .burger{display:block}
+  header .btn{display:none}
+}
+@media(max-width:600px){.menu,.tst{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="brand" href="#"><span class="leaf"></span>Club Vida 787</a>
+  <div class="navlinks" id="nav"><a href="#menu">Menú</a><a href="#horario">Horario</a><a href="#reto">Reto 21 días</a><a href="#historias">Historias</a></div>
+  <a class="btn btn-lime" href="#visita" style="margin-left:20px">Primera visita gratis</a>
+  <button class="burger" id="burger" aria-label="Menú">☰</button>
+</nav></div></header>
+
+<main>
+<section class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow">Caguas · Pueblo</span>
+      <h1 style="margin-top:16px">Desayuna rico,<br><span>siéntete brutal.</span></h1>
+      <p class="lead">Batida + té energizante + aloe por $10. Te tomas 20 minutos, te medimos el progreso y sigues con tu día. Sin membresía, sin contrato.</p>
+      <div class="hero-cta">
+        <a class="btn btn-lime" href="#visita">Reserva tu evaluación</a>
+        <a class="btn btn-out" href="#menu">Ver el menú</a>
+      </div>
+      <div class="trust"><span>☕ Abrimos 6:00 am</span><span>💚 +900 socios</span><span>📍 Frente a la plaza</span></div>
+    </div>
+    <div class="cupwrap">
+      <div class="floatp fp1">−12 lbs en 8 semanas</div>
+      <div class="cup"><div class="lid"></div><div class="straw"></div><div class="lbl">CLUB VIDA 787</div><div class="fill"></div></div>
+      <div class="floatp fp2">24 g proteína</div>
+    </div>
+  </div>
+</section>
+
+<div class="marq"><div>
+  <b>BATIDAS</b>·<b>TÉ QUEMA GRASA</b>·<b>ALOE</b>·<b>PROTEÍNA</b>·<b>RETO 21 DÍAS</b>·<b>MEDICIÓN GRATIS</b>·
+  <b>BATIDAS</b>·<b>TÉ QUEMA GRASA</b>·<b>ALOE</b>·<b>PROTEÍNA</b>·<b>RETO 21 DÍAS</b>·<b>MEDICIÓN GRATIS</b>·
+</div></div>
+
+<section id="menu"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">El menú</span><h2>Sabores que <span class="hl">sí</span> saben bien</h2>
+  <p>Todo se prepara al momento. Combo del día: batida + té + aloe por $10.</p></div>
+  <div class="tabs">
+    <button class="tab on" data-t="batidas">Batidas</button>
+    <button class="tab" data-t="tes">Tés & Aloe</button>
+    <button class="tab" data-t="pro">Extra proteína</button>
+  </div>
+  <div class="menu" id="menuGrid"></div>
+</div></section>
+
+<section id="horario" style="background:#fff"><div class="wrap sched">
+  <div class="days">
+    <div class="row hi"><span>Lunes – Viernes</span><span>6:00 am – 11:00 am · 4:00 pm – 7:00 pm</span></div>
+    <div class="row"><span>Sábado</span><span>7:00 am – 12:00 pm</span></div>
+    <div class="row"><span>Domingo</span><span>Cerrado (descansamos también)</span></div>
+    <div class="row hi"><span>Clase de zumba</span><span>Mar y Jue · 6:30 pm · $5</span></div>
+    <div class="row"><span>Caminata del club</span><span>Sábados 7:30 am · gratis</span></div>
+  </div>
+  <div>
+    <span class="eyebrow">Horario</span>
+    <h2 style="margin:.2em 0 .3em">Pasa cuando<br>te sirva</h2>
+    <p style="color:var(--muted)">Estamos frente a la Plaza Palmer, al lado del estacionamiento municipal. Puedes ordenar por WhatsApp y recogerlo listo — muchos socios lo hacen de camino al trabajo.</p>
+    <a class="btn btn-out" href="https://wa.me/17875550117" target="_blank" rel="noopener">Ordenar por WhatsApp</a>
+  </div>
+</div></section>
+
+<section id="reto"><div class="wrap"><div class="reto">
+  <div>
+    <span class="eyebrow" style="background:rgba(126,211,33,.18);color:var(--lime)">Programa estrella</span>
+    <h2 style="margin:.2em 0 .35em">Reto de 21 días</h2>
+    <p style="color:rgba(234,251,224,.78);max-width:44ch">Tres semanas de acompañamiento real: desayuno en el club, grupo de apoyo por WhatsApp, medición semanal y un plan de comidas hecho con lo que se consigue en el colmado de tu barrio.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px">
+      <a class="btn btn-lime" href="#visita">Apúntate al próximo grupo</a>
+    </div>
+    <p style="font-size:13.5px;color:rgba(234,251,224,.6);margin-top:18px">Próximo grupo: lunes 15 · quedan 6 espacios</p>
+  </div>
+  <div class="steps">
+    <div class="step"><b>1</b><div><strong>Evaluación de bienestar</strong><p>Peso, grasa corporal, masa muscular y metas. Gratis, 20 minutos.</p></div></div>
+    <div class="step"><b>2</b><div><strong>Tu plan diario</strong><p>Desayuno y merienda del club + guía de almuerzo y cena criolla.</p></div></div>
+    <div class="step"><b>3</b><div><strong>Chequeo semanal</strong><p>Volvemos a medir y ajustamos. Se celebra cada libra.</p></div></div>
+    <div class="step"><b>4</b><div><strong>La comunidad</strong><p>Caminata sabatina, zumba y un grupo que te escribe si faltas.</p></div></div>
+  </div>
+</div></div></section>
+
+<section id="historias"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Historias</span><h2>Gente de aquí, resultados de verdad</h2></div>
+  <div class="tst">
+    <div class="t"><div class="who"><div class="av">MR</div><div><b>Marisol Rivera</b><span>Caguas · 6 meses</span></div></div><p>“Entré por la batida y me quedé por la gente. Bajé 28 libras sin pasar hambre y ya subo las escaleras del trabajo sin ahogarme.”</p><div class="badge">−28 lbs</div></div>
+    <div class="t"><div class="who"><div class="av">JT</div><div><b>Juan Torres</b><span>Gurabo · 4 meses</span></div></div><p>“Yo no desayunaba nunca. Ahora paso a las 6:30 antes del turno y llego con energía. La presión me bajó y el doctor está contento.”</p><div class="badge">−15 lbs</div></div>
+    <div class="t"><div class="who"><div class="av">AS</div><div><b>Ada Santiago</b><span>Aguas Buenas · 1 año</span></div></div><p>“Después del embarazo no me hallaba. El reto de 21 días me devolvió la rutina y la confianza. Hoy soy yo la que arrastra a las amigas.”</p><div class="badge">−34 lbs</div></div>
+  </div>
+</div></section>
+
+<section id="visita"><div class="wrap"><div class="cta">
+  <h2 style="margin-bottom:.3em">Tu primera evaluación es gratis</h2>
+  <p style="max-width:52ch;margin:0 auto 26px;font-weight:600">Ven, te medimos y te preparamos tu primera batida. Si te gusta, sigues; si no, te llevas la información igual.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a class="btn btn-lime" href="https://wa.me/17875550117" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+    <a class="btn btn-out" href="tel:+17875550117">(787) 555‑0117</a>
+  </div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="brand" style="margin-bottom:10px"><span class="leaf"></span>Club Vida 787</div><p style="max-width:34ch">Club de nutrición y comunidad de bienestar en Caguas, Puerto Rico.</p></div>
+    <div><strong>Club</strong><a href="#menu">Menú</a><br><a href="#horario">Horario</a><br><a href="#reto">Reto 21 días</a><br><a href="#historias">Historias</a></div>
+    <div><strong>Contacto</strong>Calle Betances 45, Caguas, PR 00725<br><a href="tel:+17875550117">(787) 555‑0117</a><br><a href="mailto:hola@clubvida787.com">hola@clubvida787.com</a></div>
+  </div>
+  <div class="fnote">© 2026 Club Vida 787 · Plantilla de demostración.<br>
+  Los resultados varían de persona a persona. Esta información no sustituye consejo médico; consulta a tu profesional de la salud antes de comenzar cualquier programa. Operado por distribuidores independientes.</div>
+</div></footer>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('nav').classList.toggle('open');
+
+const DATA={
+ batidas:[
+  {n:'Fresa Colada',d:'Fresa, coco y un toque de vainilla.',p:7,k:'220 kcal · 24 g prot',c:'linear-gradient(135deg,#ff9ab5,#e8347b)'},
+  {n:'Café con Leche',d:'Café local, canela y proteína.',p:7,k:'210 kcal · 24 g prot',c:'linear-gradient(135deg,#d3a06a,#7b4b23)'},
+  {n:'Mangó Tropical',d:'Mangó maduro, piña y naranja.',p:7,k:'230 kcal · 22 g prot',c:'linear-gradient(135deg,#ffce4d,#ff7a1a)'},
+  {n:'Choco Brownie',d:'Cacao, avena y mantequilla de maní.',p:8,k:'250 kcal · 26 g prot',c:'linear-gradient(135deg,#8b5e3c,#3d2419)'},
+  {n:'Piña Colada Verde',d:'Piña, espinaca y limón. Sabe a postre.',p:8,k:'200 kcal · 22 g prot',c:'linear-gradient(135deg,#c6f08a,#5aa614)'},
+  {n:'Guineo con Nutella',d:'El favorito de los nenes.',p:8,k:'260 kcal · 24 g prot',c:'linear-gradient(135deg,#ffe08a,#a06a2c)'}],
+ tes:[
+  {n:'Té energizante clásico',d:'Té verde y limón. El empujón de la mañana.',p:4,k:'20 kcal',c:'linear-gradient(135deg,#ffd27a,#ff7a1a)'},
+  {n:'Té frambuesa',d:'Frío, con hielo picado.',p:4,k:'20 kcal',c:'linear-gradient(135deg,#ff8fa8,#c9184a)'},
+  {n:'Aloe de mangó',d:'Para el estómago y la digestión.',p:3,k:'10 kcal',c:'linear-gradient(135deg,#d9f2a8,#7ed321)'},
+  {n:'Té de parcha',d:'Bien de aquí, bien refrescante.',p:4,k:'20 kcal',c:'linear-gradient(135deg,#ffe066,#f7a900)'},
+  {n:'Combo té + aloe',d:'La dupla que casi todo el mundo pide.',p:6,k:'30 kcal',c:'linear-gradient(135deg,#b7e37a,#2ec5d3)'},
+  {n:'Limonada de albahaca',d:'Sin azúcar añadida.',p:4,k:'15 kcal',c:'linear-gradient(135deg,#e6f7a8,#7ed321)'}],
+ pro:[
+  {n:'Café proteico frío',d:'Cold brew con 20 g de proteína.',p:6,k:'150 kcal · 20 g prot',c:'linear-gradient(135deg,#b98b5e,#4b2e18)'},
+  {n:'Bowl de avena',d:'Avena, guineo y canela.',p:7,k:'320 kcal · 18 g prot',c:'linear-gradient(135deg,#f0e0b8,#c9a86c)'},
+  {n:'Barra casera',d:'Para llevar en la cartera.',p:3,k:'180 kcal · 12 g prot',c:'linear-gradient(135deg,#d9b892,#7a5230)'},
+  {n:'Shot de fibra',d:'Antes del almuerzo.',p:3,k:'25 kcal',c:'linear-gradient(135deg,#c9e88a,#5aa614)'},
+  {n:'Batida XL (30 g)',d:'Para después del gym.',p:10,k:'320 kcal · 30 g prot',c:'linear-gradient(135deg,#9ad9ff,#2ec5d3)'},
+  {n:'Combo del día',d:'Batida + té + aloe. El deal de la casa.',p:10,k:'250 kcal · 24 g prot',c:'linear-gradient(135deg,#7ed321,#ff7a1a)'}]
+};
+function render(t){
+  document.getElementById('menuGrid').innerHTML=DATA[t].map(i=>`
+   <article class="item"><div class="swatch" style="background:${i.c}"></div>
+   <h3>${i.n}</h3><p>${i.d}</p>
+   <div class="row"><span class="kcal">${i.k}</span><span class="price">$${i.p}</span></div></article>`).join('');
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');render(b.dataset.t);
+});
+render('batidas');
+</script>
+</body>
+</html>

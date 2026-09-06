@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAREA Activewear — Ropa deportiva para mujer, hecha en PR</title>
+<meta name="description" content="Leggings, tops y sets de entrenamiento diseñados en Puerto Rico. Tallas XS–3X. Envío gratis a toda la isla.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#f7f3ee; --sand-2:#efe7de; --clay:#c8734f; --clay-dk:#a55833;
+  --olive:#5f6b4f; --ink:#2b2724; --muted:#8b8179; --white:#fff;
+  --serif:'DM Serif Display',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+a{color:inherit}
+.wrap{width:min(1240px,93vw);margin-inline:auto}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-.015em}
+h1{font-size:clamp(44px,7vw,80px)}
+h2{font-size:clamp(30px,4.4vw,46px)}
+h3{font-size:19px;font-family:var(--sans);font-weight:600;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.kicker{font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--clay)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:2px;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:.22s;font-family:var(--sans)}
+.btn-ink{background:var(--ink);color:var(--sand)}
+.btn-ink:hover{background:var(--clay)}
+.btn-out{border-color:var(--ink);color:var(--ink)}
+.btn-out:hover{background:var(--ink);color:var(--sand)}
+
+.announce{background:var(--olive);color:#f2f0e6;text-align:center;font-size:12.5px;letter-spacing:.1em;padding:9px 12px}
+header{position:sticky;top:0;z-index:80;background:rgba(247,243,238,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-2)}
+nav{display:flex;align-items:center;gap:26px;padding:16px 0}
+.brand{font-family:var(--serif);font-size:26px;letter-spacing:.02em;text-decoration:none}
+.navlinks{display:flex;gap:26px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-left:36px}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--ink)}
+.navtools{margin-left:auto;display:flex;align-items:center;gap:18px}
+.icobtn{background:none;border:0;cursor:pointer;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);position:relative;font-family:var(--sans);font-weight:600}
+.badge{position:absolute;top:-9px;right:-14px;background:var(--clay);color:#fff;font-size:10px;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;letter-spacing:0}
+.burger{display:none;background:none;border:0;font-size:23px;cursor:pointer}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:min(78vh,660px)}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,80px) clamp(24px,5vw,72px)}
+.hero-copy h1{margin:.16em 0 .3em}
+.hero-copy h1 em{font-style:italic;color:var(--clay)}
+.hero-copy p{color:var(--muted);max-width:40ch}
+.hero-cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.hero-img{position:relative;background:
+  radial-gradient(70% 60% at 40% 25%,rgba(200,115,79,.55),transparent 62%),
+  radial-gradient(60% 60% at 80% 80%,rgba(95,107,79,.5),transparent 62%),
+  linear-gradient(160deg,#e6d8c9,#cbb8a4)}
+.hero-img::after{content:"FOTO · campaña principal";position:absolute;bottom:20px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.24em;color:rgba(43,39,36,.4)}
+.hero-img .stamp{position:absolute;top:24px;right:24px;background:var(--sand);border-radius:50%;width:104px;height:104px;display:grid;place-items:center;text-align:center;font-size:11px;font-weight:700;letter-spacing:.08em;line-height:1.3;text-transform:uppercase}
+
+section{padding:clamp(52px,7vw,92px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.sec-head h2{margin:.14em 0 0}
+
+/* categorías */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cat{position:relative;aspect-ratio:3/4;border-radius:3px;overflow:hidden;display:flex;align-items:flex-end;padding:20px;text-decoration:none;color:#fff;transition:.3s}
+.cat:hover{transform:translateY(-5px)}
+.cat span{position:relative;z-index:1;font-weight:600;font-size:15px;letter-spacing:.1em;text-transform:uppercase}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))}
+.k1{background:linear-gradient(150deg,#d59a78,#9c5a37)}
+.k2{background:linear-gradient(150deg,#8f9a7c,#4c5741)}
+.k3{background:linear-gradient(150deg,#c9b7a6,#8b7461)}
+.k4{background:linear-gradient(150deg,#b98f96,#7b535c)}
+
+/* filtros + grid */
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:26px}
+.f{border:1px solid #ddd2c6;background:transparent;border-radius:999px;padding:9px 18px;font-size:13px;cursor:pointer;font-family:var(--sans);color:var(--ink);transition:.2s}
+.f:hover{border-color:var(--ink)}
+.f.on{background:var(--ink);color:var(--sand);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.p{position:relative}
+.p .shot{aspect-ratio:3/4;border-radius:3px;position:relative;overflow:hidden;transition:.3s;margin-bottom:14px}
+.p:hover .shot{transform:translateY(-4px)}
+.p .flag{position:absolute;top:12px;left:12px;background:var(--sand);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px}
+.p .quick{position:absolute;left:12px;right:12px;bottom:12px;background:var(--sand);color:var(--ink);border:0;padding:12px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;opacity:0;transform:translateY(8px);transition:.25s;font-family:var(--sans)}
+.p:hover .quick{opacity:1;transform:none}
+.p h3{margin:0 0 2px;font-size:16px}
+.p .price{font-size:15px;color:var(--ink)}
+.p .price s{color:var(--muted);margin-right:8px;font-weight:300}
+.p .dots{display:flex;gap:6px;margin-top:9px}
+.p .dots i{width:15px;height:15px;border-radius:50%;border:1px solid rgba(0,0,0,.14);cursor:pointer;transition:.2s}
+.p .dots i.on{box-shadow:0 0 0 2px var(--sand),0 0 0 3px var(--ink)}
+
+/* franja valores */
+.values{background:var(--sand-2)}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;text-align:center}
+.v svg{width:30px;height:30px;stroke:var(--clay);fill:none;stroke-width:1.5;margin-bottom:10px}
+.v h3{font-size:15px;margin-bottom:4px}
+.v p{color:var(--muted);font-size:14px;margin:0}
+
+/* tallas */
+.sizes{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.sizetable{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--white)}
+.sizetable th,.sizetable td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--sand-2)}
+.sizetable th{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+/* ig */
+.iggrid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.iggrid div{aspect-ratio:1;border-radius:2px}
+
+/* cart drawer */
+.overlay{position:fixed;inset:0;background:rgba(43,39,36,.45);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.overlay.on{opacity:1;pointer-events:auto}
+.cart{position:fixed;top:0;right:0;bottom:0;width:min(420px,92vw);background:var(--sand);z-index:100;transform:translateX(100%);transition:.34s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.cart.on{transform:none}
+.cart header{position:static;background:none;border-bottom:1px solid var(--sand-2);padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
+.cart h3{font-family:var(--serif);font-weight:400;font-size:24px}
+.cart .items{flex:1;overflow:auto;padding:8px 24px}
+.ci{display:grid;grid-template-columns:64px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--sand-2);align-items:center}
+.ci .th{aspect-ratio:3/4;border-radius:2px}
+.ci b{display:block;font-size:14.5px;font-weight:600}
+.ci span{font-size:13px;color:var(--muted)}
+.ci button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:12px;text-decoration:underline;padding:0}
+.cart .foot{border-top:1px solid var(--sand-2);padding:22px 24px}
+.cart .line{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14.5px}
+.cart .line.tot{font-size:19px;font-weight:700;margin:14px 0 16px}
+.ship{background:var(--sand-2);height:5px;border-radius:3px;overflow:hidden;margin:10px 0 6px}
+.ship i{display:block;height:100%;background:var(--olive);transition:.4s}
+.empty{text-align:center;color:var(--muted);padding:60px 20px}
+
+footer{background:var(--ink);color:#d8d0c7;padding:56px 0 34px;font-size:14px}
+.fgrid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.4fr;gap:32px}
+footer strong{display:block;color:#fff;margin-bottom:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+footer a{text-decoration:none}
+footer a:hover{color:var(--clay)}
+footer input{background:transparent;border:0;border-bottom:1px solid #4a443f;padding:10px 0;color:#fff;width:100%;font-family:var(--sans)}
+.fnote{margin-top:38px;padding-top:18px;border-top:1px solid #3b3631;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:#8b8179}
+
+@media(max-width:1000px){.grid,.cats{grid-template-columns:1fr 1fr}.vgrid{grid-template-columns:1fr 1fr}.sizes{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}.iggrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr}.hero-img{min-height:340px;order:-1}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--sand);flex-direction:column;padding:16px 5vw;margin:0;border-bottom:1px solid var(--sand-2)}
+  .navlinks.open{display:flex}.burger{display:block}
+}
+</style>
+</head>
+<body>
+<div class="announce">ENVÍO GRATIS EN LA ISLA A PARTIR DE $75 · CAMBIOS SIN COSTO POR 30 DÍAS</div>
+<header><div class="wrap"><nav>
+  <a class="brand" href="#">MAREA</a>
+  <div class="navlinks" id="nav"><a href="#tienda">Tienda</a><a href="#categorias">Colecciones</a><a href="#tallas">Guía de tallas</a><a href="#nosotras">Nosotras</a></div>
+  <div class="navtools">
+    <button class="icobtn" onclick="openCart()">Bolsa<span class="badge" id="count">0</span></button>
+    <button class="burger" id="burger" aria-label="Menú">☰</button>
+  </div>
+</nav></div></header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="kicker">Colección Costa · Verano 2026</span>
+    <h1>Diseñado aquí,<br>para <em>este calor.</em></h1>
+    <p>Telas que respiran de verdad, costuras planas que no rozan y compresión que se queda en su sitio — desde la clase de 6 am hasta el mandado. Tallas XS a 3X, siempre las mismas.</p>
+    <div class="hero-cta">
+      <a class="btn btn-ink" href="#tienda">Comprar ahora</a>
+      <a class="btn btn-out" href="#nosotras">Nuestra historia</a>
+    </div>
+  </div>
+  <div class="hero-img"><div class="stamp">Diseñado<br>en<br>Puerto Rico</div></div>
+</section>
+
+<section id="categorias"><div class="wrap">
+  <div class="sec-head"><div><span class="kicker">Colecciones</span><h2>Encuentra lo tuyo</h2></div>
+  <a href="#tienda" style="font-size:13px;letter-spacing:.1em;text-transform:uppercase">Ver todo →</a></div>
+  <div class="cats">
+    <a class="cat k1" href="#tienda"><span>Leggings</span></a>
+    <a class="cat k2" href="#tienda"><span>Tops & bras</span></a>
+    <a class="cat k3" href="#tienda"><span>Sets</span></a>
+    <a class="cat k4" href="#tienda"><span>Playa & lounge</span></a>
+  </div>
+</div></section>
+
+<section id="tienda" style="background:var(--white)"><div class="wrap">
+  <div class="sec-head"><div><span class="kicker">Tienda</span><h2>Lo nuevo</h2></div>
+  <span style="color:var(--muted);font-size:14px" id="cnt"></span></div>
+  <div class="filters" id="filters">
+    <button class="f on" data-c="all">Todo</button>
+    <button class="f" data-c="leggings">Leggings</button>
+    <button class="f" data-c="tops">Tops & bras</button>
+    <button class="f" data-c="sets">Sets</button>
+    <button class="f" data-c="playa">Playa & lounge</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="values"><div class="wrap vgrid">
+  <div class="v"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.2 5.5.8-4 3.9 1 5.6-5-2.7-5 2.7 1-5.6-4-3.9 5.5-.8z"/></svg><h3>Tela probada en isla</h3><p>Secado rápido y resistencia al salitre y al cloro.</p></div>
+  <div class="v"><svg viewBox="0 0 24 24"><path d="M20 7L9 18l-5-5"/></svg><h3>Squat proof, de verdad</h3><p>Probamos cada corte en el gym antes de producirlo.</p></div>
+  <div class="v"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5a5 5 0 0 1 10 0v2"/></svg><h3>Cambios fáciles</h3><p>30 días para cambiar talla, sin preguntas incómodas.</p></div>
+  <div class="v"><svg viewBox="0 0 24 24"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg><h3>Envío isla completa</h3><p>2–3 días laborables. Gratis sobre $75.</p></div>
+</div></section>
+
+<section id="tallas"><div class="wrap sizes">
+  <div>
+    <span class="kicker">Guía de tallas</span>
+    <h2 style="margin:.14em 0 .35em">Ninguna talla es<br>la talla “normal”</h2>
+    <p style="color:var(--muted);max-width:44ch">Cada pieza se produce de XS a 3X con el mismo largo de pierna y el mismo soporte. Si estás entre dos tallas y quieres más compresión, coge la menor.</p>
+    <a class="btn btn-out" href="#" style="margin-top:12px">Medir en casa (video)</a>
+  </div>
+  <table class="sizetable">
+    <tr><th>Talla</th><th>Cintura</th><th>Cadera</th><th>US</th></tr>
+    <tr><td>XS</td><td>24–25"</td><td>34–35"</td><td>0–2</td></tr>
+    <tr><td>S</td><td>26–27"</td><td>36–37"</td><td>4–6</td></tr>
+    <tr><td>M</td><td>28–30"</td><td>38–40"</td><td>8–10</td></tr>
+    <tr><td>L</td><td>31–33"</td><td>41–43"</td><td>12–14</td></tr>
+    <tr><td>XL</td><td>34–36"</td><td>44–46"</td><td>16–18</td></tr>
+    <tr><td>2X</td><td>37–40"</td><td>47–50"</td><td>20–22</td></tr>
+    <tr><td>3X</td><td>41–44"</td><td>51–54"</td><td>24–26</td></tr>
+  </table>
+</div></section>
+
+<section id="nosotras" style="background:var(--sand-2)"><div class="wrap" style="max-width:62ch;text-align:center;margin-inline:auto">
+  <span class="kicker">Nosotras</span>
+  <h2 style="margin:.16em 0 .3em">Empezó en un cuarto en Isabela</h2>
+  <p style="color:var(--muted)">Después de años comprando leggings que se transparentaban o se caían en el segundo set, Camille cosió el primer par para ella misma. Hoy MAREA se diseña en Isabela, se produce con un taller familiar y se prueba en clases de spinning por todo Puerto Rico. Seguimos siendo tres mujeres y un perro en la oficina.</p>
+  <a class="btn btn-ink" href="#" style="margin-top:8px">Leer la historia completa</a>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head"><div><span class="kicker">Comunidad</span><h2>#MAREAenlaisla</h2></div><a href="#" style="font-size:13px;letter-spacing:.1em;text-transform:uppercase">@marea.pr →</a></div>
+  <div class="iggrid">
+    <div style="background:linear-gradient(140deg,#d9a98c,#a2664a)"></div>
+    <div style="background:linear-gradient(140deg,#a8b394,#5f6b4f)"></div>
+    <div style="background:linear-gradient(140deg,#e0cdbb,#a8917c)"></div>
+    <div style="background:linear-gradient(140deg,#c79aa2,#7b535c)"></div>
+    <div style="background:linear-gradient(140deg,#9fc0c4,#4f7378)"></div>
+    <div style="background:linear-gradient(140deg,#e3c9a1,#a5814c)"></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="brand" style="color:#fff">MAREA</div><p style="max-width:32ch;margin-top:12px">Ropa deportiva diseñada en Isabela, Puerto Rico. Para cuerpos que se mueven en el calor.</p></div>
+    <div><strong>Comprar</strong><a href="#tienda">Novedades</a><br><a href="#tienda">Leggings</a><br><a href="#tienda">Tops</a><br><a href="#tienda">Sets</a></div>
+    <div><strong>Ayuda</strong><a href="#tallas">Guía de tallas</a><br><a href="#">Envíos</a><br><a href="#">Cambios</a><br><a href="#">Contáctanos</a></div>
+    <div><strong>Newsletter</strong><p style="margin-bottom:6px">10% en tu primera orden.</p><input placeholder="Tu correo"><button class="btn btn-out" style="margin-top:14px;border-color:#4a443f;color:#fff">Suscribirme</button></div>
+  </div>
+  <div class="fnote"><span>© 2026 MAREA Activewear · Plantilla de demostración</span><span>Política de privacidad · Términos</span></div>
+</div></footer>
+
+<div class="overlay" id="ov" onclick="closeCart()"></div>
+<aside class="cart" id="cart" aria-label="Bolsa de compra">
+  <header><h3>Tu bolsa</h3><button class="icobtn" onclick="closeCart()">Cerrar ✕</button></header>
+  <div class="items" id="items"></div>
+  <div class="foot">
+    <div class="ship"><i id="shipbar"></i></div>
+    <p style="font-size:13px;color:var(--muted);margin:0 0 12px" id="shiptxt"></p>
+    <div class="line"><span>Subtotal</span><span id="sub">$0.00</span></div>
+    <div class="line"><span>Envío</span><span id="shipcost">—</span></div>
+    <div class="line tot"><span>Total</span><span id="tot">$0.00</span></div>
+    <a class="btn btn-ink" style="width:100%" href="#" onclick="alert('Demo: aquí iría el checkout.');return false">Ir a pagar</a>
+  </div>
+</aside>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('nav').classList.toggle('open');
+
+const PRODS=[
+ {id:1,n:'Legging Costa Alta',c:'leggings',p:58,o:null,f:'Best seller',cols:[['Arena','linear-gradient(150deg,#e3d2bd,#bfa588)'],['Terracota','linear-gradient(150deg,#d08a63,#9c5a37)'],['Negro','linear-gradient(150deg,#3a3633,#191715)']]},
+ {id:2,n:'Legging Brisa 7/8',c:'leggings',p:52,o:65,f:'−20%',cols:[['Oliva','linear-gradient(150deg,#93a07f,#4c5741)'],['Vino','linear-gradient(150deg,#a0596a,#5f2d39)']]},
+ {id:3,n:'Bra Marejada',c:'tops',p:38,o:null,f:null,cols:[['Coral','linear-gradient(150deg,#e39a86,#b25a45)'],['Negro','linear-gradient(150deg,#3a3633,#191715)'],['Cielo','linear-gradient(150deg,#a8c3cc,#5c7d88)']]},
+ {id:4,n:'Top Corto Sol',c:'tops',p:34,o:null,f:'Nuevo',cols:[['Crema','linear-gradient(150deg,#f0e6d8,#cbb9a2)'],['Mostaza','linear-gradient(150deg,#dfb055,#a17a24)']]},
+ {id:5,n:'Set Bahía (2 pzs)',c:'sets',p:92,o:110,f:'Combo',cols:[['Arena','linear-gradient(150deg,#e3d2bd,#bfa588)'],['Oliva','linear-gradient(150deg,#93a07f,#4c5741)']]},
+ {id:6,n:'Set Amanecer (2 pzs)',c:'sets',p:98,o:null,f:null,cols:[['Rosado','linear-gradient(150deg,#e0a5ab,#a86a72)'],['Negro','linear-gradient(150deg,#3a3633,#191715)']]},
+ {id:7,n:'Short Corriente 5"',c:'leggings',p:42,o:null,f:null,cols:[['Negro','linear-gradient(150deg,#3a3633,#191715)'],['Azul mar','linear-gradient(150deg,#7c9bb5,#3c5872)']]},
+ {id:8,n:'Bikini Deportivo Rincón',c:'playa',p:74,o:null,f:'Nuevo',cols:[['Turquesa','linear-gradient(150deg,#7fc7c4,#2f7a78)'],['Terracota','linear-gradient(150deg,#d08a63,#9c5a37)']]},
+ {id:9,n:'Hoodie Liviano Sereno',c:'playa',p:66,o:82,f:'−20%',cols:[['Crema','linear-gradient(150deg,#f0e6d8,#cbb9a2)'],['Oliva','linear-gradient(150deg,#93a07f,#4c5741)']]},
+ {id:10,n:'Bra Alta Cobertura Faro',c:'tops',p:44,o:null,f:null,cols:[['Negro','linear-gradient(150deg,#3a3633,#191715)'],['Vino','linear-gradient(150deg,#a0596a,#5f2d39)']]},
+ {id:11,n:'Legging Bolsillo Trópico',c:'leggings',p:62,o:null,f:'Con bolsillos',cols:[['Negro','linear-gradient(150deg,#3a3633,#191715)'],['Arena','linear-gradient(150deg,#e3d2bd,#bfa588)']]},
+ {id:12,n:'Pareo Convertible Luquillo',c:'playa',p:48,o:null,f:null,cols:[['Estampado','linear-gradient(150deg,#e8b98c,#9c6b4f 60%,#4c5741)']]}
+];
+const grid=document.getElementById('grid');
+let filter='all';
+function money(n){return '$'+n.toFixed(2)}
+function render(){
+  const list=PRODS.filter(p=>filter==='all'||p.c===filter);
+  document.getElementById('cnt').textContent=list.length+' productos';
+  grid.innerHTML=list.map(p=>`
+   <article class="p" data-id="${p.id}">
+     <div class="shot" style="background:${p.cols[0][1]}">
+       ${p.f?`<span class="flag">${p.f}</span>`:''}
+       <button class="quick" onclick="add(${p.id})">Añadir a la bolsa</button>
+     </div>
+     <h3>${p.n}</h3>
+     <div class="price">${p.o?`<s>${money(p.o)}</s>`:''}${money(p.p)}</div>
+     <div class="dots">${p.cols.map((c,i)=>`<i class="${i===0?'on':''}" title="${c[0]}" style="background:${c[1]}" onclick="swatch(${p.id},${i})"></i>`).join('')}</div>
+   </article>`).join('');
+}
+function swatch(id,i){
+  const p=PRODS.find(x=>x.id===id),el=document.querySelector(`.p[data-id="${id}"]`);
+  el.querySelector('.shot').style.background=p.cols[i][1];
+  el.querySelectorAll('.dots i').forEach((d,j)=>d.classList.toggle('on',i===j));
+}
+document.getElementById('filters').onclick=e=>{
+  const b=e.target.closest('.f');if(!b)return;
+  document.querySelectorAll('.f').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  filter=b.dataset.c;render();
+};
+
+// carrito
+let cart=[];
+function add(id){
+  const ex=cart.find(c=>c.id===id);
+  if(ex)ex.q++;else{const p=PRODS.find(x=>x.id===id);cart.push({...p,q:1})}
+  paint();openCart();
+}
+function rm(id){cart=cart.filter(c=>c.id!==id);paint()}
+function paint(){
+  const items=document.getElementById('items');
+  const n=cart.reduce((a,c)=>a+c.q,0);
+  document.getElementById('count').textContent=n;
+  if(!cart.length){items.innerHTML='<div class="empty">Tu bolsa está vacía.<br>Empieza por los leggings 😉</div>'}
+  else items.innerHTML=cart.map(c=>`<div class="ci">
+    <div class="th" style="background:${c.cols[0][1]}"></div>
+    <div><b>${c.n}</b><span>Talla M · ${c.cols[0][0]} · Cant. ${c.q}</span><br><button onclick="rm(${c.id})">Quitar</button></div>
+    <div>${money(c.p*c.q)}</div></div>`).join('');
+  const sub=cart.reduce((a,c)=>a+c.p*c.q,0);
+  const ship=sub===0?0:(sub>=75?0:6.95);
+  document.getElementById('sub').textContent=money(sub);
+  document.getElementById('shipcost').textContent=sub===0?'—':(ship?money(ship):'Gratis');
+  document.getElementById('tot').textContent=money(sub+ship);
+  const pct=Math.min(100,sub/75*100);
+  document.getElementById('shipbar').style.width=pct+'%';
+  document.getElementById('shiptxt').textContent=sub>=75?'¡Conseguiste envío gratis! 🎉':`Te faltan ${money(75-sub)} para envío gratis.`;
+}
+function openCart(){document.getElementById('cart').classList.add('on');document.getElementById('ov').classList.add('on');document.body.classList.add('lock')}
+function closeCart(){document.getElementById('cart').classList.remove('on');document.getElementById('ov').classList.remove('on');document.body.classList.remove('lock')}
+addEventListener('keydown',e=>{if(e.key==='Escape')closeCart()});
+render();paint();
+</script>
+</body>
+</html>

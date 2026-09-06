@@ -49,6 +49,7 @@ const projectsData = [
   {
     title: "SETENS",
     role: "Full-stack developer · Client project",
+    status: "live",
     description:
       "Sistema de Evaluación de Transición Escolar Nivel Secundario — a special education transition platform used by evaluators across Puerto Rico. I migrated a legacy system onto a modern stack while keeping real production data intact, and now maintain it in production.",
     highlights: [
@@ -63,6 +64,7 @@ const projectsData = [
   {
     title: "FitBySuárez",
     role: "Full-stack developer",
+    status: "live",
     description:
       "A personal training platform that runs a coaching business end to end — clients, training programs, nutrition, payments and progress tracking in one private system, built for remote and in-person clients in Puerto Rico.",
     highlights: [
@@ -78,8 +80,9 @@ const projectsData = [
   {
     title: "JM Automotive Academy",
     role: "Full-stack developer · Client project",
+    status: "wip",
     description:
-      "A business platform for an automotive coatings company: a public marketing site, an online store, a video course academy, a member portal, and a self-serve admin panel so the owner can run the whole thing without a developer.",
+      "A business platform for an automotive coatings company: a public marketing site, an online store, a video course academy, a member portal, and a self-serve admin panel so the owner can run the whole thing without a developer. Currently in active development.",
     highlights: [
       "Built on Next.js App Router with React Server Components and TypeScript throughout",
       "Custom CMS so the client edits products, courses and pages himself",
@@ -89,28 +92,20 @@ const projectsData = [
     techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "SQLite"],
   },
   {
-    title: "Planet Earth 3D",
-    role: "Personal project",
+    title: "PR Business Templates",
+    role: "Personal project · Client starting points",
+    status: "live",
     description:
-      "An interactive globe built with three.js — real coastlines and country borders from Natural Earth data, NASA night-lights imagery for the surface, and pins you can drop anywhere on the planet and annotate.",
+      "Ten complete website templates, each built for a different kind of business that actually exists on the island — barbershop, nail salon, gym, café, tour operator and more. A client browses the gallery, picks the one closest to their business, and that becomes the starting point.",
     highlights: [
-      "Geographic data pipeline converting raw Natural Earth sources into render-ready geometry",
-      "Ray-cast pin placement that maps screen clicks to latitude and longitude",
-      "Custom shaders for the atmosphere and the day/night terminator",
+      "One self-contained file per site — no build step, no dependencies, no images",
+      "Every 'photo' is CSS, and the copy is written in Puerto Rican Spanish with real municipalities and prices",
+      "Working interactive pieces: live open/closed indicators, quote calculators, filterable storefronts, booking estimators",
+      "Calls to action go to WhatsApp, phone and ATH Móvil — how people here actually contact a business",
     ],
-    techStack: ["three.js", "JavaScript", "Vite", "GLSL", "GeoJSON"],
-  },
-  {
-    title: "Thiago's Planet",
-    role: "Personal project",
-    description:
-      "A hand-drawn 3D world you walk around the outside of a small planet — and dig into. A tiny-planet renderer extended with a voxel-style tile grid, mining, ore and caves. Nothing is downloaded: the whole world is generated from noise at startup.",
-    highlights: [
-      "Spherical world with gravity and camera-relative movement over curved terrain",
-      "Deterministic noise-based generation — the same seed rebuilds the identical planet",
-      "Destructible tile grid with mining, ore veins and cave systems",
-    ],
-    techStack: ["three.js", "JavaScript", "Vite", "Procedural generation"],
+    techStack: ["HTML", "CSS", "JavaScript", "Responsive design"],
+    liveLink: "templates/index.html",
+    liveLabel: "Browse the templates",
   },
 ];
 
@@ -131,10 +126,7 @@ function renderProjectCards() {
       'transition-transform hover:scale-105 focus-visible:scale-105 flex flex-col';
     card.dataset.projectId = String(index);
 
-    const badgeLabel = project.liveLink ? 'Live' : (project.repoLink ? 'Source' : null);
-    const badge = badgeLabel
-      ? `<span class="project-badge">${badgeLabel}</span>`
-      : '';
+    const badge = statusBadge(project);
 
     card.innerHTML = `
       <div class="project-placeholder" aria-hidden="true"><span>${escapeHtml(project.title)}</span></div>
@@ -150,6 +142,18 @@ function renderProjectCards() {
     item.appendChild(card);
     projectList.appendChild(item);
   });
+}
+
+// Build state, not link availability — a project can be live without public
+// source, or in development with neither.
+const STATUS = {
+  live: { label: 'Live',           cls: 'project-badge project-badge--live' },
+  wip:  { label: 'In development', cls: 'project-badge project-badge--wip'  },
+};
+
+function statusBadge(project) {
+  const s = STATUS[project.status];
+  return s ? `<span class="${s.cls}">${s.label}</span>` : '';
 }
 
 function truncate(text, max) {
@@ -289,6 +293,7 @@ function openProjectDetail(index) {
 
   document.getElementById('project-title').textContent       = project.title;
   document.getElementById('project-role').textContent        = project.role;
+  document.getElementById('project-status').innerHTML        = statusBadge(project);
   document.getElementById('project-description').textContent = project.description;
 
   const highlights = document.getElementById('project-highlights');
@@ -311,7 +316,7 @@ function openProjectDetail(index) {
   // Only render buttons for links that actually exist.
   const links = document.getElementById('project-links');
   links.innerHTML = '';
-  if (project.liveLink) links.appendChild(linkButton(project.liveLink, 'View Live Site', true));
+  if (project.liveLink) links.appendChild(linkButton(project.liveLink, project.liveLabel || 'View Live Site', true));
   if (project.repoLink) links.appendChild(linkButton(project.repoLink, 'View Source', !project.liveLink));
   if (!project.liveLink && !project.repoLink) {
     const note = document.createElement('p');

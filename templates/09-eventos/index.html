@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa Laurel — Bodas, quinceañeros y alquiler de eventos en PR</title>
+<meta name="description" content="Coordinación de bodas y quinceañeros en Puerto Rico, con alquiler de mobiliario, carpas y decoración. Servicio isla completa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#fbf9f4; --ivory-2:#f2eee3; --emerald:#1f4536; --emerald-dk:#143126;
+  --gold:#b08d4f; --gold-lt:#d8c194; --ink:#22261f; --muted:#7b7f74; --line:#e2ddd0;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Outfit',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16.5px;line-height:1.72;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+a{color:inherit}
+.wrap{width:min(1160px,92vw);margin-inline:auto}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:300;line-height:1.08;letter-spacing:-.005em}
+h1{font-size:clamp(50px,8vw,96px)}
+h2{font-size:clamp(32px,5vw,56px)}
+h3{font-size:23px;font-weight:400}
+p{margin:0 0 1em}
+.lbl{font-size:11px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 32px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid var(--emerald);cursor:pointer;background:none;color:var(--emerald);transition:.25s;font-family:var(--sans)}
+.btn:hover{background:var(--emerald);color:var(--ivory)}
+.btn-fill{background:var(--emerald);color:var(--ivory)}
+.btn-fill:hover{background:var(--gold);border-color:var(--gold)}
+.btn-lt{border-color:var(--ivory);color:var(--ivory)}
+.btn-lt:hover{background:var(--ivory);color:var(--emerald)}
+
+header{position:sticky;top:0;z-index:70;background:rgba(251,249,244,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:30px;padding:16px 0}
+.brand{text-decoration:none;font-family:var(--serif);font-size:27px;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.brand svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.2}
+.navlinks{margin-left:auto;display:flex;gap:28px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--emerald)}
+.burger{display:none;margin-left:auto;background:none;border:0;font-size:23px;cursor:pointer}
+
+/* hero */
+.hero{position:relative;min-height:min(84vh,720px);display:grid;place-items:center;text-align:center;overflow:hidden;
+  background:linear-gradient(180deg,rgba(20,49,38,.55),rgba(20,49,38,.75)),
+  radial-gradient(60% 60% at 30% 30%,#3f6a52,transparent 60%),
+  radial-gradient(60% 60% at 75% 70%,#8a7143,transparent 60%),
+  linear-gradient(160deg,#2b5241,#111f19);color:var(--ivory)}
+.hero .in{position:relative;padding:clamp(60px,10vw,120px) 5vw;max-width:900px}
+.hero h1{margin:.18em 0 .3em;color:#fff}
+.hero h1 em{font-style:italic;color:var(--gold-lt)}
+.hero p{color:rgba(251,249,244,.82);max-width:52ch;margin:0 auto 30px}
+.hero .lbl{color:var(--gold-lt)}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.scrollhint{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(251,249,244,.55)}
+
+section{padding:clamp(56px,8vw,104px) 0}
+.sec-head{text-align:center;max-width:60ch;margin:0 auto 48px}
+.sec-head h2{margin:.16em 0 .3em}
+.sec-head p{color:var(--muted);margin:0}
+.orn{display:block;width:60px;height:1px;background:var(--gold);margin:20px auto}
+
+/* servicios */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--ivory);padding:38px 30px;text-align:center;transition:.3s}
+.svc:hover{background:var(--ivory-2)}
+.svc svg{width:34px;height:34px;stroke:var(--gold);fill:none;stroke-width:1.1;margin-bottom:14px}
+.svc h3{margin-bottom:8px}
+.svc p{color:var(--muted);font-size:15px;margin:0}
+
+/* paquetes */
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pack{background:#fff;border:1px solid var(--line);padding:36px 30px;display:flex;flex-direction:column;position:relative}
+.pack.feat{border-color:var(--gold);box-shadow:0 30px 60px -46px rgba(34,38,31,.6)}
+.pack.feat::before{content:"El más escogido";position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:5px 14px}
+.pack h3{font-size:27px;margin-bottom:4px}
+.pack .from{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pack .amt{font-family:var(--serif);font-size:48px;margin:12px 0 18px;line-height:1}
+.pack ul{list-style:none;padding:0;margin:0 0 26px;flex:1;font-size:15px}
+.pack li{padding:9px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;color:#4b5046}
+.pack li::before{content:"✦";color:var(--gold);font-size:11px;padding-top:4px}
+
+/* galería + lightbox */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:12px}
+.gal figure{margin:0;cursor:pointer;position:relative;overflow:hidden;transition:.3s}
+.gal figure:hover{opacity:.86}
+.gal figure::after{content:attr(data-cap);position:absolute;left:0;right:0;bottom:0;padding:10px 14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6));opacity:0;transition:.3s}
+.gal figure:hover::after{opacity:1}
+.tall{grid-row:span 2}
+.wide{grid-column:span 2}
+.lb{position:fixed;inset:0;background:rgba(17,31,25,.94);display:grid;place-items:center;z-index:100;opacity:0;pointer-events:none;transition:.3s}
+.lb.on{opacity:1;pointer-events:auto}
+.lb .frame{width:min(860px,90vw);aspect-ratio:3/2;border:1px solid rgba(216,193,148,.35)}
+.lb .cap{color:var(--gold-lt);text-align:center;margin-top:16px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.lb button{position:absolute;background:none;border:1px solid rgba(251,249,244,.3);color:var(--ivory);width:46px;height:46px;cursor:pointer;font-size:17px}
+.lb .prev{left:4vw}.lb .next{right:4vw}.lb .x{top:4vh;right:4vw}
+
+/* inventario */
+.inv{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.invlist{columns:2;column-gap:30px;font-size:15.5px;color:#4b5046}
+.invlist div{break-inside:avoid;padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+.invlist span{color:var(--muted);font-size:14px}
+.tentart{aspect-ratio:1/1;position:relative;background:linear-gradient(180deg,#dfe8e2 0 62%,#c3cfba 62% 100%);overflow:hidden}
+.tentart .tent{position:absolute;left:50%;bottom:22%;transform:translateX(-50%);width:0;height:0;border-left:150px solid transparent;border-right:150px solid transparent;border-bottom:170px solid rgba(255,255,255,.9)}
+.tentart .pole{position:absolute;bottom:22%;width:3px;height:170px;background:#9aa393}
+.tentart .p1{left:24%}.tentart .p2{right:24%}
+.tentart .lights{position:absolute;top:26%;left:6%;right:6%;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 4px,transparent 4px 26px)}
+.tentart span{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5f6a5b}
+
+/* proceso */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.pnum{font-family:var(--serif);font-size:44px;color:var(--gold);line-height:1;margin-bottom:8px}
+.proc h3{font-size:19px;margin-bottom:6px}
+.proc p{color:var(--muted);font-size:14.5px;margin:0}
+
+/* testimonio grande */
+.tst{background:var(--emerald);color:var(--ivory);text-align:center;padding:clamp(48px,7vw,96px) 5vw}
+.tst blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(23px,3.4vw,38px);line-height:1.42;max-width:22ch;margin:0 auto 22px;color:#fff}
+.tst cite{font-style:normal;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt)}
+
+/* cotizar */
+.form{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;background:#fff;border:1px solid var(--line);padding:clamp(28px,4vw,50px)}
+label{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+input,select,textarea{width:100%;background:var(--ivory);border:1px solid var(--line);padding:13px 14px;font-family:var(--sans);font-size:15px;font-weight:300;color:var(--ink);margin-bottom:18px}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--gold)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.side{background:var(--ivory-2);padding:30px;align-self:start}
+.side .big{font-family:var(--serif);font-size:44px;color:var(--emerald);margin:6px 0 4px;line-height:1}
+.side ul{list-style:none;padding:0;margin:16px 0 0;font-size:14.5px;color:var(--muted)}
+.side li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}
+
+footer{background:var(--emerald-dk);color:#c3cdc4;padding:56px 0 34px;font-size:14.5px}
+.fgrid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:30px}
+footer strong{display:block;color:#fff;margin-bottom:10px;font-family:var(--serif);font-size:17px;font-weight:400}
+footer a{text-decoration:none}
+footer a:hover{color:var(--gold-lt)}
+.fnote{margin-top:38px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;letter-spacing:.08em}
+
+@media(max-width:960px){
+  .svcs,.packs,.proc{grid-template-columns:1fr}
+  .inv,.form{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .invlist{columns:1}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ivory);flex-direction:column;padding:16px 5vw;border-bottom:1px solid var(--line)}
+  .navlinks.open{display:flex}.burger{display:block}header .btn{display:none}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="brand" href="#"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-10a4 4 0 0 1 8-2 4 4 0 0 1 8 2c0 4-4 7-8 10z"/></svg>Casa Laurel</a>
+  <div class="navlinks" id="nav"><a href="#servicios">Servicios</a><a href="#paquetes">Paquetes</a><a href="#galeria">Galería</a><a href="#alquiler">Alquiler</a><a href="#cotizar">Cotizar</a></div>
+  <a class="btn btn-fill" href="#cotizar" style="margin-left:20px">Consulta gratis</a>
+  <button class="burger" id="burger" aria-label="Menú">☰</button>
+</nav></div></header>
+
+<main>
+<section class="hero">
+  <div class="in">
+    <span class="lbl">Bodas · Quinceañeros · Corporativo</span>
+    <h1>El día que llevas<br>años <em>imaginando</em></h1>
+    <p>Coordinamos y montamos eventos en toda la isla — desde una boda de 40 en un patio de Rincón hasta un quinceañero de 300 en un salón de Ponce. Nosotros cargamos las sillas; tú disfrutas.</p>
+    <div class="hero-cta">
+      <a class="btn btn-lt" href="#cotizar" style="background:var(--ivory);color:var(--emerald)">Pedir cotización</a>
+      <a class="btn btn-lt" href="#galeria">Ver galería</a>
+    </div>
+  </div>
+  <div class="scrollhint">Baja para ver más</div>
+</section>
+
+<section id="servicios"><div class="wrap">
+  <div class="sec-head"><span class="lbl">Servicios</span><h2>Todo bajo un mismo techo</h2><span class="orn"></span>
+  <p>Puedes contratarnos completo o solo lo que te falte. Trabajamos bien con otros proveedores.</p></div>
+  <div class="svcs">
+    <div class="svc"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg><h3>Coordinación completa</h3><p>Desde la primera reunión hasta que se apaga la última luz. Un contacto para todo.</p></div>
+    <div class="svc"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Coordinación del día</h3><p>Tú planificaste; nosotros ejecutamos el itinerario para que nadie te llame ese día.</p></div>
+    <div class="svc"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-6 6 6v11"/></svg><h3>Alquiler y montaje</h3><p>Carpas, mesas, sillas, mantelería, pista y planta eléctrica. Entrega y recogido incluidos.</p></div>
+    <div class="svc"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5"/><circle cx="12" cy="15" r="4"/></svg><h3>Diseño y decoración</h3><p>Paleta, flores, iluminación y papelería. Te enseñamos el render antes de aprobar.</p></div>
+    <div class="svc"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 19v2M16 19v2"/></svg><h3>Proveedores</h3><p>Catering, DJ, fotografía y bartender de confianza — con precios negociados.</p></div>
+    <div class="svc"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M14 3l4 4-4 4"/></svg><h3>Plan B de lluvia</h3><p>Esto es el Caribe. Todo contrato incluye un plan alterno ya montado, sin costo extra.</p></div>
+  </div>
+</div></section>
+
+<section id="paquetes" style="background:var(--ivory-2)"><div class="wrap">
+  <div class="sec-head"><span class="lbl">Paquetes</span><h2>Tres formas de trabajar</h2><span class="orn"></span>
+  <p>Precios base para 100 invitados en el área metro. Ajustamos según lugar, fecha y cantidad.</p></div>
+  <div class="packs">
+    <div class="pack"><h3>Esencial</h3><span class="from">Coordinación del día</span><div class="amt">$1,450</div>
+      <ul><li>Reunión de planificación (2)</li><li>Itinerario del día detallado</li><li>Coordinación de proveedores</li><li>Coordinadora + 1 asistente</li><li>10 horas el día del evento</li></ul>
+      <a class="btn" href="#cotizar">Cotizar esencial</a></div>
+    <div class="pack feat"><h3>Completo</h3><span class="from">Planificación de principio a fin</span><div class="amt">$3,900</div>
+      <ul><li>Todo lo del paquete Esencial</li><li>Búsqueda y visita de lugares</li><li>Diseño, paleta y render 3D</li><li>Manejo de presupuesto y pagos</li><li>Ensayo dirigido</li><li>Coordinadora + 3 asistentes</li></ul>
+      <a class="btn btn-fill" href="#cotizar">Cotizar completo</a></div>
+    <div class="pack"><h3>Solo montaje</h3><span class="from">Alquiler con instalación</span><div class="amt">$980</div>
+      <ul><li>Entrega, montaje y recogido</li><li>Mesas, sillas y mantelería</li><li>Iluminación básica</li><li>Personal de montaje (4)</li><li>Seguro de responsabilidad</li></ul>
+      <a class="btn" href="#alquiler">Ver inventario</a></div>
+  </div>
+</div></section>
+
+<section id="galeria"><div class="wrap">
+  <div class="sec-head"><span class="lbl">Portafolio</span><h2>Eventos que hemos montado</h2><span class="orn"></span></div>
+  <div class="gal" id="gal">
+    <figure class="wide" data-cap="Boda en Hacienda Campo Rico" style="background:linear-gradient(150deg,#c9d6c4,#5f7a63)"></figure>
+    <figure class="tall" data-cap="Quinceañero · Ponce" style="background:linear-gradient(150deg,#e6cfc0,#a2705a)"></figure>
+    <figure data-cap="Cena corporativa · Condado" style="background:linear-gradient(150deg,#cdd3dd,#5d6b80)"></figure>
+    <figure data-cap="Montaje de carpa · Rincón" style="background:linear-gradient(150deg,#dfe3cd,#8d9a6a)"></figure>
+    <figure data-cap="Mesa larga · Vieques" style="background:linear-gradient(150deg,#e8dcc2,#b2955f)"></figure>
+    <figure class="wide" data-cap="Boda en la playa · Cabo Rojo" style="background:linear-gradient(150deg,#bcd6dd,#4f7c88)"></figure>
+    <figure data-cap="Baby shower · Guaynabo" style="background:linear-gradient(150deg,#eddbe2,#a97e91)"></figure>
+  </div>
+</div></section>
+
+<section id="alquiler" style="background:var(--ivory-2)"><div class="wrap inv">
+  <div class="tentart"><div class="lights"></div><div class="tent"></div><div class="pole p1"></div><div class="pole p2"></div><span>Carpa 40×60 en montaje</span></div>
+  <div>
+    <span class="lbl">Alquiler</span>
+    <h2 style="margin:.14em 0 .3em">Inventario propio</h2>
+    <p style="color:var(--muted);max-width:44ch">Todo sale de nuestro almacén en Caguas, lavado y revisado antes de cada evento. Precios por evento de un día; entrega y recogido se cotizan por municipio.</p>
+    <div class="invlist" style="margin-top:22px">
+      <div>Carpa 20×40<span>$650</span></div>
+      <div>Carpa 40×60<span>$1,400</span></div>
+      <div>Silla Chiavari dorada<span>$4.50</span></div>
+      <div>Silla plegable blanca<span>$1.75</span></div>
+      <div>Mesa redonda 60"<span>$9</span></div>
+      <div>Mesa rectangular 8'<span>$11</span></div>
+      <div>Mantel de hilo<span>$14</span></div>
+      <div>Pista de baile 16×16<span>$525</span></div>
+      <div>Luces string (100')<span>$120</span></div>
+      <div>Planta eléctrica 20kW<span>$480</span></div>
+      <div>Barra de bar 8'<span>$185</span></div>
+      <div>Abanicos industriales<span>$65</span></div>
+    </div>
+    <a class="btn btn-fill" style="margin-top:26px" href="#cotizar">Pedir lista completa</a>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head"><span class="lbl">Cómo trabajamos</span><h2>Cuatro pasos, cero sorpresas</h2><span class="orn"></span></div>
+  <div class="proc">
+    <div><div class="pnum">I</div><h3>Conversamos</h3><p>Café o videollamada de 45 minutos. Hablamos de fecha, invitados y presupuesto real.</p></div>
+    <div><div class="pnum">II</div><h3>Propuesta</h3><p>Recibes un documento con concepto, desglose de costos y calendario de pagos.</p></div>
+    <div><div class="pnum">III</div><h3>Planificamos</h3><p>Reuniones mensuales, visitas al lugar y una carpeta compartida con todo.</p></div>
+    <div><div class="pnum">IV</div><h3>El día</h3><p>Llegamos seis horas antes. Tú apareces cuando ya todo está montado.</p></div>
+  </div>
+</div></section>
+
+<section class="tst" style="padding-inline:0">
+  <blockquote>“Llovió a las cuatro y ni me enteré. Cuando salí, la carpa estaba montada y todo el mundo bailando.”</blockquote>
+  <cite>Wanda &amp; Héctor · Boda en Aguadilla, marzo 2026</cite>
+</section>
+
+<section id="cotizar"><div class="wrap">
+  <div class="sec-head"><span class="lbl">Cotización</span><h2>Cuéntanos de tu evento</h2><span class="orn"></span>
+  <p>Contestamos en menos de 48 horas con un estimado real, no con un “depende”.</p></div>
+  <div class="form">
+    <form onsubmit="event.preventDefault();alert('Demo: aquí se enviaría la solicitud.')">
+      <div class="two">
+        <div><label for="n">Nombre</label><input id="n" placeholder="Tu nombre"></div>
+        <div><label for="e">Correo</label><input id="e" type="email" placeholder="tucorreo@email.com"></div>
+      </div>
+      <div class="two">
+        <div><label for="tipo">Tipo de evento</label>
+          <select id="tipo"><option value="1">Boda</option><option value=".8">Quinceañero</option><option value=".7">Cumpleaños / aniversario</option><option value=".9">Corporativo</option><option value=".6">Baby shower</option></select></div>
+        <div><label for="fecha">Fecha tentativa</label><input id="fecha" type="date"></div>
+      </div>
+      <div class="two">
+        <div><label for="inv">Invitados</label><input id="inv" type="number" value="100" min="20" max="600"></div>
+        <div><label for="paq">Paquete</label>
+          <select id="paq"><option value="1450">Esencial</option><option value="3900" selected>Completo</option><option value="980">Solo montaje</option></select></div>
+      </div>
+      <label for="lug">Municipio / lugar</label><input id="lug" placeholder="Ej. Rincón, patio de la casa">
+      <label for="msg">Cuéntanos la idea</label><textarea id="msg" rows="4" placeholder="Colores, estilo, si ya tienes lugar…"></textarea>
+      <button class="btn btn-fill" style="width:100%">Enviar solicitud</button>
+    </form>
+    <aside class="side">
+      <span class="lbl">Estimado preliminar</span>
+      <div class="big" id="est">$3,900</div>
+      <p style="color:var(--muted);font-size:14px;margin:0">Solo servicios de Casa Laurel. No incluye comida, bebida ni salón.</p>
+      <ul id="brk"></ul>
+      <p style="font-size:13.5px;color:var(--muted);margin-top:18px">Se reserva la fecha con 30% de depósito. Fechas de diciembre y de sábado en temporada alta llevan un recargo.</p>
+    </aside>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="brand" style="color:#fff"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-10a4 4 0 0 1 8-2 4 4 0 0 1 8 2c0 4-4 7-8 10z"/></svg>Casa Laurel</div>
+      <p style="max-width:32ch;margin-top:12px">Coordinación y alquiler de eventos. Almacén en Caguas, servicio en toda la isla y Vieques.</p></div>
+    <div><strong>Servicios</strong><a href="#servicios">Coordinación</a><br><a href="#alquiler">Alquiler</a><br><a href="#servicios">Decoración</a></div>
+    <div><strong>Info</strong><a href="#paquetes">Paquetes</a><br><a href="#galeria">Galería</a><br><a href="#cotizar">Cotizar</a></div>
+    <div><strong>Contacto</strong><a href="tel:+17875550124">(787) 555‑0124</a><br><a href="mailto:hola@casalaurel.pr">hola@casalaurel.pr</a><br><a href="#">@casalaurel.pr</a></div>
+  </div>
+  <div class="fnote"><span>© 2026 Casa Laurel Eventos · Plantilla de demostración</span><span>Asegurados y licenciados</span></div>
+</div></footer>
+
+<div class="lb" id="lb">
+  <button class="x" onclick="closeLb()">✕</button>
+  <button class="prev" onclick="step(-1)">←</button>
+  <div><div class="frame" id="frame"></div><div class="cap" id="cap"></div></div>
+  <button class="next" onclick="step(1)">→</button>
+</div>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('nav').classList.toggle('open');
+
+// lightbox
+const figs=[...document.querySelectorAll('#gal figure')];let idx=0;
+figs.forEach((f,i)=>f.onclick=()=>{idx=i;show();document.getElementById('lb').classList.add('on');document.body.classList.add('lock')});
+function show(){
+  document.getElementById('frame').style.background=figs[idx].style.background;
+  document.getElementById('cap').textContent=figs[idx].dataset.cap+' · '+(idx+1)+' / '+figs.length;
+}
+function step(d){idx=(idx+d+figs.length)%figs.length;show()}
+function closeLb(){document.getElementById('lb').classList.remove('on');document.body.classList.remove('lock')}
+document.getElementById('lb').onclick=e=>{if(e.target.id==='lb')closeLb()};
+addEventListener('keydown',e=>{
+  if(!document.getElementById('lb').classList.contains('on'))return;
+  if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1);
+});
+
+// estimado
+const inv=document.getElementById('inv'),paq=document.getElementById('paq'),tipo=document.getElementById('tipo');
+function money(n){return '$'+Math.round(n).toLocaleString('en-US')}
+function est(){
+  const base=+paq.value, guests=Math.max(20,+inv.value||100), f=+tipo.value;
+  const extra=Math.max(0,guests-100)*(base>2000?14:7);
+  const total=(base+extra)*f;
+  document.getElementById('est').textContent=money(total);
+  document.getElementById('brk').innerHTML=`
+    <li><span>Paquete base</span><span>${money(base)}</span></li>
+    <li><span>Invitados sobre 100 (${Math.max(0,guests-100)})</span><span>${money(extra)}</span></li>
+    <li><span>Ajuste por tipo de evento</span><span>×${f}</span></li>`;
+}
+[inv,paq,tipo].forEach(el=>el.addEventListener('input',est));est();
+</script>
+</body>
+</html>

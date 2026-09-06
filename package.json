@@ -6,7 +6,7 @@
   "scripts": {
     "build:css": "tailwindcss -i ./src/input.css -o ./assets/tailwind.css --minify",
     "watch:css": "tailwindcss -i ./src/input.css -o ./assets/tailwind.css --watch",
-    "serve": "npx serve -p 3001 ."
+    "serve": "python3 -m http.server 3001"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
